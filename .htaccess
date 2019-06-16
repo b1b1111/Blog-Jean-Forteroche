@@ -1,0 +1,13 @@
+<FilesMatch "admin.php">
+   AuthName "Contenu securise"
+   AuthType Basic
+   AuthUserFile "D:\wamp64\www\coursPhp\comments\.htpasswd"
+   Require valid-user
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteRule ^(.*)$ ./index.php?url=$1 [NC,L,QSA]
+</IfModule>

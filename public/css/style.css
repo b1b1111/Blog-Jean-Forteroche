@@ -50,6 +50,10 @@ a {
     text-transform: uppercase;
 }
 
+#header_content h1 a {
+    color: white;
+}
+
 
 #header_content h1::before
 {

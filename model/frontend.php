@@ -16,13 +16,11 @@ function getPost($postId) {
     return $post;
 }
 
-function editPost() { 
+function editPost($postId) { 
     $db = dbConnect();
-    $req = $db->prepare('INSERT INTO posts(title, content) VALUES(?,?)');
-    $req->execute(array($_POST['title'], $_POST['editeur']));
+    $req = $db->prepare('INSERT INTO `posts`(`title`, `content`) VALUES (?,?)');
+    $req->execute(array($_POST['title'], $_POST['content']));
 }
-echo 'Le jeu a bien été ajouté !';
-
 
 function getComments($postId) {
     $db = dbConnect();

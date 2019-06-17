@@ -17,7 +17,7 @@ $menu = view_menu();
       <?php } ?>
 </ul>
 
-<form id="edit_post">
+<div id="edit_post">
       <input type="button" value="G" style="font-weight:bold;" onclick="commande('bold');" />
       <input type="button" value="I" style="font-style:italic;" onclick="commande('italic');">
       <input type="button" value="S" style="text-decoration:underline;" onclick="commande('underline');">
@@ -25,18 +25,8 @@ $menu = view_menu();
       <label for="title">Titre</label> : <input type="varchar" name="title" id="title" /><br />
       <div id="editeur" contentEditable></div>  <br />
 
-      <input type="button" name="button_post" value="submit">
-</form>
-
-<?php 
-
-      $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
-
-      if(isset($_POST['button_post'])) {
-            $req = $bdd->prepare('INSERT INTO posts(title, content) VALUES(?,?)');
-            $req->execute(array($_POST['title'], $_POST['content']));
-      }
-?>
+      <input type="button" name="button_post" value="submit" onclick="editPost();">
+      </div>
 
 <?php $content = ob_get_clean(); ?>
 

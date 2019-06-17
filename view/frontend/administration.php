@@ -30,13 +30,13 @@ $("form").submit(function(e)) {
     e.preventDefault();
 
     $.post(
-          'view/frontend/administration_post.php',
+          'administration_post.php',
           {
                 title: $("#title").val(),
                 content: $("#content").val(),
           };
           function(result) {
-                if (result == "success"){
+                if (result == "success success"){
                       $("#result").html("success inserted values");
                 }
                 else {

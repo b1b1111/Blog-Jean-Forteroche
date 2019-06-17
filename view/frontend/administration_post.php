@@ -1,9 +1,21 @@
 <?php 
 
-if (isset($_POST['submit'])) {
-    
-    $req = $bdd->prepare('INSERT INTO `posts`(`title`, `content`) VALUES (?,?)');
-    $req->execute(array($_POST['title'], $_POST['editeur']));
-}
+    $title = $_POST['title'];
+    $content = $_POST['content'];
 
+    $bdd = new mysqli('localhost','root','','test');
+
+    if ($bdd->connect_error) {
+        echo 'database connect error';
+    }
+
+    $req = $bdd->prepare("INSERT INTO posts(title, content) VALUES (?, ?)");
+
+    $req->bind_param("ss",$title,$content);
+
+        if($req->execute()){
+            echo 'success';
+        }else {
+            echo 'failure';
+        }
 ?>

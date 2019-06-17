@@ -16,17 +16,36 @@ $menu = view_menu();
       <?php } ?>
 </ul>
 
-<form id="edit_post" action="administration_post.php">
-      <input type="button" value="G" style="font-weight:bold;" onclick="commande('bold');" />
-      <input type="button" value="I" style="font-style:italic;" onclick="commande('italic');">
-      <input type="button" value="S" style="text-decoration:underline;" onclick="commande('underline');">
+<form method="post" action="view/frontend/administration_post.php">
       
-      <label for="title">Titre</label> : <input type="varchar" name="title" id="title" /><br />
-      <div id="editeur" contentEditable></div><br />
+      <input type="text" placeholder="Titre" name="title"/> <br />
+      <input type="text" placeholder="Message" name="content"/> <br />
 
-      <input type="button" name="submit" value="submit">
+      <button>Save Articles</button>
+     
 </form>
 
+<script>
+$("form").submit(function(e)) {
+    e.preventDefault();
+
+    $.post(
+          'view/frontend/administration_post.php',
+          {
+                title: $("#title").val(),
+                content: $("#content").val(),
+          };
+          function(result) {
+                if (result == "success"){
+                      $("#result").html("success inserted values");
+                }
+                else {
+                      $("#result").html("Error occured");
+                }
+          }
+    );
+});
+</script>
 
 <?php $content = ob_get_clean(); ?>
 

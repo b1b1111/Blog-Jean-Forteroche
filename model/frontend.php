@@ -16,10 +16,12 @@ function getPost($postId) {
     return $post;
 }
 
-function editPost() {
+function editPost($title, $content) {
     $db = dbConnect();
-    $req = $db->prepare('INSERT INTO posts(title, content VALUES (?,?)');
-    $req->execute(array($_POST['title'], $_POST['content']));
+    $post = $db->prepare('INSERT INTO posts(title, content) VALUES(?, ?, NOW())');
+    $affectedLines = $post->execute(array($title, $content));
+
+    return $affectedLines;
 }
 
 function getComments($postId) {

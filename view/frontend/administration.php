@@ -24,7 +24,7 @@ $menu = view_menu();
       <label for="title">Titre</label> : <input type="varchar" name="title" id="title" /><br />
       <input type="text" name="content" id="editeur" contentEditable /><br />
 
-      <input type="button" value="submit" onclick="editPost()">
+      <input type="button" value="submit" onclick="editPost();">
 </form>
 
 <section>

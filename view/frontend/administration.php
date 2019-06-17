@@ -3,6 +3,7 @@
 $menu = view_menu(); 
 ?>
 <?php require('model\admin.php'); ?>
+<?php require('model\frontend.php'); ?>
 
 <?php ob_start(); ?>
 
@@ -22,15 +23,21 @@ $menu = view_menu();
       <input type="button" value="S" style="text-decoration:underline;" onclick="commande('underline');">
       
       <label for="title">Titre</label> : <input type="varchar" name="title" id="title" /><br />
-      <input type="text" name="content" id="editeur" contentEditable /><br />
+      <div id="editeur" contentEditable></div>  <br />
 
-      <input type="button" value="submit" onclick="editPost();">
+      <input type="button" name="button_post" value="submit">
 </form>
 
-<section>
-<input type="button" onclick="resultat();" value="Obtenir le HTML" ></code><br />
-<textarea id="resultat"></textarea>
-</section>
+<?php 
+
+      $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
+
+      if(isset($_POST['button_post'])) {
+            $req = $bdd->prepare('INSERT INTO posts(title, content) VALUES(?,?)');
+            $req->execute(array($_POST['title'], $_POST['content']));
+      }
+?>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

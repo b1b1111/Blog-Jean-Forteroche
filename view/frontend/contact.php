@@ -49,13 +49,12 @@ if(isset($_POST['mailform']))
 
 			<input type="email" name="mail" placeholder="Votre email" value="<?php if(isset($_POST['mail'])) { echo $_POST['mail']; } ?>" /><br /><br />
 
-			<textarea name="message" placeholder="Votre message" cols="20" rows="10">
-				<?php 
+			<textarea name="message" placeholder="Votre message" cols="20" rows="10"><?php 
 					if(isset($_POST['message'])) { 
 						echo $_POST['message']; 
 					} 
-				?>
-			</textarea><br /><br />
+				
+					?></textarea><br /><br />
 			<input type="submit" value="Envoyer !" name="mailform"/>
 		</form>
 

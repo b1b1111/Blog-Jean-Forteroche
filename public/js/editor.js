@@ -1,4 +1,4 @@
-function commande(name, argument){
+function commande(name, argument) {
     if (typeof argument === 'undefined') {
         argument = '';
     }
@@ -11,6 +11,9 @@ function commande(name, argument){
     document.execCommand(name, false, argument);
 }
 
-function resultat(){
+function resultat() {
 	document.getElementById("resultat").value = document.getElementById("editeur").innerHTML;
 }
+
+
+

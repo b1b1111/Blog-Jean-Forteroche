@@ -3,7 +3,6 @@
 $menu = view_menu(); 
 ?>
 <?php require('model\admin.php'); ?>
-<?php require('model\frontend.php'); ?>
 
 <?php ob_start(); ?>
 
@@ -17,16 +16,17 @@ $menu = view_menu();
       <?php } ?>
 </ul>
 
-<div id="edit_post">
+<form id="edit_post" action="administration_post.php">
       <input type="button" value="G" style="font-weight:bold;" onclick="commande('bold');" />
       <input type="button" value="I" style="font-style:italic;" onclick="commande('italic');">
       <input type="button" value="S" style="text-decoration:underline;" onclick="commande('underline');">
       
       <label for="title">Titre</label> : <input type="varchar" name="title" id="title" /><br />
-      <div id="editeur" contentEditable></div>  <br />
+      <div id="editeur" contentEditable></div><br />
 
-      <input type="button" name="button_post" value="submit" onclick="editPost();">
-      </div>
+      <input type="button" name="submit" value="submit">
+</form>
+
 
 <?php $content = ob_get_clean(); ?>
 

@@ -15,7 +15,8 @@
 
         if($req->execute()){
             echo 'success';
-        }else {
+        }
+        else {
             echo 'failure';
         }
 ?>

@@ -86,24 +86,13 @@ var mentionsFetchFunction = function (query, success) {
 
 tinymce.init({
   selector: 'textarea#full-featured',
-  toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
+  toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter| alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | addcomment',
   image_advtab: true,
   content_css: [
     '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
     '//www.tiny.cloud/css/codepen.min.css'
   ],
-  link_list: [
-    { title: 'My page 1', value: 'http://www.tinymce.com' },
-    { title: 'My page 2', value: 'http://www.moxiecode.com' }
-  ],
-  image_list: [
-    { title: 'My page 1', value: 'http://www.tinymce.com' },
-    { title: 'My page 2', value: 'http://www.moxiecode.com' }
-  ],
-  image_class_list: [
-    { title: 'None', value: '' },
-    { title: 'Some class', value: 'class-name' }
-  ],
+
   importcss_append: true,
   height: 400,
   file_picker_callback: function (callback, value, meta) {

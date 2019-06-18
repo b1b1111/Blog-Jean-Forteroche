@@ -1,8 +1,9 @@
 <?php 
 
+    $b = html_entity_decode($content);
     $title = $_POST['title'];
     $content = $_POST['content'];
-
+    
     $bdd = new mysqli('localhost','root','','Jean Forteroche');
 
     if ($bdd->connect_error) {
@@ -10,6 +11,7 @@
     }
 
     $req = $bdd->prepare("INSERT INTO posts(title, content) VALUES (?, ?)");
+   
 
     $req->bind_param("ss",$title,$content);
 

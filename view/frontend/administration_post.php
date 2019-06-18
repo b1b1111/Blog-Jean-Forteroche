@@ -3,7 +3,7 @@
     $title = $_POST['title'];
     $content = $_POST['content'];
 
-    $bdd = new mysqli('localhost','root','','test');
+    $bdd = new mysqli('localhost','root','','Jean Forteroche');
 
     if ($bdd->connect_error) {
         echo 'database connect error';

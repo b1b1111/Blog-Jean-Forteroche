@@ -16,9 +16,9 @@ $menu = view_menu();
       <?php } ?>
 </ul>
 
-<form method="post" action="view/frontend/administration_post.php">
+<form id="form_articles" method="post" action="view/frontend/administration_post.php">
       
-      <input type="text" placeholder="Titre" name="title"/> <br />
+      <input type="text" placeholder="Titre" id="title" name="title"/> <br />
 
       <input type="button" value="G" style="font-weight:bold;" onclick="commande('bold');" >
 	<input type="button" value="I" style="font-style:italic;" onclick="commande('italic');"/>
@@ -32,35 +32,14 @@ $menu = view_menu();
             <option value="h5">Titre 5</option>
             <option value="h6">Titre 6</option>
       </select>
-
-      <input type="text" placeholder="Message" name="content"/> <br />
-      <div id="content" contentEditable ></div>
-
-      <button>Save Articles</button>
+     
+      <input type="text" name="content" id="content" contenteditable="true">
+      <br />
+      
+      <button>Editer articles</button>
      
 </form>
-
-<script>
-$("form").submit(function(e)) {
-    e.preventDefault();
-
-    $.post(
-          'administration_post.php',
-          {
-                title: $("#title").val(),
-                content: $("#content").val(),
-          };
-          function(result) {
-                if (result == "success success"){
-                      $("#result").html("success inserted values");
-                }
-                else {
-                      $("#result").html("Error occured");
-                }
-          }
-    );
-});
-</script>
+<p id="result"></p>
 
 <?php $content = ob_get_clean(); ?>
 

@@ -1,6 +1,6 @@
 <?php
 
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=test;charset=utf8', 'root', '');
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=Jean Forteroche;charset=utf8', 'root', '');
 
 
 if(isset($_GET['type']) AND $_GET['type'] == 'comments') {

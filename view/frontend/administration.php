@@ -20,8 +20,7 @@ $menu = view_menu();
       
       <input type="text" placeholder="Titre" id="title" name="title"/> <br />
      
-      <textarea id="full-featured" name="content" contenteditable="true"></textarea>
-      <br />
+      <textarea id="full-featured" name="content" contenteditable="true"></textarea><br />
       
       <button>Editer articles</button>
      

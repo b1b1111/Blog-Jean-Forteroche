@@ -1,8 +1,7 @@
 <?php 
 
-    $b = html_entity_decode($content);
     $title = $_POST['title'];
-    $content = $_POST['content'];
+    $content = ereg_replace("<[^>]*>", "", strip_tags($_POST['content']));
     
     $bdd = new mysqli('localhost','root','','Jean Forteroche');
 

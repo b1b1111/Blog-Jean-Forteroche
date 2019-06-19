@@ -26,7 +26,7 @@ function getComments($postId) {
 
 function dbConnect()
 {  
-    $db = new PDO('mysql:host=localhost;dbname=Jean Forteroche;charset=utf8', 'root', '');
+    $db = new \PDO('mysql:host=localhost;dbname=webagencawben;charset=utf8', 'webagencawben', 'Ben0ubenou');
     return $db;   
 }
 

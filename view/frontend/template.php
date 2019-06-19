@@ -30,7 +30,6 @@
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>
         <script src="public\js\editor.js"></script>
-        <script src="public\js\tiny.js"></script>
         
     </body>
 

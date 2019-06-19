@@ -1,3 +1,4 @@
+<?php if (isset($_POST['password']) AND $_POST['password'] ==  "jeanjean") ?>
 <?php $title = 'Jean Forteroche'; ?>
 <?php require('header.php');
 $menu = view_menu(); 
@@ -26,8 +27,12 @@ $menu = view_menu();
      
 </form>
 
-<p id="result"></p>
-
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
+
+<script>
+  tinymce.init({
+    selector: '#full-featured'
+  });
+  </script>

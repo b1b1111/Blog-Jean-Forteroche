@@ -1,7 +1,7 @@
 <?php 
 
     $title = $_POST['title'];
-    $content = ereg_replace("<[^>]*>", "", strip_tags($_POST['content']));
+    $content = $_POST['content'];
     
     $bdd = new mysqli('localhost','root','','Jean Forteroche');
 
@@ -15,7 +15,7 @@
     $req->bind_param("ss",$title,$content);
 
         if($req->execute()){
-            echo 'success';
+            header('Location: /administration');
         }
         else {
             echo 'failure';

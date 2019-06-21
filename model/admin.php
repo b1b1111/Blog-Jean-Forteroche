@@ -1,6 +1,6 @@
 <?php
 
-$bdd = new \PDO('mysql:host=localhost;dbname=webagencawben;charset=utf8', 'webagencawben', 'Ben0ubenou');
+$bdd = new \PDO('mysql:host=localhost;dbname=jean forteroche;charset=utf8', 'root', '');
 
 
 if(isset($_GET['type']) AND $_GET['type'] == 'comments') {
@@ -15,6 +15,8 @@ if(isset($_GET['type']) AND $_GET['type'] == 'comments') {
       $req->execute(array($supprime));
    }
 }
+
+
 
 $comment = $bdd->query('SELECT * FROM comments ORDER BY id DESC LIMIT 0,15');
 

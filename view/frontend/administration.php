@@ -35,4 +35,4 @@ $menu = view_menu();
   tinymce.init({
     selector: '#full-featured'
   });
-  </script>
+</script>

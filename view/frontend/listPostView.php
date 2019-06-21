@@ -22,9 +22,13 @@ while ($data = $posts->fetch())
             <?= $data['title'] ?>
             <em>le <?= $data['creation_date_fr'] ?></em>
         </h3>
+
+        <div id="resum_post">
+            
+        </div>
    
-        <div id="resum">
-            <?= nl2br($data['resum'])?>
+        <div id="chapters_part">
+            <?= nl2br($data['content'])?>
             <br />
             <em><a href="chapters.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
         </div>

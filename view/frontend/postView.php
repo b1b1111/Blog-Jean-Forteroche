@@ -15,6 +15,7 @@ $menu = view_menu();
     </h3>
     
     <p>
+        <?= nl2br($post['resum']) ?>
         <?= nl2br($post['content']) ?>
     </p>
 </div>

@@ -1,4 +1,3 @@
-<?php if (isset($_POST['password']) AND $_POST['password'] ==  "jeanjean") ?>
 <?php $title = 'Jean Forteroche'; ?>
 <?php require('header.php');
 $menu = view_menu(); 
@@ -17,10 +16,22 @@ $menu = view_menu();
       <?php } ?>
 </ul>
 
+<ul id="list_post">
+      <h2>Liste des articles</h2>
+      <p><em>Validez ou supprimer les articles.</em></p>
+      <?php while($a = $posts->fetch()) { ?>
+      <li><?= $a['id'] ?> : <?= $a['title'] ?> : <?= $a['resum'] ?> : <?= $a['content'] ?><?php if($a['approuve'] == 0) { ?> - 
+      <a href="administration?type=posts&approuve=<?= $a['id'] ?>">Approuver</a><?php } ?> - 
+      <a href="administration?type=posts&supprime=<?= $a['id'] ?>">Supprimer</a></li>
+      <?php } ?>
+</ul>
+
 <form id="form_articles" method="post" action="view/frontend/administration_post.php">
       
       <input type="text" placeholder="Titre" id="title" name="title"/> <br />
+
      
+      <textarea id="resum_post" name="resum_post" contenteditable="true"></textarea><br />
       <textarea id="full-featured" name="content" contenteditable="true"></textarea><br />
       
       <button>Editer articles</button>
@@ -33,6 +44,6 @@ $menu = view_menu();
 
 <script>
   tinymce.init({
-    selector: '#full-featured'
+    selector: '#full-featured, #resum_post'
   });
 </script>

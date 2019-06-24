@@ -3,8 +3,8 @@
 }
 
 body {
-    background: url('../images/mountain5.jpg') no-repeat;
-    background-color: rgba(13, 13, 32, 0.932);
+    background: url('../images/background.jpg') no-repeat;
+    background-color: rgb(5, 0, 3);
     background-size: 100%;
     position: relative;
 }
@@ -19,7 +19,7 @@ h3 {
 }
 
 h2 {
-    color: white;
+    color: #FF0077;
 }
 
 h4 {
@@ -31,11 +31,11 @@ h4 {
 
 a {
     text-decoration: none;
-    color: rgb(158, 85, 26);
+    color: #FF0077;
 }
 
 .signature {
-    color: white;
+    color: #FF0077;
     text-align: right;
 }
 
@@ -46,12 +46,12 @@ a {
     text-align: center;
     font-size: 2.8em;
     font-family: 'Open Sans', Verdana, Tahoma, sans-serif;
-    color: white;
+    color: #ffff;
     text-transform: uppercase;
 }
 
 #header_content h1 a {
-    color: white;
+    color: #FF0077;
 }
 
 
@@ -134,7 +134,7 @@ a {
     font-weight: 600;
 }
 
-#jean_img {
+#heron_img {
     overflow: hidden;
     border-radius: 50%;
     width: 300px;
@@ -146,7 +146,7 @@ a {
 /*------------SECTION TWO-----------*/
 
 #section_two {
-    margin-top: 135px;
+    margin-top: 220px;
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
@@ -157,10 +157,10 @@ a {
 #resum {
     width: 60%;
     margin: 110px 30px 0 0;
-    color: rgb(255, 254, 254);
+    color: rgb(53, 52, 52);
 }
 
-#bear_img {
+#moon_img {
     border-radius: 50%;
     width: 300px;
     height: 300px;
@@ -242,4 +242,33 @@ textarea {
     color: black;
 }
 
+
+/*-----------------------------------------FOOTER-------------------------------------------------*/
+#footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;   
+}
+
+#bio {
+    width: 60%;
+    margin: 60px 0 0 30px;
+    color: rgb(255, 254, 254);
+    font-weight: 600;
+}
+
+#jean_img {
+    overflow: hidden;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    border: 6px solid rgb(255, 254, 254);
+    margin: 50px 15px 0 0;
+}
+footer {
+    background-color: rgb(5, 0, 3);
+    background-size: 100%;
+    position: relative;
+}
 

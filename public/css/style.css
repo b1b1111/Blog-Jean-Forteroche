@@ -146,6 +146,7 @@ a {
 /*------------SECTION TWO-----------*/
 
 #section_two {
+    background-color: white;
     margin-top: 220px;
     width: 100%;
     display: flex;
@@ -209,7 +210,7 @@ textarea {
 /*---------------------------------------ADMINISTRATION-------------------------------------------*/
 
 #list_comment,
-#list_user {
+#list_post {
     color: rgb(255, 250, 250);
 }
 

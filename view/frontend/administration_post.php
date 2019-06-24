@@ -1,7 +1,6 @@
 <?php 
 
     $title = $_POST['title'];
-    $resum_post = $_POST['resum'];
     $content = $_POST['content'];
     
     $bdd = new mysqli('localhost', 'root', '', 'jean forteroche');
@@ -10,7 +9,7 @@
         echo 'database connect error';
     }
 
-    $req = $bdd->prepare("INSERT INTO posts(title, resum, content) VALUES (?, ?, ?)");
+    $req = $bdd->prepare("INSERT INTO posts(title, content) VALUES (?, ?, ?)");
    
 
     $req->bind_param("sss",$title,$resum_post,$content);

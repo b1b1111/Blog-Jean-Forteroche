@@ -176,6 +176,7 @@ a {
 .news {
     width: 70%;
     margin: auto;
+    background-color: rgb(255, 254, 254);
 }
 
 .news p {
@@ -225,6 +226,10 @@ textarea {
 
 #resum_post {
     color: blue;
+}
+
+#full-featured {
+    height: 500px;
 }
 
 /*--------------------------------CONTACT---------------------------*/

@@ -1,6 +1,7 @@
 <?php $title = 'Jean Forteroche'; ?>
 
-<?php require('header.php'); 
+<?php 
+require('header.php'); 
 $menu = view_menu(); 
 ?>
 
@@ -24,10 +25,26 @@ while ($data = $posts->fetch())
         </h3>
    
         <div id="chapters_part">
-            
-            <?= nl2br($data['content'])?>
+
+        <?php
+
+            $db = new \PDO('mysql:host=localhost;dbname=jean forteroche;charset=utf8', 'root', '');
+            $sql = 'SELECT * FROM posts';
+            $request = $db->prepare($sql);
+            $request->execute();
+
+            while($row=$request->fetch(PDO::FETCH_OBJ)) {
+
+                //récupère un extrait de content.
+                $resum = substr($row->content, 0,140);
+                //trouve dernier espace après dernier mot de l'extrait.
+                $space = strrpos($resum, ' ');
+                
+                echo substr($resum, 0, $space).'...';
+            }
+        ?>
             <br />
-            <em><a href="chapters.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+            <a href="chapters.php?action=post&amp;id=<?= $data['id'] ?>">lire plus</a>
         </div>
     </div>
 <?php

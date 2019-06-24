@@ -20,7 +20,7 @@ $menu = view_menu();
       <h2>Liste des articles</h2>
       <p><em>Validez ou supprimer les articles.</em></p>
       <?php while($a = $posts->fetch()) { ?>
-      <li><?= $a['id'] ?> : <?= $a['title'] ?> : <?= $a['resum'] ?> : <?= $a['content'] ?><?php if($a['approuve'] == 0) { ?> - 
+      <li><?= $a['id'] ?> : <?= $a['title'] ?> : <?= $a['content'] ?><?php if($a['approuve'] == 0) { ?> - 
       <a href="administration?type=posts&approuve=<?= $a['id'] ?>">Approuver</a><?php } ?> - 
       <a href="administration?type=posts&supprime=<?= $a['id'] ?>">Supprimer</a></li>
       <?php } ?>
@@ -30,8 +30,6 @@ $menu = view_menu();
       
       <input type="text" placeholder="Titre" id="title" name="title"/> <br />
 
-     
-      <textarea id="resum_post" name="resum_post" contenteditable="true"></textarea><br />
       <textarea id="full-featured" name="content" contenteditable="true"></textarea><br />
       
       <button>Editer articles</button>

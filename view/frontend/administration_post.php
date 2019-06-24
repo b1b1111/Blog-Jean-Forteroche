@@ -6,19 +6,19 @@
     $bdd = new mysqli('localhost', 'root', '', 'jean forteroche');
 
     if ($bdd->connect_error) {
-        echo 'database connect error';
+        echo 'Erreur de connexion';
     }
 
-    $req = $bdd->prepare("INSERT INTO posts(title, content) VALUES (?, ?, ?)");
+    $req = $bdd->prepare("INSERT INTO posts(title, content) VALUES (?, ?)");
    
 
-    $req->bind_param("sss",$title,$resum_post,$content);
+    $req->bind_param("ss",$title,$content);
 
         if($req->execute()){
             header("Location: http://localhost/coursphp/Jean-Forteroche/administration");
             exit;
         }
         else {
-            echo 'failure';
+            echo 'Erreur';
         }
 ?>

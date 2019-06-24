@@ -11,16 +11,6 @@ function listPosts() {
     require('view/frontend/listPostView.php');
 }
 
-function resumPost($fullText, $resum) {
-    if (strlen($fullText) <= $resum)
-        return $fullText;
-
-    $start = substr($fullText, 0, $resum);
-    $start = substr($start, 0, strrpos($start, '')) . '...';
-
-    require('view/frontend/listPostView.php');
-}
-
 function post() {
     $postManager = new \OpenClassrooms\Blog\Model\PostManager();
     $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();

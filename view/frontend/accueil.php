@@ -17,7 +17,7 @@ $menu = view_menu();
         <h5 class="signature">Jean Forteroche</h5>
     </div>
 
-    <img id="heron_img" src="public/images/heron.jpg" alt="jean">
+    <img id="heron_img" src="public/images/dream.jpg" alt="dream">
 
 </section>
 
@@ -39,7 +39,7 @@ $menu = view_menu();
         <em><a href="chapters.php">Lire les chapitres</a></em>
     </div>
 
-    <img id="moon_img" src="public/images/moon.jpg" alt="bear">
+    <img id="moon_img" src="public/images/witch.jpg" alt="witch">
 
 </section>
 

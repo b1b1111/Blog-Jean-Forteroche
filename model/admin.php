@@ -2,7 +2,6 @@
 
 $bdd = new \PDO('mysql:host=localhost;dbname=jean forteroche;charset=utf8', 'root', '');
 
-
 if(isset($_GET['type']) AND $_GET['type'] == 'comments') {
    if(isset($_GET['approuve']) AND !empty($_GET['approuve'])) {
       $approuve = (int) $_GET['approuve'];

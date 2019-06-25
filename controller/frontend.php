@@ -1,5 +1,4 @@
 <?php
-
 // Chargement des classes
 require_once('model/postManager.php');
 require_once('model/CommentManager.php');
@@ -21,8 +20,8 @@ function post() {
     require('view/frontend/postView.php');
 }
 
-function addComment($postId, $author, $comment)
-{
+function addComment($postId, $author, $comment) {
+    
     $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
 
     $affectedLines = $commentManager->postComment($postId, $author, $comment);

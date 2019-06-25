@@ -17,7 +17,7 @@ $menu = view_menu();
         <h5 class="signature">Jean Forteroche</h5>
     </div>
 
-    <img id="heron_img" src="public/images/dream.jpg" alt="dream">
+    <img id="dream_img" src="public/images/dream.jpg" alt="dream">
 
 </section>
 

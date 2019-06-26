@@ -1,5 +1,5 @@
 <?php $title = 'Jean Forteroche'; ?>
-<?php require('header.php');
+<?php require('view/frontend/header.php');
 $menu = view_menu(); 
 ?>
 <?php require('model\admin.php'); ?>
@@ -31,7 +31,7 @@ $menu = view_menu();
       <?php } ?>
 </ul>
 
-<form id="form_articles" method="post" action="view/frontend/administration_post.php">
+<form id="form_articles" method="post" action="view/admin/administration_post.php">
       
       <input type="text" placeholder="Titre" id="title" name="title"/> <br />
 
@@ -41,9 +41,11 @@ $menu = view_menu();
      
 </form>
 
+<link href="public/css/style.css" rel="stylesheet"  type="text/html"  /> 
+
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require('view/frontend/template.php'); ?>
 
 <script>
   tinymce.init({

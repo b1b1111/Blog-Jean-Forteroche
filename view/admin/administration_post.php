@@ -10,7 +10,6 @@
     }
 
     $req = $bdd->prepare("INSERT INTO posts(title, content) VALUES (?, ?)");
-   
 
     $req->bind_param("ss",$title,$content);
 

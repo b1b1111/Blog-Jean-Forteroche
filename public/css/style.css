@@ -236,10 +236,6 @@ textarea {
     overflow: auto;
 }
 
-#resum_post {
-    color: blue;
-}
-
 #full-featured {
     height: 500px;
 }
@@ -315,7 +311,7 @@ textarea {
   left: 50%;
   height: 150px;
   width: 500px;
-  margin: -75px 0 0 -250px;
+  margin: 50px 0 0 -250px;
   padding: 20px;
   font: 75px/75px Monoton, cursive;
   text-align: center;

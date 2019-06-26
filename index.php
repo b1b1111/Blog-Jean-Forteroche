@@ -17,7 +17,7 @@ else if($url[0] == 'contact' AND !empty($url[0])) {
 
 else if($url[0] == 'administration' AND !empty($url[0])) {
     $idAdministration = $url[0];
-    require 'view/frontend/administration.php';
+    require 'view/admin/administration.php';
 } 
 
 else {

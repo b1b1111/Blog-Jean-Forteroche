@@ -1,4 +1,4 @@
-<FilesMatch "admin.php">
+<FilesMatch "administration.php">
    AuthName "Contenu securise"
    AuthType Basic
    AuthUserFile "D:\wamp64\www\coursPhp\Jean-Forteroche\index.php\.htpasswd"

@@ -5,8 +5,8 @@ $menu = view_menu();
 ?>
 
 <?php ob_start(); ?>
-<h1>Mon super blog !</h1>
-<p><a href="chapters.php">Retour à la liste des billets</a></p>
+
+<h2><a href="chapters.php">Retour à la liste des billets</a></h2>
 
 <div class="news">
     <h3>
@@ -24,14 +24,14 @@ $menu = view_menu();
 <form action="chapters.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
     <div>
         <label for="author">Auteur</label><br />
-        <input type="text" id="author" name="author"/>
+        <input type="text" id="author" name="author"/> <br /><br />
     </div>
     <div>
         <label for="comment">Commentaire</label><br />
         <textarea id="comment" name="comment"></textarea>
     </div>
     <div>
-        <input type="submit" />
+        <input  class="form_btn" type="submit" />
     </div>
 </form>
 

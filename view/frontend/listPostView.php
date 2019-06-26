@@ -43,7 +43,7 @@ while ($data = $posts->fetch()) {
             }
         ?>
             <br />
-            <a href="chapters.php?action=post&amp;id=<?= $data['id'] ?>">lire plus</a>
+            <a class="form_btn"  href="chapters.php?action=post&amp;id=<?= $data['id'] ?>">lire plus</a>
         </div>
     </div>
 <?php

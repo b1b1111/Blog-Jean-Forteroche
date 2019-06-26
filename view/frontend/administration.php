@@ -1,5 +1,5 @@
 <?php $title = 'Jean Forteroche'; ?>
-<?php require('view/frontend/header.php');
+<?php require('header.php');
 $menu = view_menu(); 
 ?>
 <?php require('model\admin.php'); ?>
@@ -12,9 +12,9 @@ $menu = view_menu();
 
       <?php while($c = $comment->fetch()) { ?>
 
-      <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['comment'] ?><?php if($c['approuve'] == 0) { ?> - 
+      <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['comment'] ?><?php if($c['approuve'] == 0) { ?> <br />
       <a class="admin_approuve" href="administration?type=comments&approuve=<?= $c['id'] ?>">Approuver</a><?php } ?> - 
-      <a class="admin_supr" href="administration?type=comments&supprime=<?= $c['id'] ?>">Supprimer</a></li>
+      <a class="form_btn" href="administration?type=comments&supprime=<?= $c['id'] ?>">Supprimer</a></li><br />
       <?php } ?>
 </ul>
 
@@ -24,28 +24,25 @@ $menu = view_menu();
 
       <?php while($a = $posts->fetch()) { ?>
 
-      <li><?= $a['id'] ?> : <?= $a['title']?><?php if($a['approuve'] == 0) { ?> <br /><br />
+      <li><?= $a['id'] ?> : <?= $a['title']?><?php if($a['approuve'] == 0) { ?> <br />
       <a class="admin_approuve" href="administration?type=posts&approuve=<?= $a['id'] ?>">Approuver</a><?php } ?> -
-      <a class="admin_modif" href="administration?type=posts&update=<?= $c['id'] ?>">Modifier</a> 
-      <a class="admin_supr" href="administration?type=posts&supprime=<?= $a['id'] ?>">Supprimer</a></li><br /><br />
+      <a class="form_btn" href="administration?type=posts&supprime=<?= $a['id'] ?>">Supprimer</a></li><br />
       <?php } ?>
 </ul>
 
-<form id="form_articles" method="post" action="view/admin/administration_post.php">
+<form id="form_articles" method="post" action="view/frontend/administration_post.php">
       
       <input type="text" placeholder="Titre" id="title" name="title"/> <br />
 
       <textarea id="full-featured" name="content" contenteditable="true"></textarea><br />
       
-      <button>Editer articles</button>
+      <button class="form_btn">Editer articles</button>
      
 </form>
 
-<link href="public/css/style.css" rel="stylesheet"  type="text/html"  /> 
-
 <?php $content = ob_get_clean(); ?>
 
-<?php require('view/frontend/template.php'); ?>
+<?php require('template.php'); ?>
 
 <script>
   tinymce.init({

@@ -15,8 +15,7 @@ $menu = view_menu();
 </div>
 
 <?php
-while ($data = $posts->fetch())
-{
+while ($data = $posts->fetch()) {
 ?>
     <div class="news">
         <h3>

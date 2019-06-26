@@ -19,7 +19,7 @@ h3 {
 }
 
 h2 {
-    color: #FF0077;
+    color: #18A085;
 }
 
 h4 {
@@ -31,14 +31,13 @@ h4 {
 
 a {
     text-decoration: none;
-    color: #FF0077;
+    color: #18A085;
 }
 
 .signature {
-    color: #FF0077;
+    color: #18A085;
     text-align: right;
 }
-
 
 /*------------------------HEADER------------------------*/
 
@@ -51,7 +50,7 @@ a {
 }
 
 #header_content h1 a {
-    color: #FF0077;
+    color: #18A085;
 }
 
 
@@ -108,9 +107,8 @@ a {
     color: rgb(247, 242, 242);
 }
 
-#tabs a.active:hover {
-    padding-top: 5px;  
-    border-top: 2px solid white;
+#tabs a:hover {
+    color: rgba(175, 173, 173, 0.863);
 }
 
 
@@ -214,6 +212,21 @@ textarea {
     color: rgb(255, 250, 250);
 }
 
+.adminH2 {
+    text-align: center;
+    font-style: italic;
+    border: 2px none white;
+    background: rgb(231, 229, 229);
+    border-radius: 5px;
+    margin: 0 400px 0 400px;
+}
+
+.adminParagraphe {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: rgb(165, 161, 163);
+}
+
 #content, #resultat {
     width: 500px; 
     height: 200px; 
@@ -230,6 +243,23 @@ textarea {
 #full-featured {
     height: 500px;
 }
+
+.admin_approuve {
+    font-weight: bold;
+}
+
+.admin_approuve:hover {
+    color: rgb(29, 180, 150);
+}
+
+.admin_supr {
+    color: rgb(138, 137, 137);
+}
+
+.admin_supr:hover {
+    color: rgb(187, 141, 141);
+}
+
 
 /*--------------------------------CONTACT---------------------------*/
 
@@ -274,3 +304,27 @@ textarea {
 }
 
 
+/*---------------------------------------ERROR PAGE-----------------------------------------*/
+#errorPage {
+    background-color: #111111;
+}
+
+.board { 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 150px;
+  width: 500px;
+  margin: -75px 0 0 -250px;
+  padding: 20px;
+  font: 75px/75px Monoton, cursive;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
+  color: red;
+}
+
+#error { 
+  color: #fff;
+  text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
+}

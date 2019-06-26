@@ -28,7 +28,19 @@ if(isset($_GET['type']) AND $_GET['type'] == 'posts') {
    }
 }
 
+if(isset($_GET['edit']) AND !empty($_GET['edit'])) {
+   $mode_edition = 1;
+   $edit_id = htmlspecialchars($_GET['edit']);
+   $edit_post = $bdd->prepare('SELECT * FROM posts WHERE id = ?');
+   $edit_post->execute(array($edit_id));
+   if($edit_post->rowCount() == 1) {
+      $edit_post = $edit_post->fetch();
+   } else {
+      die('Erreur : l\'article n\'existe pas...');
+   }
+}
+
 $comment = $bdd->query('SELECT * FROM comments ORDER BY id DESC LIMIT 0,15');
 $posts = $bdd->query('SELECT * FROM posts ORDER BY id DESC LIMIT 0,15');
-
+$update = $bdd->query('UPDATE posts SET title=[value-2], content=[value-3]');
 ?>

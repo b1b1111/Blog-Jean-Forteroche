@@ -8,9 +8,11 @@ $menu = view_menu();
 <section id="section_one">
 
     <div id="presentation">
-        <h2>Bonjour à tous, </h2>
+        <h3>Bonjour à tous, </h3>
         <p>
-            Je travaille actuellement sur mon prochain roman, "Billet simple pour l'Alaska", je souhaite innover et le publier par épisode en ligne sur mon propre site.<br />
+            Bienvenue dans mon univers, <br />
+            Je travaille actuellement sur mon prochain roman, "Billet simple pour l'Alaska". <br />
+            Je souhaite innover et le publier par épisode en ligne sur mon propre site.<br />
             Vous aurez la possibilité de laisser des commentaires, n'hésitez pas, l'inspiration vient d'abord de vous. <br />
             C'est donc avec une grande joie que je vous laisse découvrir l'aventure au fil des chapitres.</p>
 
@@ -24,7 +26,7 @@ $menu = view_menu();
 <section id="section_two">
 
     <div id="resum">
-        <h2>La nuit </h2>
+        <h3>La nuit </h3>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit metus turpis, vel accumsan ligula sagittis non. Nullam nec viverra risus. Sed pretium, nibh ac ultricies sagittis, urna purus rhoncus eros, in mattis tortor velit ac libero. Nulla molestie, ipsum at malesuada auctor, metus arcu hendrerit neque, vel interdum massa lorem vel diam. Nam semper pharetra augue, nec pharetra purus eleifend a. Donec eget lorem nec orci egestas consequat sed eu ipsum. Etiam rhoncus neque ac dolor sodales, sit amet pharetra arcu dictum. In commodo dui at nunc lobortis porttitor. In maximus porttitor iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris venenatis tincidunt consequat. Integer luctus feugiat tristique. Mauris nulla libero, aliquam et diam sit amet, dapibus rutrum nibh. Nunc et odio vestibulum, accumsan diam vitae, pulvinar metus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sagittis justo a magna pretium, sed sagittis dui aliquet.<br /><br /><br /><br />
 
@@ -47,7 +49,7 @@ $menu = view_menu();
 
     <div id="footer">
         <div id="bio">
-            <h2>Jean Forteroche</h2>
+            <h3>Jean Forteroche</h3>
             <p>
             Curabitur tempor posuere tellus, et commodo augue tincidunt eget. Vivamus venenatis, sapien efficitur ornare pulvinar, quam eros euismod tortor, eget vestibulum velit lectus vitae ante. Nunc euismod lacus a auctor porta. Praesent quis volutpat dui, nec dignissim nisi. Quisque ultricies est vitae nibh volutpat tristique. Donec tincidunt, metus at molestie fermentum, nunc ipsum porta nibh, ut molestie leo mauris in est. Phasellus eu tristique libero. Duis molestie felis sed lobortis finibus. Proin luctus turpis efficitur venenatis congue. Donec quis iaculis tortor. Cras et eros tempus, tristique magna in, tempor arcu. Nulla sit amet massa libero.<br /><br /><br /><br />
 

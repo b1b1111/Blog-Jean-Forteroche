@@ -55,7 +55,7 @@ if(isset($_POST['mailform']))
 					} 
 				
 					?></textarea><br /><br />
-			<input type="submit" value="Envoyer !" name="mailform"/>
+			<input class="form_btn"  type="submit" value="Envoyer !" name="mailform"/>
 		</form>
 
 		<?php

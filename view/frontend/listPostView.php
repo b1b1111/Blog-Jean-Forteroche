@@ -8,7 +8,6 @@ $menu = view_menu();
 <?php ob_start(); ?>
 <div id="title_articles">
     <h1>Articles</h1>
-    <p><em>Derniers articles du livre,</em><br /><br />
 
     Fusce auctor eros at nisl tempus, quis fermentum augue posuere. Etiam ornare id lacus in sodales. Morbi sagittis tincidunt mauris ac bibendum. <br /> 
     Vestibulum sit amet mauris congue, aliquam ligula ut, euismod lorem. Proin rutrum dapibus felis at varius. Donec imperdiet dictum tincidunt. Quisque pretium auctor tincidunt. Sed consequat ante nibh,a hendrerit orci sodales id.</p>

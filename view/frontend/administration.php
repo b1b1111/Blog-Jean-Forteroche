@@ -13,7 +13,8 @@ $menu = view_menu();
       <?php while($c = $comment->fetch()) { ?>
 
       <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['comment'] ?><?php if($c['approuve'] == 0) { ?> <br />
-      <a class="admin_approuve" href="administration?type=comments&approuve=<?= $c['id'] ?>">Approuver</a><?php } ?> - 
+      <a class="admin_approuve" href="administration?type=comments&approuve=<?= $c['id'] ?>">Approuver</a><?php } ?>
+      &nbsp;&nbsp;
       <a class="form_btn" href="administration?type=comments&supprime=<?= $c['id'] ?>">Supprimer</a></li><br />
       <?php } ?>
 </ul>
@@ -25,7 +26,8 @@ $menu = view_menu();
       <?php while($a = $posts->fetch()) { ?>
 
       <li><?= $a['id'] ?> : <?= $a['title']?><?php if($a['approuve'] == 0) { ?> <br />
-      <a class="admin_approuve" href="administration?type=posts&approuve=<?= $a['id'] ?>">Approuver</a><?php } ?> -
+      <a class="admin_approuve" href="administration?type=posts&approuve=<?= $a['id'] ?>">Approuver</a><?php } ?> 
+      &nbsp;&nbsp;
       <a class="form_btn" href="administration?type=posts&supprime=<?= $a['id'] ?>">Supprimer</a></li><br />
       <?php } ?>
 </ul>
@@ -36,7 +38,7 @@ $menu = view_menu();
 
       <textarea id="full-featured" name="content" contenteditable="true"></textarea><br />
       
-      <button class="form_btn">Editer articles</button>
+      <button class="admin_approuve">Editer articles</button>
      
 </form>
 

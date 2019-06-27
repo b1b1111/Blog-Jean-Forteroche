@@ -41,8 +41,8 @@ while ($data = $posts->fetch()) {
                 echo substr($resum, 0, $space).'...';
             }
         ?>
-            <br />
-            <a class="form_btn"  href="chapters.php?action=post&amp;id=<?= $data['id'] ?>">lire plus</a>
+            <br /><br />
+            <a id="lirePlus" href="chapters.php?action=post&amp;id=<?= $data['id'] ?>">lire plus</a>
         </div>
     </div>
 <?php

@@ -61,7 +61,8 @@ if(isset($_POST['mailform']))
 		<?php
 		if(isset($msg))
 		{
-			echo $msg;
+			header("Location: http://localhost/coursphp/Jean-Forteroche/contact");
+            exit;
 		}
 		?>
 

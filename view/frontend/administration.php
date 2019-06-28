@@ -2,7 +2,7 @@
 <?php require('header.php');
 $menu = view_menu(); 
 ?>
-<?php require('model\admin.php'); ?>
+<?php require('controller\adminController.php'); ?>
 
 <?php ob_start(); ?>
 
@@ -34,7 +34,7 @@ $menu = view_menu();
         <?php } ?>
   </ul>
 
-  <form id="form_articles" method="post" action="view/frontend/administration_post.php">
+  <form id="form_articles" method="post" action="model/postManager.php">
         
         <input type="text" placeholder="Titre" id="title" name="title"/> <br />
 
@@ -44,29 +44,12 @@ $menu = view_menu();
       
   </form>
 
-  <ul id="list_modif_post">
-        <h2 class="adminH2"  >Liste des articles</h2>
-        <p class="adminParagraphe"  ><em>Modifier les articles.</em></p>
-  </ul>
-
-  <form id="modif_articles" method="post" action="view/frontend/administration_post.php">
-
-        <input type="text" placeholder="id à modifier" id="update_id" name="update_id"/> <br />
-        
-        <input type="text" placeholder="Titre" id="title" name="title"/> <br />
-
-        <textarea id="modif_post" name="content" contenteditable="true"></textarea><br />
-        
-        <input type="submit" class="admin_approuve" value="Modifier articles">
-      
-  </form>
-
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
 
 <script>
   tinymce.init({
-    selector: '#full-featured, #modif_post'
+    selector: '#full-featured'
   });
 </script>

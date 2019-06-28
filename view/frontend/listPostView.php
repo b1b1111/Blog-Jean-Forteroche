@@ -14,12 +14,12 @@ $menu = view_menu();
 </div>
 
 <?php
-while ($data = $posts->fetch()) {
+while ($post = $posts->fetch()) {
 ?>
     <div class="news">
         <h3>
-            <?= $data['title'] ?>
-            <em>le <?= $data['creation_date_fr'] ?></em>
+            <?= (html_entity_decode($post['title'])) ?>
+            <em>le <?= $post['creation_date_fr'] ?></em>
         </h3>
    
         <div id="chapters_part">
@@ -42,7 +42,7 @@ while ($data = $posts->fetch()) {
             }
         ?>
             <br /><br />
-            <a id="lirePlus" href="chapters.php?action=post&amp;id=<?= $data['id'] ?>">lire plus</a>
+            <a id="lirePlus" href="?controller=PostController?action=post&amp;id=<?= $data['id'] ?>">lire plus</a>
         </div>
     </div>
 <?php

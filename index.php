@@ -1,11 +1,13 @@
 <?php
 
-require 'controller/postController.php';
-require 'controller/commentController.php';
+require_once('controller/postController.php');
+require_once('controller/commentController.php');
+require_once('controller/adminController.php');
 
-$postController = new \OpenClassrooms\Blog\Controller\postController();
-$commentController = new \OpenClassrooms\Blog\Controller\commentController();
-
+    $postController = new \Benjamin\Alaska\Controller\postController();
+    $commentController = new \Benjamin\Alaska\Controller\commentController();
+    $adminController = new \Benjamin\Alaska\Controller\adminController();
+    
 $url = '';
 if(isset($_GET['url'])) {
     $url = explode('/', $_GET['url']);
@@ -19,33 +21,39 @@ else if($url[0] == 'chapitres' AND !empty($url[0])) {
     if (empty($url[1])) {
         $postController->printChapters();
     }
-    else if ($url[1] == 'create') {
-        // appele function create chapters
-    }
-    else if ($url[1] == 'update') {
-        // appele function update chapters
-    }
-    else if ($url[1] == 'delete') {
-        // appele function delete chapters
-    }
-    else if (is_numeric($url[1])) {
-        $postController->printChapter($url[1]);
-        // appele function create chapters
+
+    else if(is_numeric($url[1])) {
+        $postController->showChapter($id);  
     }
 
+    else if ($url[1] == 'comment') {
+        // appele function comment chapter
+        $commentController->addComment($post_id, $author, $content);
+    }
+    else if ($url[1] == 'alert') {
+        // appele function alert comment
+        $adminController->alertComment($id, $post_id);
+    }  
 } 
 
 else if($url[0] == 'contact' AND !empty($url[0])) {
-    $idContact = $url[0];
-    require 'view/frontend/contact.php';
+    $postController->contact();
 } 
 
 else if($url[0] == 'administration' AND !empty($url[0])) {
-    if ($url[1] == '') {
-        require 'view/frontend/administration.php';
+    $postController->administration();
+
+    if ($url[1] == 'create') {
+        // appele function create chapters
+        $adminController->postAdmin($title, $content);
     }
-    else if($url[1] == 'update_post') {
-        require 'controller/frontend.php';
+    else if ($url[1] == 'update') {
+        // appele function update chapters
+        $adminController->editpostAdmin($id);
+    }
+    else if ($url[1] == 'delete') {
+        // appele function delete chapters
+        $adminController->deletepostAdmin($id);
     }
 } 
 

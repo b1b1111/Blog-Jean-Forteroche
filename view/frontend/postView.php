@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars($post['title']); ?>
+<?php $title = 'Jean Forteroche'; ?>
 
 <?php require('header.php'); 
 $menu = view_menu(); 
@@ -6,22 +6,22 @@ $menu = view_menu();
 
 <?php ob_start(); ?>
 
-<h2><a href="chapters.php">Retour à la liste des billets</a></h2>
+
+<h2><a href="http://localhost/coursphp/Jean-Forteroche/chapitres">Retour à la liste des billets</a></h2>
 
 <div class="news">
     <h3>
-        <?= $post['title'] ?>
-        <em>le <?= $post['creation_date_fr'] ?></em>
+        <?php echo html_entity_decode($post->getTitle()) ?>  
     </h3>
     
     <p>
-        <?= nl2br($post['content']) ?>
+    <?php echo html_entity_decode($post->getContent()) ?>
     </p>
 </div>
 
 <h2>Commentaires</h2>
 
-<form action="chapters.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+<form action="?controller=postController&action=addComment&amp;id=<?= $post['id'] ?>" method="post">
     <div>
         <label for="author">Auteur</label><br />
         <input type="text" id="author" name="author"/> <br /><br />
@@ -31,7 +31,7 @@ $menu = view_menu();
         <textarea id="comment" name="comment"></textarea>
     </div>
     <div>
-        <input  class="form_btn" type="submit" />
+        <input class="form_btn" type="submit" />
     </div>
 </form>
 

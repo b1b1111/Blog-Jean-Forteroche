@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenClassrooms\Blog\Model;
+namespace Benjamin\Alaska\Model;
 
 class Manager
 {

@@ -1,26 +1,40 @@
 <?php
 
-namespace OpenClassrooms\Blog\Controller;
+namespace Benjamin\Alaska\Controller;
 
 require_once('model/CommentManager.php');
-
+require_once('model/Message.php');
 class commentController {
 
     function __construct() {
-        $this->commentManager = new \OpenClassrooms\Blog\Model\CommentManager();   
+        $this->CommentManager = new \Benjamin\Alaska\Model\CommentManager();
+        $this->Message = new \Benjamin\Alaska\Model\Message();   
+    }
+    // Nouveau commentaire
+    public function addComment($post_id, $author, $content) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!empty($author) && !empty($content)) {
+                $this->CommentManager->postComment($post_id, $author, $content);
+                $this->Message->setSuccess("<p>Votre commentaire a bien été publié !</p>");  
+            }
+
+            else {
+                $this->Message->setError("<p>Tous les champs doivent être rempli !</p>");
+            }
+        }
+        $newPostController = new PostController();
+        $newPostController->showComment($post_id);
     }
 
-   // $comments = $commentManager->getComments($_GET['id']);
-
-    public function addComment($postId, $author, $comment) {
-
-        $affectedLines = $commentManager->postComment($postId, $author, $comment);
-
-        if ($affectedLines === false) {
-            throw new Exception('Impossible d\'ajouter le commentaire !');
+    // Signaler un commentaire
+    public function alertComment($id, $post_id) {
+        $alertedComment = $this->CommentManager->reportComment($id);
+        
+        if ($alertedComment === false) {
+            throw new \Exception("Impossible de signaler le commentaire !");
         }
         else {
-            header('Location: chapters.php?action=post&id=' . $postId);
+            header('Location: ?controller=postController&action=showComment&id=' . $post_id);
         }
-    }  
+    }
 }

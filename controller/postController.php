@@ -1,44 +1,87 @@
 <?php
-// Chargement des classes
-namespace OpenClassrooms\Blog\Controller;
+
+namespace Benjamin\Alaska\Controller;
 
 require_once('model/postManager.php');
-
-class postController { 
+require_once('model/CommentManager.php');
+class postController {
 
     function __construct() {
-        $this->postManager = new \OpenClassrooms\Blog\Model\PostManager();   
+        $this->postManager = new \Benjamin\Alaska\Model\postManager();  
+        $this->commentManager = new \Benjamin\Alaska\Model\CommentManager();  
     }
 
+    //Page accueil
     public function getPosts() {
         $posts = $this->postManager->getPosts();
         require 'view/frontend/accueil.php';
     }
 
-     public function printChapters() {
+    //Retourne la liste des chapitres.
+    public function printChapters() {
         $posts = $this->postManager->getPosts();
         require('view/frontend/listPostView.php');
     }
- 
-    public function viewPost() {
+
+    // Afficher le contenu d'un billet
+    public function showChapter($id) {
+        $post = $this->postManager->getPost($id);
+        $comments = $this->commentManager->getComments($id);
         
+        if ($post->getId() == null)
+        {
+            require 'view/frontend/error.php';
+        }
+        else
+        {
+            require 'view/frontend/postView.php';
+        }
     }
 
-    
-    public function post() {
-    
-        $post = $this->postManager->getPost($_GET['id']);
+    //Envoie de mail
+    public function contact() {
         
-    
-        require('view/frontend/postView.php');
+        if(isset($_POST['mailform'])) {
+            if(!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['message'])) {
+                //Version d'encodage mail.
+                $header="MIME-Version: 1.0\r\n";
+                $header.='From:"Jean Forteroche"<jeanForteroche44@gmail.com>'."\n";
+                $header.='Content-Type:text/html; charset="uft-8"'."\n";
+                $header.='Content-Transfer-Encoding: 8bit';
+                
+                $message='
+                <html>
+                    <body>
+                        <div align="center">
+                            
+                            <u>Nom de l\'expéditeur :</u>'.$_POST['nom'].'<br />
+                            <u>Mail de l\'expéditeur :</u>'.$_POST['mail'].'<br />
+                            <br />
+                            '.nl2br($_POST['message']).'
+                            <br />
+                        
+                        </div>
+                    </body>
+                </html>
+                ';
+                
+                mail('jeanForteroche44@gmail.com', "Contact - alaska.fr", $message, $header);
+            }
+        }
+
+        if(isset($message))
+		{
+			header("Location: http://localhost/coursphp/Jean-Forteroche/contact");
+			exit;
+		}
+        
+        $this->postManager->getPosts();
+        require 'view/frontend/contact.php'; 
     }
-    
-    public function editPost() { 
-        if(isset($_POST['title']) AND isset($_POST['content']) AND isset($_POST['id'])) {
-            $db = dbConnect();
-            $req = $db->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
-            $req->execute(array($_POST['title'], $_POST['content'], $_POST['id']));
-          }
+
+    public function administration() {
+        $posts = $this->postManager->getPosts();
+        require 'view/frontend/administration.php';
     }
 }
 

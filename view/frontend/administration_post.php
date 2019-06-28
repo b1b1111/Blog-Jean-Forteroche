@@ -5,10 +5,6 @@
     
     $bdd = new mysqli('localhost', 'root', '', 'jean forteroche');
 
-    if ($bdd->connect_error) {
-        echo 'Erreur de connexion';
-    }
-
     $req = $bdd->prepare("INSERT INTO posts(title, content) VALUES (?, ?)");
 
     $req->bind_param("ss",$title,$content);

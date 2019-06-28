@@ -20,6 +20,14 @@ class frontendModel extends manager {
         return $post;
     }
 
+    
+    public function updatePost() {
+        $db = dbConnect();
+        $req = $db->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
+        $req->execute(array($_POST['title'], $_POST['content'], $_POST['id']));
+    }
+ 
+
     public function getComments($postId) {
         $db = dbConnect();
         $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');

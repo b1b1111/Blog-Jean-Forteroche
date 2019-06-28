@@ -13,7 +13,7 @@ if(isset($_GET['type']) AND $_GET['type'] == 'comments') {
       $req = $bdd->prepare('DELETE FROM comments WHERE id = ?');
       $req->execute(array($supprime));
    }
-}
+}  
 
 if(isset($_GET['type']) AND $_GET['type'] == 'posts') {
    if(isset($_GET['approuve']) AND !empty($_GET['approuve'])) {
@@ -27,6 +27,8 @@ if(isset($_GET['type']) AND $_GET['type'] == 'posts') {
       $req->execute(array($supprime));
    }
 }
+
+
 
 $comment = $bdd->query('SELECT * FROM comments ORDER BY id DESC LIMIT 0,15');
 $posts = $bdd->query('SELECT * FROM posts ORDER BY id DESC LIMIT 0,15');

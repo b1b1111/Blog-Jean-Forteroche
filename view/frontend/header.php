@@ -1,6 +1,6 @@
 <?php
     function view_menu() {
-        $tab_link_menu = array("index", "chapters", "contact", "administration");
+        $tab_link_menu = array("index", "chapitres", "contact", "administration");
         $tab_text_menu = array("Accueil", "Chapitres", "Contact", "Administration");
 
         $info = pathinfo($_SERVER['PHP_SELF']);

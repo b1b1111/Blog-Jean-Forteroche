@@ -2,11 +2,11 @@
 
 namespace Benjamin\Alaska\Model;
 
-class Message {
+class Message {  
     // Message d'erreur
     public function Error($message) {
         global $alert;
-        $alert = ['alertMessage' => $message]; 
+        $alert = ['alertMessage' => $message];
     }
     // Renvoie un message de confirmation
     public function Success($message) {

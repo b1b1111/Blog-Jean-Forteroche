@@ -4,12 +4,23 @@ namespace Benjamin\Alaska\Model;
 
 require_once("model/manager.php");
 class CommentManager extends manager {
-    //Obtenir les commentaires d'un billet
+
+    function __construct() {
+        $this->newManager = new \Benjamin\Alaska\Model\Manager();  
+    }
+
+    public function getAllComments() {
+
+        $db = $this->newManager->dbConnect();
+        $comments = $db->query('SELECT id, author, content, alert, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments ORDER BY comment_date DESC');
+
+        return $comments;
+    }
+    //les commentaires d'un chapitre
     public function getComments($post_id) {
 
-        $newManager = new Manager();
-        $db = $newManager->dbConnect();
-        $comments = $db->prepare('SELECT id, author, content, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+        $db = $this->newManager->dbConnect();
+        $comments = $db->prepare('SELECT id, author, content, alert, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
         $comments->execute(array($post_id));
 
         return $comments;
@@ -17,8 +28,8 @@ class CommentManager extends manager {
 
     // Publier un nouveau commentaire
     public function postComment($post_id, $author, $content) {
-        $newManager = new Manager();
-        $db = $newManager->dbConnect();
+        
+        $db = $this->newManager->dbConnect();
         $comments = $db->prepare('INSERT INTO comments(post_id, author, content, comment_date) VALUES(?, ?, ?, NOW())');
         $affectedLines = $comments->execute(array($post_id, $author, $content));
 
@@ -28,16 +39,36 @@ class CommentManager extends manager {
     // Signaler un commentaire.
     public function reportComment($id) {
 
-        $newManager = new Manager();
-        $db = $newManager->dbConnect();
+        $db = $this->newManager->dbConnect();
         $request = $db->prepare('UPDATE comments SET alert = alert + 1 WHERE id = ?');
 
         $alertedComment = $request->execute(array($id));
 
         return $alertedComment;
     }
-    // Récupérer les commentaires signalés.
-    public function getReportedComments() {
+
+    // Modifier un commentaire
+    public function updateComment($id, $content) {
+
+        $db = $this->newManager->dbConnect();
+        $request = $db->prepare('UPDATE comments SET content = ?, comment_date = NOW() WHERE id = ?');
+        $comment = $request->execute(array($content, $id));
+        // Résultat
+        return $comment;
+    }
+
+    // Supprimer un commentaire
+    public function deleteComment($id) {
+
+        $db = $this->newManager->dbConnect();
+        $request = $db->prepare('DELETE FROM comments WHERE id = ?');
+
+        $deletedComment = $request->execute(array($id));
+        return $deletedComment;
+    }
+
+        // Récupérer les commentaires signalés.
+    /*public function getReportedComments() {
 
         $newManager = new Manager();
         $db = $newManager->dbConnect();
@@ -46,37 +77,5 @@ class CommentManager extends manager {
         $request->execute(array());
      
         return $request;
-    }
-    // Obtenir l'identifiant d'un commentaire
-    public function getComment($id) {
-
-        $newManager = new Manager();
-        $db = $newManager->dbConnect();
-        $request = $db->prepare('SELECT id, post_id, author, content, alert, comment_date FROM comments WHERE id = ?');
-        $request->execute(array($id));
-
-        $comment = $request->fetch();
-        return new Comment($comment['id'], $comment['post_id'], $comment['author'], $comment['content'], $comment['alert'], $comment['comment_date']);
-    }
-
-    // Modifier un commentaire depuis la page d'administration
-    public function updateComment($id, $content) {
-
-        $newManager = new Manager();
-        $db = $newManager->dbConnect();
-        $request = $db->prepare('UPDATE comments SET content = ?, comment_date = NOW() WHERE id = ?');
-        $comment = $request->execute(array($content, $id));
-        // Résultat
-        return $comment;
-    }
-    // Supprimer un commentaire depuis la page d'administration
-    public function deleteComment($id) {
-
-        $newManager = new Manager();
-        $db = $newManager->dbConnect();
-        $request = $db->prepare('DELETE FROM comments WHERE id = ?');
-
-        $deletedComment = $request->execute(array($id));
-        return $deletedComment;
-    }
+    }*/
 }

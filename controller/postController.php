@@ -23,19 +23,12 @@ class postController {
         require('view/frontend/listPostView.php');
     }
 
-    // Afficher le contenu d'un billet
+    // Afficher le contenu d'un chapitre
     public function showChapter($id) {
         $post = $this->postManager->getPost($id);
         $comments = $this->commentManager->getComments($id);
+        require 'view/frontend/postView.php';
         
-        if ($post->getId() == null)
-        {
-            require 'view/frontend/error.php';
-        }
-        else
-        {
-            require 'view/frontend/postView.php';
-        }
     }
 
     //Envoie de mail
@@ -81,6 +74,7 @@ class postController {
 
     public function administration() {
         $posts = $this->postManager->getPosts();
+        $comments = $this->commentManager->getAllComments();
         require 'view/frontend/administration.php';
     }
 }

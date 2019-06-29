@@ -1,5 +1,6 @@
 <?php
     function view_menu() {
+
         $tab_link_menu = array("index", "chapitres", "contact", "administration");
         $tab_text_menu = array("Accueil", "Chapitres", "Contact", "Administration");
 
@@ -14,7 +15,7 @@
                     if($info['basename'] == $link)
                         $menu .="class=\"active\"";
 
-                    $menu .= "><a href=\"" . $link . "\">" . $tab_text_menu[$cle] . "</a></li>\n";
+                    $menu .= "><a href=\"" . $_POST['URL_PATH'] . $link . "\">" . $tab_text_menu[$cle] . "</a></li>\n";
             }
         
             $menu .= "</ul>\n</div>";

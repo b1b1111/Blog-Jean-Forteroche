@@ -2,19 +2,16 @@
 <?php require('header.php');
 $menu = view_menu(); 
 ?>
-<?php require('controller\adminController.php'); ?>
 
 <?php ob_start(); ?>
-
-  <link href="../public/css/style.css" type="text/css" rel="stylesheet"/>
 
   <ul id="list_comment">
         <h2 class="adminH2">Liste des commentaires</h2>
         <p class="adminParagraphe" ><em>Validez ou supprimer les commentaires.</em></p>
 
-        <?php while($c = $comment->fetch()) { ?>
+        <?php while($c = $comments->fetch()) { ?>
 
-        <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['comment'] ?><?php if($c['approuve'] == 0) { ?> <br />
+        <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['content'] ?><?php if($c['alert'] == 0) { ?> <br />
         <a class="admin_approuve" href="administration?type=comments&approuve=<?= $c['id'] ?>">Approuver</a><?php } ?>
         &nbsp;&nbsp;
         <a class="form_btn" href="administration?type=comments&supprime=<?= $c['id'] ?>">Supprimer</a></li><br />
@@ -27,7 +24,7 @@ $menu = view_menu();
 
         <?php while($a = $posts->fetch()) { ?>
 
-        <li><?= $a['id'] ?> : <?= $a['title']?><?php if($a['approuve'] == 0) { ?> <br />
+        <li><?= $a['id'] ?> : <?= $a['title']?><?php if($a['alert'] == 0) { ?> <br />
         <a class="admin_approuve" href="administration?type=posts&approuve=<?= $a['id'] ?>">Approuver</a><?php } ?> 
         &nbsp;&nbsp;
         <a class="form_btn" href="administration?type=posts&supprime=<?= $a['id'] ?>">Supprimer</a></li><br />

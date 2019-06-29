@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title><?= $title ?></title>
-        <link href="public/css/style.css" type="text/css" rel="stylesheet"/>
+        <link href="<?= $_POST['URL_PATH'] ?>public/css/style.css" type="text/css" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P:regular" rel="stylesheet" />
     </head>

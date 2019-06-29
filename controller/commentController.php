@@ -10,16 +10,17 @@ class commentController {
         $this->CommentManager = new \Benjamin\Alaska\Model\CommentManager();
         $this->Message = new \Benjamin\Alaska\Model\Message();   
     }
+
     // Nouveau commentaire
     public function addComment($post_id, $author, $content) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!empty($author) && !empty($content)) {
                 $this->CommentManager->postComment($post_id, $author, $content);
-                $this->Message->setSuccess("<p>Votre commentaire a bien été publié !</p>");  
+                $this->Message->Success("<p>Votre commentaire a bien été publié !</p>");  
             }
 
             else {
-                $this->Message->setError("<p>Tous les champs doivent être rempli !</p>");
+                $this->Message->CommentError("<p>Tous les champs doivent être rempli !</p>");
             }
         }
         $newPostController = new PostController();
@@ -28,7 +29,7 @@ class commentController {
 
     // Signaler un commentaire
     public function alertComment($id, $post_id) {
-        $alertedComment = $this->CommentManager->reportComment($id);
+        $alertedComment = $this->CommentManager->signalComment($id);
         
         if ($alertedComment === false) {
             throw new \Exception("Impossible de signaler le commentaire !");

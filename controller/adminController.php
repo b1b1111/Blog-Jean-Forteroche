@@ -12,7 +12,8 @@ class adminController {
       $this->CommentManager = new \Benjamin\Alaska\Model\CommentManager();
       $this->Message = new \Benjamin\Alaska\Model\Message(); 
       $this->postManager = new \Benjamin\Alaska\Model\postManager();  
-   }   
+   }  
+    
     // Liste des chapitres et commentaires signalés
     public function indexAdmin() {
 
@@ -36,8 +37,8 @@ class adminController {
             }
         }
         // Sinon on reste sur la page
-        $newAdministrationController = new AdministrationController();
-        $newAdministrationController->indexAdmin();
+        $adminController = new AdministrationController();
+        $adminController->indexAdmin();
     }
 
     // Modifier un chapitre
@@ -59,7 +60,7 @@ class adminController {
             throw new Exception("Impossible de supprimer le billet !");
         }
         else {
-            header('Location: ?controller=administrationController&action=indexAdmin');
+            header('Location: ?controller=adminController&action=indexAdmin');
         }
     }
 }

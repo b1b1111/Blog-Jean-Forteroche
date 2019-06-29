@@ -1,5 +1,7 @@
 <?php
 
+$_POST['URL_PATH'] = 'http://localhost/coursphp/Jean-Forteroche/';
+
 require_once('controller/postController.php');
 require_once('controller/commentController.php');
 require_once('controller/adminController.php');
@@ -13,17 +15,19 @@ if(isset($_GET['url'])) {
     $url = explode('/', $_GET['url']);
 }
 
-if ($url == '') {
+if (empty($url)) {
     $postController->getPosts();
 } 
 
-else if($url[0] == 'chapitres' AND !empty($url[0])) {
+else if($url[0] == 'chapitres') {
     if (empty($url[1])) {
         $postController->printChapters();
     }
 
     else if(is_numeric($url[1])) {
-        $postController->showChapter($id);  
+        
+        echo($url[1]);
+        $postController->showChapter($url[1]);  
     }
 
     else if ($url[1] == 'comment') {
@@ -36,14 +40,16 @@ else if($url[0] == 'chapitres' AND !empty($url[0])) {
     }  
 } 
 
-else if($url[0] == 'contact' AND !empty($url[0])) {
+else if($url[0] == 'contact') {
     $postController->contact();
 } 
 
-else if($url[0] == 'administration' AND !empty($url[0])) {
-    $postController->administration();
+else if($url[0] == 'administration') {
+    if(empty($url[1])) { 
+        $postController->administration();
+    }
 
-    if ($url[1] == 'create') {
+    else if ($url[1] == 'create') {
         // appele function create chapters
         $adminController->postAdmin($title, $content);
     }

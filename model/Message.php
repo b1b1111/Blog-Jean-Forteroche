@@ -3,17 +3,13 @@
 namespace Benjamin\Alaska\Model;
 
 class Message {
-    public function __contruct() {
-    }
     // Message d'erreur
-    public function setError($message) {
+    public function Error($message) {
         global $alert;
-        $alert = [
-            'alertMessage' => $message
-        ];
+        $alert = ['alertMessage' => $message];
     }
     // Renvoie un message de confirmation
-    public function setSuccess($message) {
+    public function Success($message) {
         global $success;
         $success = ['successMessage' => $message];
     }

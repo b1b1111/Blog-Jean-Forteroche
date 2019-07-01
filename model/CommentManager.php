@@ -16,7 +16,7 @@ class CommentManager extends manager {
 
         return $comments;
     }
-    //les commentaires d'un chapitre
+    //Retourne les commentaires d'un chapitre
     public function getComments($post_id) {
 
         $db = $this->newManager->dbConnect();
@@ -66,16 +66,4 @@ class CommentManager extends manager {
         $deletedComment = $request->execute(array($id));
         return $deletedComment;
     }
-
-        // Récupérer les commentaires signalés.
-    /*public function getReportedComments() {
-
-        $newManager = new Manager();
-        $db = $newManager->dbConnect();
-        $request = $db->query('SELECT id, post_id, author, content, alert, DATE_FORMAT(comment_date, \'le %d/%m/%Y à %Hh%i\') AS comment_date_fr, FROM comments WHERE alert != 0 ORDER BY alert DESC LIMIT 15');
-
-        $request->execute(array());
-     
-        return $request;
-    }*/
 }

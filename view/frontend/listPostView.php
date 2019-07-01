@@ -42,7 +42,6 @@ $menu = view_menu();
     $posts->closeCursor();
 ?>
 
-
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

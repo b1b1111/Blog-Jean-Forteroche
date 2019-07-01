@@ -14,10 +14,8 @@ class postManager extends manager {
 
         $db = $this->newManager->dbConnect();
         
-        $request = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'le %d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC');
-        
+        $request = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'le %d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC');    
         return $request;
-
     }
 
     // Renvoie les informations d'un chapitre

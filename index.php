@@ -15,6 +15,7 @@ if(isset($_GET['url'])) {
     $url = explode('/', $_GET['url']);
 }
 
+//Accueil
 if (empty($url)) {
     $postController->getPosts();
 } 
@@ -61,9 +62,8 @@ else if($url[0] == 'administration') {
         // appele function delete chapters
         $adminController->deletepostAdmin($id);
     }
-    else if ($url[1] == 'deleteComment') {
-        // appele function delete chapters
-        $adminController->deleteComment($id);
+    elseif ($url[1] == 'deleteComment') {
+        $adminController->deleteCommentAdmin('id');
     }
 } 
 

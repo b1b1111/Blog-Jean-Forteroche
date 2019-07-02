@@ -14,33 +14,22 @@ class adminController {
       $this->postManager = new \Benjamin\Alaska\Model\postManager();  
    }  
     
-    // Liste des chapitres et commentaires signalés
+    // Liste des chapitres et commentaires
     public function indexAdmin() {
 
         $posts = $this->postManager->getPosts();
         $comments = $this->CommentManager->getReportedComments();
-        // Vue
+       
         require 'view/frontend/administration.php';
     }
 
     // Créer un chapitre
     public function postAdmin($title, $content) {
-        // Si la requête serveur est une méthode POST
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (!empty($title) && !empty($content)) {
-               $this->postManager->addPost($title, $content);
-               $this->Message->setSuccess("<p>Votre billet a bien été publié !</p>");
-            }
-            else {
-                
-               $this->Message->setError("<p>Tous les champs doivent être rempli !</p>");
-            }
-        }
-        // Sinon on reste sur la page
-        $adminController = new AdministrationController();
-        $adminController->indexAdmin();
+        
+        $postChapter = $this->postManager->addPost($title, $content);
+        require 'view/frontend/administration.php';
     }
-
+        
     // Modifier un chapitre
     public function editpostAdmin($id) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -49,17 +38,22 @@ class adminController {
         }
         $post = $this->postManager->getPost($id);
 
-        require 'views/editPost.php';
+        require 'view/frontend/administration.php';
     }
 
     // Supprimer un chapitre
     public function deletepostAdmin($id) {
         $deletedPost = $this->postManager->deletePost($id);
+        
+        require 'view/frontend/administration.php';
     }
 
+    // Supprimer un commentaire
     public function deleteCommentAdmin($id)
     {
-        $newCommentManager = new CommentManager();
-        $deletedComment = $newCommentManager->deleteComment($id);  
-    }
+        $deletedComment = $this->CommentManager-> deleteComment($id);
+
+        
+    }  
+     
 }

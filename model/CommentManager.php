@@ -6,7 +6,8 @@ require_once("model/manager.php");
 class CommentManager extends manager {
 
     function __construct() {
-        $this->newManager = new \Benjamin\Alaska\Model\Manager();  
+        $this->newManager = new \Benjamin\Alaska\Model\Manager(); 
+         
     }
 
     public function getAllComments() {
@@ -62,6 +63,8 @@ class CommentManager extends manager {
 
         $db = $this->newManager->dbConnect();
         $request = $db->prepare('DELETE FROM comments WHERE id = ?');
-        $deletedComment = $request->execute(array($id));
+        $request->execute(array($id));
+        $deletedComment = $request->fetch();
+        return $deletedComment;
     }
 }

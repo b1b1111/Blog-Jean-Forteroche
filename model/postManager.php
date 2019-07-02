@@ -31,9 +31,8 @@ class postManager extends manager {
 
     // Création d'un nouveau chapitre
     public function addPost($title, $content) {
-
         $db = $this->newManager->dbConnect();
-        $request = $db->prepare('INSERT INTO posts (title, content, creation_date) VALUES (?, ?, NOW())');
+        $request = $db->prepare('INSERT INTO posts (title, content) VALUES (?, ?)');
 
         $request->execute(array($title, $content));
     }

@@ -1,3 +1,4 @@
+<?php var_dump($comments); ?>
 <?php $title = 'Jean Forteroche'; ?>
 <?php require('header.php');
 $menu = view_menu(); 
@@ -12,9 +13,9 @@ $menu = view_menu();
         <?php while($c = $comments->fetch()) { ?>
 
         <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['content'] ?><?php if($c['alert'] == 0) { ?> <br />
-        <a class="admin_approuve" href="?controller=adminController&action=postAction">Approuver</a><?php } ?>
+        <a class="admin_approuve" href="<?php $_POST['URL_PATH'] ?>approuve/<?= $c['id'] ?>">Approuver</a><?php } ?>
         &nbsp;&nbsp;
-        <a class="form_btn" href="?controller=adminController&action=deleteCommentAction&id=<?= $comments->getId() ?>">Supprimer</a></li><br />
+        <a class="form_btn" href="<?php $_POST['URL_PATH'] ?>deleteComment/<?= $c['id'] ?>">Supprimer</a></li><br />
         <?php } ?>
   </ul>
 

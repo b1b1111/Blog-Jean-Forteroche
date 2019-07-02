@@ -12,9 +12,9 @@ $menu = view_menu();
         <?php while($c = $comments->fetch()) { ?>
 
         <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['content'] ?><?php if($c['alert'] == 0) { ?> <br />
-        <a class="admin_approuve" href="administration?type=comments&approuve=<?= $c['id'] ?>">Approuver</a><?php } ?>
+        <a class="admin_approuve" href="?controller=adminController&action=postAction">Approuver</a><?php } ?>
         &nbsp;&nbsp;
-        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration?$deletedComment<?= $c['id'] ?>">Supprimer</a></li><br />
+        <a class="form_btn" href="?controller=adminController&action=deleteCommentAction&id=<?= $comments->getId() ?>">Supprimer</a></li><br />
         <?php } ?>
   </ul>
 
@@ -25,16 +25,16 @@ $menu = view_menu();
         <?php while($a = $posts->fetch()) { ?>
 
         <li><?= $a['id'] ?> : <?= $a['title']?>
-        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>administration?posts&=<?= $a['id'] ?>">Approuver</a><?php } ?>
+        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>administration/?posts&=<?= $a['id'] ?>">Approuver</a><?php } ?>
         &nbsp;&nbsp;
-        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration?type=posts&supprime=<?= $a['id'] ?>">Supprimer</a></li><br /><br />
+        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration?posts&supprime=<?= $a['id'] ?>">Supprimer</a></li><br /><br />
   </ul>
 
     <h2 class="adminH2">Nouveaux chapitres</h2>
     <p class="adminParagraphe"><em>Création et mise en ligne des chapitres.</em></p>
 
 
-  <form id="form_articles" method="post" action="postManager?addpost()">
+  <form id="form_articles" method="post" action="administration">
         
         <input type="text" placeholder="Titre" id="title" name="title"/><br />
 

@@ -55,12 +55,11 @@ class adminController {
     // Supprimer un chapitre
     public function deletepostAdmin($id) {
         $deletedPost = $this->postManager->deletePost($id);
-        
-        if ($deletedPost === false) {
-            throw new Exception("Impossible de supprimer le billet !");
-        }
-        else {
-            header('Location: ?controller=adminController&action=indexAdmin');
-        }
+    }
+
+    public function deleteCommentAdmin($id)
+    {
+        $newCommentManager = new CommentManager();
+        $deletedComment = $newCommentManager->deleteComment($id);  
     }
 }

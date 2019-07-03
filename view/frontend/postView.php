@@ -7,7 +7,7 @@ $menu = view_menu();
 <?php ob_start(); ?>
 
 
-<h2><a href="http://localhost/coursphp/Jean-Forteroche/chapitres">Retour à la liste des billets</a></h2>
+<h2><a href="<?= $_POST['URL_PATH'] ?>/chapitres">Retour à la liste des billets</a></h2>
 
 <div class="news">
     <h3>

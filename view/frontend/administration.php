@@ -1,8 +1,8 @@
-<?php var_dump($comments); ?>
 <?php $title = 'Jean Forteroche'; ?>
 <?php require('header.php');
 $menu = view_menu(); 
 ?>
+<?php require('controller/admin.php'); ?>
 
 <?php ob_start(); ?>
 
@@ -10,12 +10,12 @@ $menu = view_menu();
         <h2 class="adminH2">Liste des commentaires</h2>
         <p class="adminParagraphe" ><em>Validez ou supprimer les commentaires.</em></p>
 
-        <?php while($c = $comments->fetch()) { ?>
+        <?php while($c = $comment->fetch()) { ?>
 
-        <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['content'] ?><?php if($c['alert'] == 0) { ?> <br />
-        <a class="admin_approuve" href="<?php $_POST['URL_PATH'] ?>approuve/<?= $c['id'] ?>">Approuver</a><?php } ?>
+        <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['content'] ?><?php if($c['approuve'] == 0) { ?> <br />
+        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>administration?type=comments&approuve=<?= $c['id'] ?>">Approuver</a><?php } ?>
         &nbsp;&nbsp;
-        <a class="form_btn" href="<?php $_POST['URL_PATH'] ?>deleteComment/<?= $c['id'] ?>">Supprimer</a></li><br />
+        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration?type=comments&supprime=<?= $c['id'] ?>">Supprimer</a></li><br />
         <?php } ?>
   </ul>
 
@@ -25,11 +25,13 @@ $menu = view_menu();
 
         <?php while($a = $posts->fetch()) { ?>
 
-        <li><?= $a['id'] ?> : <?= $a['title']?>
-        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>administration/?posts&=<?= $a['id'] ?>">Approuver</a><?php } ?>
+        <li><?= $a['id'] ?> : <?= $a['title']?><?php if($a['approuve'] == 0) { ?><br />
+        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>type=posts&approuve=<?= $a['id'] ?>">Approuver</a><?php } ?>
         &nbsp;&nbsp;
-        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration?posts&supprime=<?= $a['id'] ?>">Supprimer</a></li><br /><br />
+        <a class="form_btn" href="administration?type=posts&supprime=<?= $a['id'] ?>">Supprimer</a></li><br /><br />
+        <?php } ?>
   </ul>
+
 
     <h2 class="adminH2">Nouveaux chapitres</h2>
     <p class="adminParagraphe"><em>Création et mise en ligne des chapitres.</em></p>

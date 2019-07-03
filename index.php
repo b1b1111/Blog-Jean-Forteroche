@@ -45,12 +45,13 @@ else if($url[0] == 'contact') {
     $postController->contact();
 } 
 
-else if($url[0] == 'administration') {
+if($url[0] == 'administration') {
     if(empty($url[1])) { 
         $postController->administration();
     }
 
     else if ($url[1] == 'create') {
+
         // appele function create chapters
         $adminController->postAdmin($title, $content);
     }
@@ -62,8 +63,8 @@ else if($url[0] == 'administration') {
         // appele function delete chapters
         $adminController->deletepostAdmin($id);
     }
-    elseif ($url[1] == 'deleteComment') {
-        $adminController->deleteCommentAdmin('id');
+    else if ($url[1] == 'deleteComment') {
+        $adminController->deleteCommentAdmin($_GET['id']);
     }
 } 
 

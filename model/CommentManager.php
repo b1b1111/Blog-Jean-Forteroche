@@ -64,7 +64,7 @@ class CommentManager extends manager {
         $db = $this->newManager->dbConnect();
         $request = $db->prepare('DELETE FROM comments WHERE id = ?');
         $request->execute(array($id));
-        $deletedComment = $request->fetch();
+        $deletedComment = "Le message n° ".$id." a bien été supprimé.";
         return $deletedComment;
     }
 }

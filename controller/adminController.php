@@ -13,20 +13,11 @@ class adminController {
       $this->Message = new \Benjamin\Alaska\Model\Message(); 
       $this->postManager = new \Benjamin\Alaska\Model\postManager();  
    }  
-    
-    // Liste des chapitres et commentaires
-    public function indexAdmin() {
-
-        $posts = $this->postManager->getPosts();
-        $comments = $this->CommentManager->getReportedComments();
-       
-        require 'view/frontend/administration.php';
-    }
 
     // Créer un chapitre
     public function postAdmin($title, $content) {
         
-        $postChapter = $this->postManager->addPost($title, $content);
+        $post = $this->postManager->addPost($title, $content);
         require 'view/frontend/administration.php';
     }
         
@@ -53,6 +44,12 @@ class adminController {
     {
         $deletedComment = $this->CommentManager-> deleteComment($id);
 
+        if ($deletedComment === false) {
+            throw new \Exception("Impossible de supprimer le commentaire !");
+        }
+        else {
+            header('Location: http://localhost/coursphp/Jean-Forteroche/administration/');
+        }
         
     }  
      

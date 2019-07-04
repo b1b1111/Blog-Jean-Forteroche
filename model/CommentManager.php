@@ -6,8 +6,7 @@ require_once("model/manager.php");
 class CommentManager extends manager {
 
     function __construct() {
-        $this->newManager = new \Benjamin\Alaska\Model\Manager(); 
-         
+        $this->newManager = new \Benjamin\Alaska\Model\Manager();      
     }
 
     public function getAllComments() {
@@ -66,5 +65,9 @@ class CommentManager extends manager {
         $request->execute(array($id));
         $deletedComment = "Le message n° ".$id." a bien été supprimé.";
         return $deletedComment;
+    }
+
+    public function approuveComment() {
+        
     }
 }

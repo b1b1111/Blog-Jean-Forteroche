@@ -29,12 +29,15 @@ else if($url[0] == 'chapitres') {
         
         echo($url[1]);
         $postController->showChapter($url[1]);  
+
+        if ($url[1] == 'createComment') {
+            $post_id = $_POST['post_id'];
+            $author = $_POST['author'];
+            $content = $_POST['content'];
+            $commentController->addComment($url[1], $post_id, $author, $content);
+        }
     }
 
-    else if ($url[1] == 'comment') {
-        // appele function comment chapter
-        $commentController->addComment($post_id, $author, $content);
-    }
     else if ($url[1] == 'alert') {
         // appele function alert comment
         $adminController->alertComment($id, $post_id);
@@ -51,13 +54,14 @@ if($url[0] == 'administration') {
     }
 
     else if ($url[1] == 'create') {
-
         // appele function create chapters
+        $title = $_POST['title'];
+        $content = $_POST['content'];
         $adminController->postAdmin($title, $content);
     }
     else if ($url[1] == 'update') {
-        // appele function update chapters
-        $adminController->editpostAdmin($id);
+        
+        $adminController->editpostAdmin($url[1], $id);
     }
     else if ($url[1] == 'delete') {
         // appele function delete chapters
@@ -67,7 +71,3 @@ if($url[0] == 'administration') {
         $adminController->deleteCommentAdmin($_GET['id']);
     }
 } 
-
-else {
-    require 'view/frontend/error.php';
-}

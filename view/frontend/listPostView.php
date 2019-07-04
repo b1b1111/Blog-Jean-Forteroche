@@ -26,7 +26,7 @@ $menu = view_menu();
 
         <?php
                 //récupère un extrait de content.
-                $resum = substr($data['content'], 0,140);
+                $resum = substr($data['content'], 0,180);
                 //trouve dernier espace après dernier mot de l'extrait.
                 $space = strrpos($resum, ' ');
                 

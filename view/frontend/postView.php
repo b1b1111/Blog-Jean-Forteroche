@@ -21,18 +21,17 @@ $menu = view_menu();
 
 <h2>Commentaires</h2>
 
-<form action="?<?php $_POST['URL_PATH'] ?>chapitres/=<?= $post['id'] ?>" method="post">
-    <div>
+<form id="form_com" method="post" action="createComment">
+   
         <label for="author">Auteur</label><br />
         <input type="text" id="author" name="author"/> <br /><br />
-    </div>
-    <div>
+    
         <label for="comment">Commentaire</label><br />
-        <textarea id="comment" name="comment"></textarea>
-    </div>
-    <div>
-        <input class="form_btn" type="submit" />
-    </div>
+        <textarea id="comment" name="comment"></textarea><br />
+
+        <button class="admin_approuve">Editer commentaires</button>
+
+    
 </form>
 
 <?php

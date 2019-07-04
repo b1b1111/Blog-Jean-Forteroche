@@ -1,8 +1,9 @@
 <?php $title = 'Jean Forteroche'; ?>
+<?php require('controller/admin.php'); ?>
 <?php require('header.php');
 $menu = view_menu(); 
 ?>
-<?php require('controller/admin.php'); ?>
+
 
 <?php ob_start(); ?>
 
@@ -13,9 +14,9 @@ $menu = view_menu();
         <?php while($c = $comment->fetch()) { ?>
 
         <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['content'] ?><?php if($c['approuve'] == 0) { ?> <br />
-        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>administration?type=comments&approuve=<?= $c['id'] ?>">Approuver</a><?php } ?>
+        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>/administration/?type=comments&approuve=<?= $c['id'] ?>">Approuver</a><?php } ?>
         &nbsp;&nbsp;
-        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration?type=comments&supprime=<?= $c['id'] ?>">Supprimer</a></li><br />
+        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>/administration/?type=comments&supprime=<?= $c['id'] ?>">Supprimer</a></li><br />
         <?php } ?>
   </ul>
 
@@ -26,9 +27,11 @@ $menu = view_menu();
         <?php while($a = $posts->fetch()) { ?>
 
         <li><?= $a['id'] ?> : <?= $a['title']?><?php if($a['approuve'] == 0) { ?><br />
-        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>type=posts&approuve=<?= $a['id'] ?>">Approuver</a><?php } ?>
+        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>/administration/?type=posts&approuve=<?= $a['id'] ?>">Approuver</a><?php } ?>
         &nbsp;&nbsp;
-        <a class="form_btn" href="administration?type=posts&supprime=<?= $a['id'] ?>">Supprimer</a></li><br /><br />
+        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>/administration/?type=posts&supprime=<?= $a['id'] ?>">Supprimer</a></li><br /><br />
+        &nbsp;&nbsp;
+        <a class="modif_btn" href="update">Modifier</a></li><br /><br />
         <?php } ?>
   </ul>
 
@@ -37,7 +40,7 @@ $menu = view_menu();
     <p class="adminParagraphe"><em>Création et mise en ligne des chapitres.</em></p>
 
 
-  <form id="form_articles" method="post" action="administration">
+  <form id="form_articles" method="post" action="create">
         
         <input type="text" placeholder="Titre" id="title" name="title"/><br />
 

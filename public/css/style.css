@@ -309,6 +309,10 @@ textarea {
 
 #contact_form textarea {
     width: 400px;
+    resize: none;
+    border: 2px none white;
+    padding: 10px;
+    border-radius: 5px;
     color: black;
 }
 

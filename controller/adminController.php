@@ -16,6 +16,8 @@ class adminController {
 
     // Créer un chapitre
     public function postAdmin($title, $content) {
+        $title = $_POST['title'];
+        $content = $_POST['content'];
         
         $post = $this->postManager->addPost($title, $content);
         require 'view/frontend/administration.php';

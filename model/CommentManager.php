@@ -9,6 +9,7 @@ class CommentManager extends manager {
         $this->newManager = new \Benjamin\Alaska\Model\Manager();      
     }
 
+    //Retourne tous les commentaires
     public function getAllComments() {
 
         $db = $this->newManager->dbConnect();
@@ -16,6 +17,7 @@ class CommentManager extends manager {
 
         return $comments;
     }
+
     //Retourne les commentaires d'un chapitre
     public function getComments($post_id) {
 
@@ -57,17 +59,21 @@ class CommentManager extends manager {
         return $comment;
     }
 
+    public function approuveComment($app) {
+        $db = $this->newManager->dbConnect();
+        $req = $db->prepare('UPDATE comments SET approuve = 1 WHERE id = ?');
+        
+        $approuve = $req->execute(array($app));
+        return $approuve;
+    }
+
     // Supprimer un commentaire
-    public function deleteComment($id) {
+    public function deleteComment($suppr) {
 
         $db = $this->newManager->dbConnect();
-        $request = $db->prepare('DELETE FROM comments WHERE id = ?');
-        $request->execute(array($id));
-        $deletedComment = "Le message n° ".$id." a bien été supprimé.";
-        return $deletedComment;
+        $req = $db->prepare('DELETE FROM comments WHERE id = ?');
+        $supprime = $req->execute(array($suppr));
+        return $supprime;
     }
 
-    public function approuveComment() {
-        
-    }
 }

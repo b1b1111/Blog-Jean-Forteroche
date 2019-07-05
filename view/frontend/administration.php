@@ -1,9 +1,8 @@
 <?php $title = 'Jean Forteroche'; ?>
-<?php require('controller/admin.php'); ?>
+
 <?php require('header.php');
 $menu = view_menu(); 
 ?>
-
 
 <?php ob_start(); ?>
 
@@ -11,12 +10,12 @@ $menu = view_menu();
         <h2 class="adminH2">Liste des commentaires</h2>
         <p class="adminParagraphe" ><em>Validez ou supprimer les commentaires.</em></p>
 
-        <?php while($c = $comment->fetch()) { ?>
+        <?php while($c = $comments->fetch()) { ?>
 
         <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['content'] ?><?php if($c['approuve'] == 0) { ?> <br />
-        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>/administration/?type=comments&approuve=<?= $c['id'] ?>">Approuver</a><?php } ?>
+        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>/administration/?confirm=<?= $c['id'] ?>">Approuver</a><?php } ?>
         &nbsp;&nbsp;
-        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>/administration/?type=comments&supprime=<?= $c['id'] ?>">Supprimer</a></li><br />
+        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>/administration/?delete=<?= $c['id'] ?>">Supprimer</a></li><br />
         <?php } ?>
   </ul>
 

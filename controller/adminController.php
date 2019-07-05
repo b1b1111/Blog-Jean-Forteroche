@@ -41,18 +41,26 @@ class adminController {
         require 'view/frontend/administration.php';
     }
 
-    // Supprimer un commentaire
-    public function deleteCommentAdmin($id)
-    {
-        $deletedComment = $this->CommentManager-> deleteComment($id);
+    public function approuveCommentAdmin($app) {
+        if(isset($_GET['type']) AND $_GET['type'] == 'comments') {
+            if(isset($_GET['approuve']) AND !empty($_GET['approuve'])) {
+                $approuve = $this->CommentManager->approuveComment($app);
+                $app = (int) $_GET['approuve'];
+                require 'view/frontend/administration.php';
+            }
+        }
+    }
 
-        if ($deletedComment === false) {
-            throw new \Exception("Impossible de supprimer le commentaire !");
-        }
-        else {
-            header('Location: http://localhost/coursphp/Jean-Forteroche/administration/');
-        }
+    // Supprimer un commentaire
+    public function deleteCommentAdmin($suppr) {
+        if(isset($_GET['type']) AND $_GET['type'] == 'comments') {
+            if(isset($_GET['supprime']) AND !empty($_GET['supprime'])) {
+            
+                 $supprime = $this->CommentManager->deleteComment($suppr);
+                 $suppr = (int) $_GET['supprime'];
+                 require 'view/frontend/administration.php';
         
-    }  
-     
+            }  
+        }
+    }
 }

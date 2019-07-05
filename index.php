@@ -53,6 +53,11 @@ if($url[0] == 'administration') {
         $postController->administration();
     }
 
+    else if ($url[1] == 'confirm') {
+        $app = (int) $_GET['approuve'];
+        $adminController->approuveComment($app);
+    }
+
     else if ($url[1] == 'create') {
         // appele function create chapters
         $title = $_POST['title'];
@@ -64,10 +69,10 @@ if($url[0] == 'administration') {
         $adminController->editpostAdmin($url[1], $id);
     }
     else if ($url[1] == 'delete') {
-        // appele function delete chapters
         $adminController->deletepostAdmin($id);
     }
     else if ($url[1] == 'deleteComment') {
-        $adminController->deleteCommentAdmin($_GET['id']);
+        $suppr = (int) $_GET['suppr'];
+        $adminController->deleteCommentAdmin($suppr);
     }
 } 

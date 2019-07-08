@@ -30,8 +30,7 @@ $menu = view_menu();
         <textarea id="comment" name="comment"></textarea><br />
 
         <button class="admin_approuve">Editer commentaires</button>
-
-    
+   
 </form>
 
 <?php

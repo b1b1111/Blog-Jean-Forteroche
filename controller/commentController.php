@@ -12,19 +12,11 @@ class commentController {
     }
 
     // Nouveau commentaire
-    public function addComment($post_id, $author, $content) {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (!empty($author) && !empty($content)) {
-                $this->CommentManager->postComment($post_id, $author, $content);
-                $this->Message->Success("<p>Votre commentaire a bien été publié !</p>");  
-            }
+    public function addComment($author, $content) {
+        $author = $_POST['author'];
+        $comment = $this->CommentManager->postComment($author, $content);
+        require ('view/frontend/postView.php');
 
-            else {
-                $this->Message->CommentError("<p>Tous les champs doivent être rempli !</p>");
-            }
-        }
-        $newPostController = new PostController();
-        $newPostController->showComment($post_id);
     }
 
     // Signaler un commentaire

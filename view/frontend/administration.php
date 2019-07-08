@@ -1,5 +1,5 @@
 <?php $title = 'Jean Forteroche'; ?>
-
+<?php require('controller/admin.php');?>
 <?php require('header.php');
 $menu = view_menu(); 
 ?>
@@ -10,7 +10,7 @@ $menu = view_menu();
         <h2 class="adminH2">Liste des commentaires</h2>
         <p class="adminParagraphe" ><em>Validez ou supprimer les commentaires.</em></p>
 
-        <?php while($c = $comments->fetch()) { ?>
+        <?php while($c = $comment->fetch()) { ?>
 
         <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['content'] ?><?php if($c['approuve'] == 0) { ?> <br />
         <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>/administration/?confirm=<?= $c['id'] ?>">Approuver</a><?php } ?>
@@ -33,7 +33,6 @@ $menu = view_menu();
         <a class="modif_btn" href="update">Modifier</a></li><br /><br />
         <?php } ?>
   </ul>
-
 
     <h2 class="adminH2">Nouveaux chapitres</h2>
     <p class="adminParagraphe"><em>Création et mise en ligne des chapitres.</em></p>

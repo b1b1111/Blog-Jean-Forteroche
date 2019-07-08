@@ -12,14 +12,10 @@ class commentController {
     }
 
     // Nouveau commentaire
-    public function addComment($postId, $author, $content) {
-        $author = $_POST['author'];
-        $content = $_POST['content'];
-
-        $postComment = $this->CommentManager->postComment($postId, $author, $content);
-        require 'view/frontend/postView.php';
+    public function addComment($id) {
+        $postComment = $this->CommentManager->postComment($id);
+        header('Location: '. $_POST['URL_PATH'] . 'chapitres/<?= $id ?>');
     }
-    
 
     // Signaler un commentaire
     public function alertComment($id, $post_id) {

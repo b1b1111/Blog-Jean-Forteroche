@@ -21,12 +21,12 @@ $menu = view_menu();
 
 <h2>Commentaires</h2>
 
-<form id="form_com" method="post" action="createComment">
+<form id="form_com" method="post" action="<?php $id ?>/createComment">
    
         <label for="author">Auteur</label><br />
         <input type="text" id="author" name="author"/> <br /><br />
     
-        <label for="comment">Commentaire</label><br />
+        <label for="content">Commentaire</label><br />
         <textarea id="comment" name="comment"></textarea><br />
 
         <button class="admin_approuve">Editer commentaires</button>

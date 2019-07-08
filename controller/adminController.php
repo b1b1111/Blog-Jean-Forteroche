@@ -20,6 +20,13 @@ class adminController {
         $post = $this->postManager->addPost($title, $content);
         header('Location: '. $_POST['URL_PATH'] . 'administration');
     }
+
+     // Créer un commentaire
+     public function postCommentAdmin($author, $content) {
+        
+        $post = $this->CommentManager->postComment($author, $content);
+        header('Location: '. $_POST['URL_PATH'] . 'administration');
+    }
         
     // Modifier un chapitre
     public function editpostAdmin($id) {

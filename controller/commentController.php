@@ -12,10 +12,10 @@ class commentController {
     }
 
     // Nouveau commentaire
-    public function addComment($id) {
+    /*public function addComment($id) {
         $postComment = $this->CommentManager->postComment($id);
-        header('Location: '. $_POST['URL_PATH'] . 'chapitres/<?= $id ?>');
-    }
+        header('Location: '. $_POST['URL_PATH'] . 'chapitres');
+    }*/
 
     // Signaler un commentaire
     public function alertComment($id, $post_id) {

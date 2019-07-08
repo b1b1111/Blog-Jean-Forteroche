@@ -21,7 +21,7 @@ $menu = view_menu();
 
 <h2>Commentaires</h2>
 
-<form id="form_com" method="post" action="<?php $id ?>/createComment">
+<form id="form_com" method="post" action="createComment">
    
         <label for="author">Auteur</label><br />
         <input type="text" id="author" name="author"/> <br /><br />

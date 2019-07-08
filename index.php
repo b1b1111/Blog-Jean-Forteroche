@@ -26,17 +26,14 @@ else if($url[0] == 'chapitres') {
         $postController->printChapters();
     }
 
-    else if(is_numeric($url[1])) {
-            
+    else if(is_numeric($url[1])) {        
         echo($url[1]);
         $postController->showChapter($url[1]);  
+        /*if($url[1] == 'createComment'){
+            $commentController->addComment($url[1]);
+        }*/
     }
 
-    else if (($url[1] == 'createComment')&&(is_numeric($url[2]))) {
-        $author = $_POST['author'];
-        $content = $_POST['content'];
-        $commentController->addComment($url[2]);
-    }
     
     else if ($url[1] == 'alert') {
         // appele function alert comment
@@ -82,6 +79,11 @@ else if($url[0] == 'administration') {
         $title = $_POST['title'];
         $content = $_POST['content'];
         $adminController->postAdmin($title, $content);
+    }  
+    else if ($url[1] == 'createComment') {
+        $author = $_POST['author'];
+        $content = $_POST['content'];
+        $adminController->postAdmin($author, $content);
     }  
 } 
 

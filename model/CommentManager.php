@@ -13,7 +13,7 @@ class CommentManager extends manager {
     public function getAllComments() {
 
         $db = $this->newManager->dbConnect();
-        $comments = $db->query('SELECT id, author, content, alert, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments ORDER BY comment_date DESC');
+        $comments = $db->query('SELECT id, author, content, alert, approuve, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments ORDER BY comment_date DESC');
 
         return $comments;
     }
@@ -22,19 +22,22 @@ class CommentManager extends manager {
     public function getComments($post_id) {
 
         $db = $this->newManager->dbConnect();
-        $comments = $db->prepare('SELECT id, author, content, alert, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+        $comments = $db->prepare('SELECT id, author, content, alert, approuve, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
         $comments->execute(array($post_id));
 
         return $comments;
     }
 
-    // Publier un nouveau commentaire
-    public function postComment($author, $content) {
+    // Creation d'un commentaire
+    public function postComment($postId, $author, $content) {
         $author = $_POST['author'];
         $content = $_POST['content'];
+        
         $db = $this->newManager->dbConnect();
-        $req = $db->prepare('INSERT INTO comments(author, content, comment_date) VALUES(?, ?, NOW())');
-        $req->execute(array($author, $content));
+        $comments = $db->prepare('INSERT INTO comments(post_id, author, content, comment_date) VALUES(?, ?, ?, NOW())');
+        $affectedLines = $comments->execute(array($postId, $author, $content));
+
+        return $affectedLines;   
     }
 
     // Signaler un commentaire.
@@ -58,20 +61,21 @@ class CommentManager extends manager {
         return $comment;
     }
 
-    public function approuveComment($app) {
+    // Appouver un commentaire
+    public function approuveComment($id) {
+        
         $db = $this->newManager->dbConnect();
         $req = $db->prepare('UPDATE comments SET approuve = 1 WHERE id = ?');
-        
-        $approuve = $req->execute(array($app));
-        return $approuve;
+        $req->execute(array($id));
+
     }
 
     // Supprimer un commentaire
-    public function deleteComment($suppr) {
-
+    public function deleteComment($id) {
+        
         $db = $this->newManager->dbConnect();
         $req = $db->prepare('DELETE FROM comments WHERE id = ?');
-        $supprime = $req->execute(array($suppr));
+        $supprime = $req->execute(array($id));
         return $supprime;
     }
 

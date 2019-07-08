@@ -12,12 +12,14 @@ class commentController {
     }
 
     // Nouveau commentaire
-    public function addComment($author, $content) {
+    public function addComment($postId, $author, $content) {
         $author = $_POST['author'];
-        $comment = $this->CommentManager->postComment($author, $content);
-        require ('view/frontend/postView.php');
+        $content = $_POST['content'];
 
+        $postComment = $this->CommentManager->postComment($postId, $author, $content);
+        require 'view/frontend/postView.php';
     }
+    
 
     // Signaler un commentaire
     public function alertComment($id, $post_id) {

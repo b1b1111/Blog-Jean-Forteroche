@@ -25,12 +25,15 @@ $menu = view_menu();
         <div id="chapters_part">
 
         <?php
-                //récupère un extrait de content.
-                $resum = substr($data['content'], 0,180);
+            if (strlen(strip_tags($data['content'])) >= 180) {
                 //trouve dernier espace après dernier mot de l'extrait.
-                $space = strrpos($resum, ' ');
+                $space = strpos(strip_tags($data['content']), ' ', 180);               
+                echo substr(strip_tags($data['content']), 0, $space).'...';
+            }
+
+            else 
+                echo(strip_tags($data['content']));
                 
-                echo substr($resum, 0, $space).'...';
         ?>
             <br /><br />
             <a id="lirePlus" href="<?php $_POST['URL_PATH'] ?>chapitres/<?= $data['id'] ?>">lire plus</a>

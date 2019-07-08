@@ -31,12 +31,19 @@ class postManager extends manager {
 
     // Création d'un nouveau chapitre
     public function addPost($title, $content) {
-        $title = $_POST['title'];
-        $content = $_POST['content'];
+
         $db = $this->newManager->dbConnect();
         $request = $db->prepare('INSERT INTO posts (title, content) VALUES (?, ?)');
-
         $request->execute(array($title, $content));
+    }
+
+    // Appouver un chapitre
+    public function approuvePost($id) {
+        
+        $db = $this->newManager->dbConnect();
+        $req = $db->prepare('UPDATE posts SET approuve = 1 WHERE id = ?');
+        $req->execute(array($id));
+
     }
 
     // Modification d'un chapitre
@@ -45,7 +52,6 @@ class postManager extends manager {
         $db = $this->newManager->dbConnect();
         $request = $db->prepare('UPDATE posts SET title = ?, content = ?, creation_date = NOW() WHERE id = ?');
         $post = $request->execute(array($title, $content, $id));
-
         return $post;
     }
 
@@ -54,8 +60,8 @@ class postManager extends manager {
 
         $db = $this->newManager->dbConnect();
         $request = $db->prepare('DELETE FROM posts WHERE id = ?');
-
-        $request->execute(array($id));
+        $suppr = $request->execute(array($id));
+        return $suppr;
     }
 }
 

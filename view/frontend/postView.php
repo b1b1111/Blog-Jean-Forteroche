@@ -15,7 +15,7 @@ $menu = view_menu();
     </h3>
     
     <p>
-    <?php echo html_entity_decode($post['content']) ?>
+        <?php echo html_entity_decode($post['content']) ?>
     </p>
 </div>
 
@@ -36,10 +36,13 @@ $menu = view_menu();
 <?php
 while ($comment = $comments->fetch())
 {
+    if ($comment['approuve'] == 1) {
+   
 ?>
     <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
     <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
 <?php
+    }
 }
 ?>
 <?php $content = ob_get_clean(); ?>

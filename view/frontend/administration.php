@@ -1,5 +1,4 @@
 <?php $title = 'Jean Forteroche'; ?>
-<?php require('controller/admin.php');?>
 <?php require('header.php');
 $menu = view_menu(); 
 ?>
@@ -10,27 +9,28 @@ $menu = view_menu();
         <h2 class="adminH2">Liste des commentaires</h2>
         <p class="adminParagraphe" ><em>Validez ou supprimer les commentaires.</em></p>
 
-        <?php while($c = $comment->fetch()) { ?>
+        <?php while($c = $comments->fetch()) { ?>
 
-        <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['content'] ?><?php if($c['approuve'] == 0) { ?> <br />
-        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>/administration/?confirm=<?= $c['id'] ?>">Approuver</a><?php } ?>
+        <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['content'] ?> <br />
+        <?php if ($c['approuve'] == 0) { ?>
+        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>administration/confirm/<?= $c['id'] ?>">Approuver</a>
+        <?php } ?>
         &nbsp;&nbsp;
-        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>/administration/?delete=<?= $c['id'] ?>">Supprimer</a></li><br />
+        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration/deleteComment/<?= $c['id'] ?>">Supprimer</a></li><br />
         <?php } ?>
   </ul>
 
   <ul id="list_post">
         <h2 class="adminH2">Liste des articles</h2>
-        <p class="adminParagraphe"  ><em>Validez, supprimer les articles.</em></p>
+        <p class="adminParagraphe"><em>Validez, supprimer les articles.</em></p>
 
         <?php while($a = $posts->fetch()) { ?>
 
-        <li><?= $a['id'] ?> : <?= $a['title']?><?php if($a['approuve'] == 0) { ?><br />
-        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>/administration/?type=posts&approuve=<?= $a['id'] ?>">Approuver</a><?php } ?>
+        <li><?= $a['id'] ?> : <?= $a['title']?><br />
+        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>administration/confirmPost/<?= $a['id'] ?>">Approuver</a>
         &nbsp;&nbsp;
-        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>/administration/?type=posts&supprime=<?= $a['id'] ?>">Supprimer</a></li><br /><br />
+        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration/deletePost/<?= $a['id'] ?>">Supprimer</a></li><br />
         &nbsp;&nbsp;
-        <a class="modif_btn" href="update">Modifier</a></li><br /><br />
         <?php } ?>
   </ul>
 
@@ -38,7 +38,7 @@ $menu = view_menu();
     <p class="adminParagraphe"><em>Création et mise en ligne des chapitres.</em></p>
 
 
-  <form id="form_articles" method="post" action="create">
+  <form id="form_articles" method="post" action="administration/create">
         
         <input type="text" placeholder="Titre" id="title" name="title"/><br />
 

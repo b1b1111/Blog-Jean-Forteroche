@@ -15,11 +15,12 @@ if(isset($_GET['url'])) {
     $url = explode('/', $_GET['url']);
 }
 
-//Accueil
+/*--------------------------------------ACCUEIL----------------------------------------*/
 if (empty($url)) {
     $postController->getPosts();
 } 
 
+/*--------------------------------------CHAPITRES----------------------------------------*/
 else if($url[0] == 'chapitres') {
     if (empty($url[1])) {
         $postController->printChapters();
@@ -32,10 +33,9 @@ else if($url[0] == 'chapitres') {
 
     }
     else if ($url[1] == 'createComment') {
-        echo($url[1]);
         $author = $_POST['author'];
         $content = $_POST['content'];
-        $commentController->addComment($url[1], $author, $content);
+        $commentController->addComment($postId, $author, $content);
     }
 
     else if ($url[1] == 'alert') {
@@ -44,34 +44,48 @@ else if($url[0] == 'chapitres') {
     }  
 } 
 
+/*--------------------------------------CONTACT----------------------------------------*/
 else if($url[0] == 'contact') {
     $postController->contact();
 } 
 
-if($url[0] == 'administration') {
+/*------------------------------------ADMINISTRATION------------------------------------*/
+
+/*-----------------Accueil administration---------------------*/
+else if($url[0] == 'administration') {
     if(empty($url[1])) { 
         $postController->administration();
     }
 
-    else if ($url[1] == 'confirm') {
-        $app = (int) $_GET['approuve'];
-        $adminController->approuveComment($app);
+    /*-----------------Approuve Comment---------------------*/
+    else if (($url[1] == 'confirm')&&(is_numeric($url[2]))) {  
+        $adminController->approuveCommentAdmin($url[2]);
     }
 
+    /*-----------------Delete Comment---------------------*/
+    else if (($url[1] == 'deleteComment')&&(is_numeric($url[2]))) {
+        $adminController->deleteCommentAdmin($url[2]);
+    }
+
+    /*-----------------Approuve chapter---------------------*/
+    else if (($url[1] == 'confirmPost')&&(is_numeric($url[2]))) {  
+        $adminController->approuvePostAdmin($url[2]);
+    }
+
+    /*-----------------Delete chapter---------------------*/
+    else if (($url[1] == 'deletePost')&&(is_numeric($url[2]))) {
+        $adminController->deletePostAdmin($id);
+    }
+
+    /*-----------------Create chapter---------------------*/
     else if ($url[1] == 'create') {
-        // appele function create chapters
         $title = $_POST['title'];
         $content = $_POST['content'];
         $adminController->postAdmin($title, $content);
     }
-    else if ($url[1] == 'update') {  
-        $adminController->editpostAdmin($url[1], $id);
-    }
-    else if ($url[1] == 'delete') {
-        $adminController->deletepostAdmin($id);
-    }
-    else if ($url[1] == 'deleteComment') {
-        $suppr = (int) $_GET['suppr'];
-        $adminController->deleteCommentAdmin($suppr);
-    }
+    
 } 
+
+else {
+    echo ('notfound');
+}

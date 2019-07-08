@@ -16,11 +16,9 @@ class adminController {
 
     // Créer un chapitre
     public function postAdmin($title, $content) {
-        $title = $_POST['title'];
-        $content = $_POST['content'];
         
         $post = $this->postManager->addPost($title, $content);
-        require 'view/frontend/administration.php';
+        header('Location: '. $_POST['URL_PATH'] . 'administration');
     }
         
     // Modifier un chapitre
@@ -34,33 +32,29 @@ class adminController {
         require 'view/frontend/administration.php';
     }
 
-    // Supprimer un chapitre
-    public function deletepostAdmin($id) {
-        $deletedPost = $this->postManager->deletePost($id);
-        
-        require 'view/frontend/administration.php';
+    // Approuver un chapitre
+    public function approuvePostAdmin($id) {
+        $approuve = $this->postManager->approuvePost($id);   
+        header('Location: '. $_POST['URL_PATH'] . 'administration');   
     }
 
-    public function approuveCommentAdmin($app) {
-        if(isset($_GET['type']) AND $_GET['type'] == 'comments') {
-            if(isset($_GET['approuve']) AND !empty($_GET['approuve'])) {
-                $approuve = $this->CommentManager->approuveComment($app);
-                $app = (int) $_GET['approuve'];
-                require 'view/frontend/administration.php';
-            }
-        }
+    // Supprimer un chapitre
+    public function deletePostAdmin($id) {
+        $deletedPost = $this->postManager->deletePost($id);
+        header('Location: '. $_POST['URL_PATH'] . 'administration');
+    }
+
+    // Approuver un commentaire
+    public function approuveCommentAdmin($id) {
+        
+        $approuve = $this->CommentManager->approuveComment($id);   
+        header('Location: '. $_POST['URL_PATH'] . 'administration');   
     }
 
     // Supprimer un commentaire
-    public function deleteCommentAdmin($suppr) {
-        if(isset($_GET['type']) AND $_GET['type'] == 'comments') {
-            if(isset($_GET['supprime']) AND !empty($_GET['supprime'])) {
-            
-                 $supprime = $this->CommentManager->deleteComment($suppr);
-                 $suppr = (int) $_GET['supprime'];
-                 require 'view/frontend/administration.php';
-        
-            }  
-        }
+    public function deleteCommentAdmin($id) {
+               
+        $supprime = $this->CommentManager->deleteComment($id);
+        header('Location: '. $_POST['URL_PATH'] . 'administration');    
     }
 }

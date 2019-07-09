@@ -34,6 +34,12 @@ else if($url[0] == 'chapitres') {
         }*/
     }
 
+    else if ($url[1] == 'createComment') {
+        $author = $_POST['author'];
+        $content = $_POST['content'];
+        $commentController->addComment($author, $content);
+    } 
+
     
     else if ($url[1] == 'alert') {
         // appele function alert comment
@@ -79,12 +85,7 @@ else if($url[0] == 'administration') {
         $title = $_POST['title'];
         $content = $_POST['content'];
         $adminController->postAdmin($title, $content);
-    }  
-    else if ($url[1] == 'createComment') {
-        $author = $_POST['author'];
-        $content = $_POST['content'];
-        $adminController->postAdmin($author, $content);
-    }  
+    }   
 } 
 
 else {

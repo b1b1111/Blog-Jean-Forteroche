@@ -48,16 +48,6 @@ $menu = view_menu();
       
   </form>
 
-  <form id="form_com" method="post" action="administration/createComment">
-        
-        <input type="text" placeholder="Author" id="author" name="author"/><br />
-
-        <textarea id="full-test" name="content" contenteditable="true"></textarea><br />
-        
-        <button class="admin_approuve">Editer articles</button>
-      
-  </form>
-
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

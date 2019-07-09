@@ -32,7 +32,7 @@ class CommentManager extends manager {
     public function postComment($author, $content) {
         
         $db = $this->newManager->dbConnect();
-        $req = $db->prepare('INSERT INTO comments(author, content, comment_date) VALUES(?, ?, NOW())');
+        $req = $db->prepare("INSERT INTO `comments` (`post_id`, `author`, `content`, `comment_date`) VALUES ('?', '?', '?', CURRENT_TIMESTAMP");
         $req->execute(array($author, $content)); 
     }
 

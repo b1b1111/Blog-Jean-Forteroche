@@ -25,11 +25,9 @@ class adminController {
     public function editpostAdmin($id) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->postManager->updatePost($_GET['id'], htmlspecialchars($_POST['title']), htmlspecialchars($_POST['content']));
-            $this->Message->setSuccess("<p>Merci, votre billet a bien été modifié !</p>");
         }
         $post = $this->postManager->getPost($id);
-
-        require 'view/frontend/administration.php';
+        header('Location: '. $_POST['URL_PATH'] . 'administration');
     }
 
     // Approuver un chapitre

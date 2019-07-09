@@ -29,18 +29,17 @@ else if($url[0] == 'chapitres') {
     else if(is_numeric($url[1])) {        
         echo($url[1]);
         $postController->showChapter($url[1]);  
-        /*if($url[1] == 'createComment'){
-            $commentController->addComment($url[1]);
-        }*/
+
+        
+        if ($url[1] == 'createComment') {
+            $postId = $_POST['post_id'];
+            $author = $_POST['author'];
+            $content = $_POST['content'];
+            $commentController->addComment($url[1], $postId, $author, $content);
+        } 
     }
 
-    else if ($url[1] == 'createComment') {
-        $author = $_POST['author'];
-        $content = $_POST['content'];
-        $commentController->addComment($author, $content);
-    } 
 
-    
     else if ($url[1] == 'alert') {
         // appele function alert comment
         $adminController->alertComment($id, $post_id);
@@ -73,6 +72,10 @@ else if($url[0] == 'administration') {
     /*-----------------Approuve chapter---------------------*/
     else if (($url[1] == 'confirmPost')&&(is_numeric($url[2]))) {  
         $adminController->approuvePostAdmin($url[2]);
+    }
+
+    else if (($url[1] == 'modifPost')&&(is_numeric($url[2]))) {
+        $adminController->editpostAdmin($url[2]);
     }
 
     /*-----------------Delete chapter---------------------*/

@@ -31,6 +31,7 @@ $menu = view_menu();
         &nbsp;&nbsp;
         <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration/deletePost/<?= $a['id'] ?>">Supprimer</a></li><br />
         &nbsp;&nbsp;
+        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration/modifPost/<?= $a['id'] ?>">Modification</a></li>
         <?php } ?>
   </ul>
 

@@ -29,14 +29,6 @@ else if($url[0] == 'chapitres') {
     else if(is_numeric($url[1])) {        
         echo($url[1]);
         $postController->showChapter($url[1]);  
-
-        
-        if ($url[1] == 'createComment') {
-            $postId = $_POST['post_id'];
-            $author = $_POST['author'];
-            $content = $_POST['content'];
-            $commentController->addComment($url[1], $postId, $author, $content);
-        } 
     }
 
 
@@ -88,7 +80,14 @@ else if($url[0] == 'administration') {
         $title = $_POST['title'];
         $content = $_POST['content'];
         $adminController->postAdmin($title, $content);
-    }   
+    }  
+    
+    else if ($url[1] == 'createComment') {
+        $post_id = $_POST['post_id'];
+        $author = $_POST['author'];
+        $content = $_POST['content'];
+        $commentController->addComment($post_id, $author, $content);
+    } 
 } 
 
 else {

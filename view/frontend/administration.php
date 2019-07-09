@@ -22,7 +22,7 @@ $menu = view_menu();
 
   <ul id="list_post">
         <h2 class="adminH2">Liste des articles</h2>
-        <p class="adminParagraphe"><em>Validez, supprimer les articles.</em></p>
+        <p class="adminParagraphe"><em>Modifiez, supprimer les articles.</em></p>
 
         <?php while($a = $posts->fetch()) { ?>
 
@@ -46,7 +46,17 @@ $menu = view_menu();
         <textarea id="full-featured" name="content" contenteditable="true"></textarea><br />
         
         <button class="admin_approuve">Editer articles</button>
-      
+  </form>
+
+  <form id="form_com" method="post" action="administration/createComment">
+
+        <input type="text" placeholder="post_id" id="post_id" name="post_id"/><br />
+        
+        <input type="text" placeholder="nom" id="author" name="author"/><br />
+
+        <textarea id="full-test" name="content" contenteditable="true"></textarea><br />
+        
+        <button class="admin_approuve">Editer commentaires</button>
   </form>
 
 <?php $content = ob_get_clean(); ?>
@@ -55,6 +65,6 @@ $menu = view_menu();
 
 <script>
   tinymce.init({
-    selector: '#full-featured, #full-test'
+    selector: '#full-featured'
   });
 </script>

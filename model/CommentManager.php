@@ -29,11 +29,10 @@ class CommentManager extends manager {
     }
 
     // Creation d'un commentaire
-    public function postComment($postId, $author, $content) {
+    public function postComment($post_id, $author, $content) {
         $db = $this->newManager->dbConnect();
         $comments = $db->prepare('INSERT INTO comments(post_id, author, content, comment_date) VALUES(?, ?, ?, NOW())');
-        $comments->execute(array($postId, $author, $content));
-
+        $comments->execute(array($post_id, $author, $content));
 }
 
     // Signaler un commentaire.

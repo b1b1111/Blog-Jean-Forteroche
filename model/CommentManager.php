@@ -39,11 +39,9 @@ class CommentManager extends manager {
     public function reportComment($id) {
 
         $db = $this->newManager->dbConnect();
-        $request = $db->prepare('UPDATE comments SET alert = alert + 1 WHERE id = ?');
-
-        $alertedComment = $request->execute(array($id));
-
-        return $alertedComment;
+        $request = $db->prepare('UPDATE comments SET alert =  1 WHERE id = ?');
+        $request->execute(array($id));
+        
     }
 
     // Modifier un commentaire
@@ -62,7 +60,6 @@ class CommentManager extends manager {
         $db = $this->newManager->dbConnect();
         $req = $db->prepare('UPDATE comments SET approuve = 1 WHERE id = ?');
         $req->execute(array($id));
-
     }
 
     // Supprimer un commentaire

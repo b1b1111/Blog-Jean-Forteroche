@@ -15,6 +15,9 @@ $menu = view_menu();
         <?php if ($c['approuve'] == 0) { ?>
         <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>administration/confirm/<?= $c['id'] ?>">Approuver</a>
         <?php } ?>
+        <?php if ($c['alert'] == 1) { ?>
+        <p class="admin_signal">Commentaire signalé !</p>
+        <?php } ?>
         &nbsp;&nbsp;
         <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration/deleteComment/<?= $c['id'] ?>">Supprimer</a></li><br />
         <?php } ?>
@@ -26,12 +29,12 @@ $menu = view_menu();
 
         <?php while($a = $posts->fetch()) { ?>
 
-        <li><?= $a['id'] ?> : <?= $a['title']?><br />
+        <br /><li><?= $a['id'] ?> : <?= $a['title']?><br />
         <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>administration/confirmPost/<?= $a['id'] ?>">Approuver</a>
         &nbsp;&nbsp;
-        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration/deletePost/<?= $a['id'] ?>">Supprimer</a></li><br />
+        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration/deletePost/<?= $a['id'] ?>">Supprimer</a>
         &nbsp;&nbsp;
-        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration/modifPost/<?= $a['id'] ?>">Modification</a></li>
+        <a class="admin_modif" href="<?= $_POST['URL_PATH'] ?>chapitres/modifPost/<?= $a['id'] ?>">Modification</a></li>
         <?php } ?>
   </ul>
 
@@ -45,8 +48,11 @@ $menu = view_menu();
 
         <textarea id="full-featured" name="content" contenteditable="true"></textarea><br />
         
-        <button class="admin_approuve">Editer articles</button>
+        <button class="admin_approuve">Editer articles</button><br /><br />
   </form>
+
+    <h2 class="adminH2">Nouveaux commentaires</h2>
+    <p class="adminParagraphe"><em>Création et mise en ligne des commentaires.</em></p>
 
   <form id="form_com" method="post" action="administration/createComment">
 
@@ -56,9 +62,19 @@ $menu = view_menu();
 
         <textarea id="full-test" name="content" contenteditable="true"></textarea><br />
         
-        <button class="admin_approuve">Editer commentaires</button>
+        <button class="admin_approuve">Editer commentaires</button><br />
   </form>
 
+    <h2 class="adminH2">Modifier chapitres</h2>
+    <p class="adminParagraphe"><em>Modification des chapitres.</em></p>
+
+  <form method="POST" action="administration/editPostAdmin">
+      <input type="text" name="article_titre" placeholder="Titre" value="<?= 
+      $edit_article['title'] ?>" /><br />
+      <textarea name="article_contenu" placeholder="Contenu de l'article"><?= 
+      $edit_article['content'] ?></textarea><br />
+      <input type="submit" value="Envoyer l'article" />
+   </form>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

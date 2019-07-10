@@ -15,21 +15,29 @@ class adminController {
    }  
 
     // Créer un chapitre
-    public function postAdmin($title, $content) {
-        
+    public function postAdmin($title, $content) {     
         $post = $this->postManager->addPost($title, $content);
         header('Location: '. $_POST['URL_PATH'] . 'administration');
     }
         
     // Modifier un chapitre
-    public function editpostAdmin($id) {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $this->postManager->updatePost($_GET['id'], htmlspecialchars($_POST['title']), htmlspecialchars($_POST['content']));
+
+    public function editPostAdmin($id) {
+       /* if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $post = $this->postManager->updatePost($_GET['id'], htmlspecialchars($_POST['title']), htmlspecialchars($_POST['content']));
+            $newMessage = new Message();
+            $newMessage->setSuccess("<p>Merci, votre billet a bien été modifié !</p>");
         }
         $post = $this->postManager->getPost($id);
-        header('Location: '. $_POST['URL_PATH'] . 'administration');
+        header('Location: '. $_POST['URL_PATH'] . 'administration');*/
+        if(isset($_GET['id']) AND !empty($_GET['id'])) {
+            $edit_article = $this->postManager->getPost($id);
+            if($edit_article->rowCount() == 1) {
+               $edit_article = $edit_article->fetch();
+            }
+         }    
     }
-
+    
     // Approuver un chapitre
     public function approuvePostAdmin($id) {
         $approuve = $this->postManager->approuvePost($id);   

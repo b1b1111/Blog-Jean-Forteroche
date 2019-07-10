@@ -18,14 +18,8 @@ class commentController {
     }
 
     // Signaler un commentaire
-    public function alertComment($id, $post_id) {
-        $alertedComment = $this->CommentManager->signalComment($id);
-        
-        if ($alertedComment === false) {
-            throw new \Exception("Impossible de signaler le commentaire !");
-        }
-        else {
-            header('Location: ?controller=postController&action=showComment&id=' . $post_id);
-        }
+    public function alertComment($id) {
+        $alertedComment = $this->CommentManager->reportComment($id);  
+        header('Location: '. $_POST['URL_PATH'] . 'chapitres'); 
     }
 }

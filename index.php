@@ -29,12 +29,18 @@ else if($url[0] == 'chapitres') {
     else if(is_numeric($url[1])) {        
         echo($url[1]);
         $postController->showChapter($url[1]);  
+
+        if ($url[1] == 'createComment') {
+            $post_id = $_POST['post_id'];
+            $author = $_POST['author'];
+            $content = $_POST['content'];
+            $commentController->addComment($post_id, $author, $content);
+        } 
     }
 
-
-    else if ($url[1] == 'alert') {
+    else if (($url[1] == 'alert')&&(is_numeric($url[2]))) {
         // appele function alert comment
-        $adminController->alertComment($id, $post_id);
+        $commentController->alertComment($url[2]);
     }  
 } 
 
@@ -56,6 +62,11 @@ else if($url[0] == 'administration') {
         $adminController->approuveCommentAdmin($url[2]);
     }
 
+    else if (($url[1] == 'alert')&&(is_numeric($url[2]))) {
+        // appele function alert comment
+        $commentController->alertComment($url[2]);
+    }
+
     /*-----------------Delete Comment---------------------*/
     else if (($url[1] == 'deleteComment')&&(is_numeric($url[2]))) {
         $adminController->deleteCommentAdmin($url[2]);
@@ -66,8 +77,8 @@ else if($url[0] == 'administration') {
         $adminController->approuvePostAdmin($url[2]);
     }
 
-    else if (($url[1] == 'modifPost')&&(is_numeric($url[2]))) {
-        $adminController->editpostAdmin($url[2]);
+    else if ($url[1] == 'editPostAdmin') {
+        $adminController->editPostAdmin($id);
     }
 
     /*-----------------Delete chapter---------------------*/
@@ -82,6 +93,7 @@ else if($url[0] == 'administration') {
         $adminController->postAdmin($title, $content);
     }  
     
+    /*-----------------Create comment---------------------*/
     else if ($url[1] == 'createComment') {
         $post_id = $_POST['post_id'];
         $author = $_POST['author'];

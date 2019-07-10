@@ -43,7 +43,6 @@ class postManager extends manager {
         $db = $this->newManager->dbConnect();
         $req = $db->prepare('UPDATE posts SET approuve = 1 WHERE id = ?');
         $req->execute(array($id));
-
     }
 
     // Modification d'un chapitre
@@ -51,8 +50,8 @@ class postManager extends manager {
 
         $db = $this->newManager->dbConnect();
         $request = $db->prepare('UPDATE posts SET title = ?, content = ?, creation_date = NOW() WHERE id = ?');
-        $post = $request->execute(array($title, $content, $id));
-        return $post;
+        $post = $request->execute(array($id, $title, $content,));
+        return $post;    
     }
 
     // Supprimer un chapitre

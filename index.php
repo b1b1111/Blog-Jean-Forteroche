@@ -77,8 +77,12 @@ else if($url[0] == 'administration') {
         $adminController->approuvePostAdmin($url[2]);
     }
 
+    /*-----------------Modified chapter---------------------*/
     else if ($url[1] == 'editPostAdmin') {
-        $adminController->editPostAdmin($id);
+        $id = $_POST['id'];
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $adminController->editPostAdmin($id, $title, $content);
     }
 
     /*-----------------Delete chapter---------------------*/

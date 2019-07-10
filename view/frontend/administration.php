@@ -34,7 +34,7 @@ $menu = view_menu();
         &nbsp;&nbsp;
         <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration/deletePost/<?= $a['id'] ?>">Supprimer</a>
         &nbsp;&nbsp;
-        <a class="admin_modif" href="<?= $_POST['URL_PATH'] ?>chapitres/modifPost/<?= $a['id'] ?>">Modification</a></li>
+        <a class="admin_modif" href="<?= $_POST['URL_PATH'] ?>chapitres/editPostAdmin/<?= $a['id'] ?>">Modification</a></li>
         <?php } ?>
   </ul>
 
@@ -68,13 +68,7 @@ $menu = view_menu();
     <h2 class="adminH2">Modifier chapitres</h2>
     <p class="adminParagraphe"><em>Modification des chapitres.</em></p>
 
-  <form method="POST" action="administration/editPostAdmin">
-      <input type="text" name="article_titre" placeholder="Titre" value="<?= 
-      $edit_article['title'] ?>" /><br />
-      <textarea name="article_contenu" placeholder="Contenu de l'article"><?= 
-      $edit_article['content'] ?></textarea><br />
-      <input type="submit" value="Envoyer l'article" />
-   </form>
+          
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

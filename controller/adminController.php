@@ -22,7 +22,7 @@ class adminController {
         
     // Modifier un chapitre
 
-    public function editPostAdmin($id) {
+    public function editPostAdmin($id, $title, $content) {
        /* if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $post = $this->postManager->updatePost($_GET['id'], htmlspecialchars($_POST['title']), htmlspecialchars($_POST['content']));
             $newMessage = new Message();
@@ -30,14 +30,12 @@ class adminController {
         }
         $post = $this->postManager->getPost($id);
         header('Location: '. $_POST['URL_PATH'] . 'administration');*/
-        if(isset($_GET['id']) AND !empty($_GET['id'])) {
-            $edit_article = $this->postManager->getPost($id);
-            if($edit_article->rowCount() == 1) {
-               $edit_article = $edit_article->fetch();
-            }
-         }    
+        
+            $edit_article = $this->postManager->updatePost($id, $title, $content);
+            header('Location: '. $_POST['URL_PATH'] . 'administration'); 
+            
     }
-    
+
     // Approuver un chapitre
     public function approuvePostAdmin($id) {
         $approuve = $this->postManager->approuvePost($id);   

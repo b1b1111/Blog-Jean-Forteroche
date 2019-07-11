@@ -30,13 +30,13 @@ else if($url[0] == 'chapitres') {
         echo($url[1]);
         $postController->showChapter($url[1]);  
 
-        if ($url[1] == 'createComment') {
-            $post_id = $_POST['post_id'];
-            $author = $_POST['author'];
-            $content = $_POST['content'];
-            $commentController->addComment($post_id, $author, $content);
-        } 
     }
+    else if ($url[1] == 'createComment') {
+        $post_id = $_POST['post_id'];
+        $author = $_POST['author'];
+        $content = $_POST['content'];
+        $commentController->addComment($post_id, $author, $content);
+    } 
 
     else if (($url[1] == 'alert')&&(is_numeric($url[2]))) {
         // appele function alert comment

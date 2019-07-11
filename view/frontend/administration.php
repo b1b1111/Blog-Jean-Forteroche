@@ -25,13 +25,11 @@ $menu = view_menu();
 
   <ul id="list_post">
         <h2 class="adminH2">Liste des articles</h2>
-        <p class="adminParagraphe"><em>Modifiez, supprimer les articles.</em></p>
+        <p class="adminParagraphe"><em>Supprimer ou modifier les articles.</em></p>
 
         <?php while($a = $posts->fetch()) { ?>
 
         <br /><li><?= $a['id'] ?> : <?= $a['title']?><br />
-        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>administration/confirmPost/<?= $a['id'] ?>">Approuver</a>
-        &nbsp;&nbsp;
         <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration/deletePost/<?= $a['id'] ?>">Supprimer</a>
         &nbsp;&nbsp;
         <a class="admin_modif" href="<?= $_POST['URL_PATH'] ?>chapitres/editPostAdmin/<?= $a['id'] ?>">Modification</a></li>
@@ -43,12 +41,13 @@ $menu = view_menu();
 
 
   <form id="form_articles" method="post" action="administration/create">
+        <label for="title">Titre du chapitre</label><br />
+        <input type="text" id="title" name="title"/><br /><br />
         
-        <input type="text" placeholder="Titre" id="title" name="title"/><br />
-
+        <label for="content">Contenu du chapitre</label>
         <textarea id="full-featured" name="content" contenteditable="true"></textarea><br />
         
-        <button class="admin_approuve">Editer articles</button><br /><br />
+        <button class="admin_approuve">Editer chapitre</button><br /><br />
   </form>
 
     <h2 class="adminH2">Nouveaux commentaires</h2>
@@ -56,10 +55,13 @@ $menu = view_menu();
 
   <form id="form_com" method="post" action="administration/createComment">
 
-        <input type="text" placeholder="post_id" id="post_id" name="post_id"/><br />
-        
-        <input type="text" placeholder="nom" id="author" name="author"/><br />
+        <label for="id">Numéro du chapitre</label><br />
+        <input type="text" id="post_id" name="post_id"/><br /><br />
 
+        <label for="author">Votre nom/pseudo</label><br />
+        <input type="text" id="author" name="author"/><br /><br />
+
+        <label for="content">Message</label><br />
         <textarea id="full-test" name="content" contenteditable="true"></textarea><br />
         
         <button class="admin_approuve">Editer commentaires</button><br />
@@ -68,7 +70,7 @@ $menu = view_menu();
     <h2 class="adminH2">Modifier chapitres</h2>
     <p class="adminParagraphe"><em>Modification des chapitres.</em></p>
 
-          
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

@@ -126,7 +126,7 @@ label {
 }
 
 #tabs a:hover {
-    color: rgba(175, 173, 173, 0.863);
+    color: rgba(206, 199, 199, 0.986);
 }
 
 
@@ -203,7 +203,7 @@ label {
 }
 
 #lirePlus {
-    margin: 20px 0 0 15px;
+    margin: 20px 0 7px 7px;
     background: #E76E55;
     text-align: center;
     position: relative;
@@ -256,7 +256,7 @@ textarea {
     display: inline-block;
     position: relative;
     text-align: center;
-    font-size: 0.7em;
+    font-size: 0.55em;
     padding: 15px;
     font-family: 'Press Start 2P', cursive;
     text-decoration: none;
@@ -281,14 +281,10 @@ textarea {
   .form_btn:before {
     top: -6px;
     left: 0;
-    border-top: 6px black solid;
-    border-bottom: 6px black solid;
   }
   .form_btn:after {
     left: -6px;
-    top: 0;
-    border-left: 6px black solid;
-    border-right: 6px black solid;
+    top: 0; 
   }
 
 /*---------------------------------------------CONTACT------------------------------------------------------*/
@@ -341,7 +337,7 @@ textarea {
 .adminParagraphe {
     font-size: 1.1em;
     font-weight: bold;
-    color: rgb(165, 161, 163);
+    color: rgb(223, 219, 220);
 }
 
 #content, #resultat {
@@ -353,8 +349,13 @@ textarea {
     overflow: auto;
 }
 
+#title {
+    width: 350px;
+}
+
 #full-featured {
     height: 500px;
+    resize: none;
 }
 
 /*----------------------BUTTON APPROUVE-------------------*/
@@ -364,7 +365,7 @@ textarea {
     display: inline-block;
     position: relative;
     text-align: center;
-    font-size: 0.7em;
+    font-size: 0.55em;
     padding: 15px;
     font-family: 'Press Start 2P', cursive;
     text-decoration: none;
@@ -389,14 +390,10 @@ textarea {
   .admin_approuve:before {
     top: -6px;
     left: 0;
-    border-top: 6px black solid;
-    border-bottom: 6px black solid;
   }
   .admin_approuve:after {
     left: -6px;
     top: 0;
-    border-left: 6px black solid;
-    border-right: 6px black solid;
   }
 
 /*-----------------------BUTTON MODIFIED-------------------*/
@@ -407,7 +404,7 @@ textarea {
     display: inline-block;
     position: relative;
     text-align: center;
-    font-size: 0.7em;
+    font-size: 0.55em;
     padding: 15px;
     font-family: 'Press Start 2P', cursive;
     text-decoration: none;
@@ -432,14 +429,10 @@ textarea {
   .admin_modif:before {
     top: -6px;
     left: 0;
-    border-top: 6px black solid;
-    border-bottom: 6px black solid;
   }
   .admin_modif:after {
     left: -6px;
     top: 0;
-    border-left: 6px black solid;
-    border-right: 6px black solid;
   }
 
   /*-----------------------BUTTON SIGNAL-------------------*/
@@ -449,7 +442,7 @@ textarea {
     display: inline-block;
     position: relative;
     text-align: center;
-    font-size: 0.7em;
+    font-size: 0.55em;
     padding: 15px;
     font-family: 'Press Start 2P', cursive;
     text-decoration: none;

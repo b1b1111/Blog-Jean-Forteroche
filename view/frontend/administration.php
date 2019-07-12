@@ -32,7 +32,7 @@ $menu = view_menu();
         <br /><li><?= $a['id'] ?> : <?= $a['title']?><br />
         <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration/deletePost/<?= $a['id'] ?>">Supprimer</a>
         &nbsp;&nbsp;
-        <a class="admin_modif" href="<?= $_POST['URL_PATH'] ?>chapitres/editPostAdmin/<?= $a['id'] ?>">Modification</a></li>
+        <a class="admin_modif" href="<?= $_POST['URL_PATH'] ?>administration/editPostAdmin/<?= $a['id'] ?>">Modification</a></li>
         <?php } ?>
   </ul>
 
@@ -70,6 +70,19 @@ $menu = view_menu();
     <h2 class="adminH2">Modifier chapitres</h2>
     <p class="adminParagraphe"><em>Modification des chapitres.</em></p>
 
+    <form id="modif_articles" method="post" action="administration/editPostAdmin">
+
+        <label for="id">Id</label><br />
+        <input type="text" id="idPost" name="idPost"><br /><br />
+
+        <label for="title">Titre du chapitre</label><br />
+        <input type="text" id="title" name="title"/><br /><br />
+        
+        <label for="content">Contenu du chapitre</label><br />
+        <textarea id="full-feat" name="content" contenteditable="true"></textarea><br />
+        
+        <button class="admin_approuve">modifier chapitre</button><br /><br />
+  </form>
 
 <?php $content = ob_get_clean(); ?>
 
@@ -77,6 +90,6 @@ $menu = view_menu();
 
 <script>
   tinymce.init({
-    selector: '#full-featured'
+    selector: '#full-featured, #full-feat'
   });
 </script>

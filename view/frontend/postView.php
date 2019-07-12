@@ -21,7 +21,8 @@ $menu = view_menu();
 
 <h2>Commentaires</h2>
 
-<form id="form_form" method="post" action="<?= $post['id'] ?>/createComment">
+<form id="form_com" method="post" action="<?= $post['id'] ?>/createComment">
+
     <label for="author">Votre nom/pseudo</label><br />
     <input type="text" id="author" name="author"/><br /><br />
 
@@ -29,6 +30,7 @@ $menu = view_menu();
     <textarea id="full-test" name="content" contenteditable="true"></textarea><br />
 
     <button class="admin_approuve">Editer commentaires</button>
+    
 </form>
 
 <?php
@@ -37,9 +39,9 @@ while ($comment = $comments->fetch())
     if ($comment['approuve'] == 1) {
    
 ?>
-    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-    <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
-    <a class="admin_signal" href="<?= $_POST['URL_PATH'] ?>administration/alert/<?= $comment['id'] ?>">Signaler commentaire</a>
+    <p class="comment_paragraphe" ><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+    <p class="comment_paragraphe" ><?= nl2br(htmlspecialchars($comment['content'])) ?>
+    <a class="admin_signal" href="<?= $_POST['URL_PATH'] ?>administration/alert/<?= $comment['id'] ?>">Signaler commentaire</a></p>
 
 <?php
     }

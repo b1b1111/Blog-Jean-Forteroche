@@ -30,9 +30,11 @@ class adminController {
         }
         $post = $this->postManager->getPost($id);
         header('Location: '. $_POST['URL_PATH'] . 'administration');*/
-        
-            $edit_article = $this->postManager->updatePost($id, $title, $content);
-            header('Location: '. $_POST['URL_PATH'] . 'administration'); 
+      if ('editPostAdmin') {
+        $edit_article = $this->postManager->updatePost($id, $title, $content);
+        header('Location: '. $_POST['URL_PATH'] . 'administration'); 
+      }
+            
             
     }
 

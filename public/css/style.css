@@ -4,7 +4,7 @@
 /*-----LEGENDE DE COULEUR-----*/
 
 /*black : #0d0d0ef1;*/
-/*Green : #18A085;*/
+/*Gold : #936C35;
 /*White :  rgb(233, 231, 231);*/
 /*Grey : rgba(175, 173, 173, 0.863);*/
 
@@ -12,8 +12,7 @@
     font-family: 'Open Sans', Verdana, Tahoma, sans-serif;
 }
 
-body {
-    
+body { 
     background-color: #0d0d0ef1;
     background-size: 100%;
     position: relative;
@@ -22,17 +21,16 @@ body {
 h3 {
     background: rgb(233, 231, 231);
     text-align: center;
-    font-size: 0.7em;
-    padding: 12px;
-    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9em;
+    padding: 10px;
     text-decoration: none;
     color: rgb(29, 28, 28);
-    box-shadow: inset -4px -4px 0px 0px rgb(34, 32, 32);  
+    box-shadow: inset -4px -4px 0px 0px rgb(179, 176, 176);  
     border-radius: 5px;
 }
 
 h2 {
-    color: #18A085;
+    color: #936C35;
 }
 
 h4 {
@@ -43,20 +41,20 @@ h4 {
 
 a {
     text-decoration: none;
-    color: #18A085;
+    color: #936C35;
 }
 
 label {
     color: rgb(255, 250, 250);
 }
 .signature {
-    color: #18A085;
+    color: #936C35;
     text-align: right;
 }
 
 /*---------------------------------------------HEADER------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------*/
-#header_content h1 {
+.header_content h1 {
     text-align: center;
     font-size: 2.8em;
     font-family: 'Open Sans', Verdana, Tahoma, sans-serif;
@@ -64,12 +62,12 @@ label {
     text-transform: uppercase;
 }
 
-#header_content h1 a {
-    color: #18A085;
+.header_content h1 a {
+    color: #936C35;
 }
 
 
-#header_content h1::before
+.header_content h1::before
 {
 	position: relative;
 	display: block;
@@ -79,7 +77,7 @@ label {
 	background-color: rgba(255, 255, 255, 0.863);
 	left: calc(50% - 190px);
 }
-#header_content h1::after
+.header_content h1::after
 {
 	position: relative;
 	display: block;
@@ -92,7 +90,7 @@ label {
 
 }
 
-#header_content h2 {
+.header_content h2 {
     margin-left: calc(50% + 120px);
     font-family: 'Open Sans', Verdana, Tahoma, sans-serif;
     color: white;
@@ -123,12 +121,16 @@ label {
 }
 
 #tabs a:hover {
-    color: rgba(206, 199, 199, 0.986);
+    color: rgb(167, 163, 161);
 }
 
 /*---------------------------------------------ACCUEIL------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------*/
-
+#alaska {
+    background-size: 100%;
+    width: 100%;
+    height: 88%;
+}
 
 /*-------------------------------SECTION--------------------------------*/
 
@@ -192,14 +194,17 @@ label {
     border: 2px none white;
     border-radius: 5px;
 }
+.news h3 {
+  color: rgb(87, 86, 85);
+}
 
 #chapters_part {
     background-color: white;
 }
 
-#lirePlus {
+.btn_valid {
     margin: 20px 0 7px 7px;
-    background: #E76E55;
+    background: rgb(202, 145, 64);
     text-align: center;
     position: relative;
     display: inline-flex;
@@ -208,17 +213,17 @@ label {
     font-family: 'Press Start 2P', cursive;
     text-decoration: none;
     color: white;
-    box-shadow: inset -4px -4px 0px 0px #8C2022;
+    box-shadow: inset -4px -4px 0px 0px rgb(143, 102, 44);
     border-radius: 5px;
   }
-#lirePlus:hover, #lirePlus:focus {
-    background: #CE372B;
-    box-shadow: inset -6px -6px 0px 0px #8C2022;
+.btn_valid:hover, .btn_valid:focus {
+    background: rgb(192, 139, 48);
+    box-shadow: inset -6px -6px 0px 0px rgb(143, 102, 44);
   }
-  #lirePlus:active {
-    box-shadow: inset 4px 4px 0px 0px #8C2022;
+  .btn_valid:active {
+    box-shadow: inset 4px 4px 0px 0px rgb(143, 102, 44);
   }
-  #lirePlus:before, #lirePlus:after {
+  .btn_valid:before, .btn_valid:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -250,49 +255,8 @@ textarea {
     height: 200px;
 }
 
-.form_btn {
-    margin-top: 15px;
-    background: #E76E55;
-    display: inline-block;
-    position: relative;
-    text-align: center;
-    font-size: 0.55em;
-    padding: 15px;
-    font-family: 'Press Start 2P', cursive;
-    text-decoration: none;
-    color: white;
-    box-shadow: inset -4px -4px 0px 0px #8C2022;
-    border-radius: 5px;
-  }
-.form_btn:hover, .form_btn:focus {
-    background: #CE372B;
-    box-shadow: inset -6px -6px 0px 0px #8C2022;
-  }
-  .form_btn:active {
-    box-shadow: inset 4px 4px 0px 0px #8C2022;
-  }
-  .form_btn:before, .form_btn:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-sizing: content-box;
-  }
-  .form_btn:before {
-    top: -6px;
-    left: 0;
-  }
-  .form_btn:after {
-    left: -6px;
-    top: 0; 
-  }
-
 /*---------------------------------------------CONTACT------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------*/
-
-#contact_form {
-    text-align: center;
-}
 
 #contact_form input {
     width: 400px;
@@ -324,33 +288,19 @@ textarea {
 .adminH2 {
     background: rgb(233, 231, 231);
     text-align: center;
-    font-size: 0.7em;
+    font-size: 0.9em;
     padding: 15px;
-    font-family: 'Press Start 2P', cursive;
     text-decoration: none;
-    color: rgb(29, 28, 28);
+    color: rgb(41, 41, 40);
     box-shadow: inset -4px -4px 0px 0px rgb(34, 32, 32);
-    margin: 0 400px 0 400px;
+    margin: 40px 400px 0 400px;
     border-radius: 5px;
 }
 
 .adminParagraphe {
-    font-size: 1.1em;
+    font-size: 1.0em;
     font-weight: bold;
     color: rgb(223, 219, 220);
-}
-
-#content, #resultat {
-    width: 500px; 
-    height: 200px; 
-    background-color: white;
-    border: 1px solid black; 
-    padding: 5px; 
-    overflow: auto;
-}
-
-#title {
-    width: 350px;
 }
 
 #full-featured {
@@ -358,42 +308,33 @@ textarea {
     resize: none;
 }
 
-/*----------------------BUTTON APPROUVE-------------------*/
-.admin_approuve {
+/*----------------------BUTTON SUPPRIMER-------------------*/
+.btn_suppr {
     margin-top: 15px;
-    background: rgb(29, 180, 150);
+    background: rgb(44, 43, 42);
     display: inline-block;
     position: relative;
     text-align: center;
-    font-size: 0.55em;
-    padding: 15px;
-    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9em;
+    padding: 8px;
     text-decoration: none;
     color: white;
-    box-shadow: inset -4px -4px 0px 0px rgb(19, 94, 79);
+    box-shadow: inset -4px -4px 0px 0px rgb(34, 33, 32);
     border-radius: 5px;
   }
-.admin_approuve:hover, .admin_approuve:focus {
-    background: rgb(19, 133, 110);
-    box-shadow: inset -6px -6px 0px 0px rgb(19, 94, 79);
+.btn_suppr:hover, .btn_suppr:focus {
+    background: rgb(37, 37, 37);
+    box-shadow: inset -6px -6px 0px 0px rgb(34, 33, 32);
   }
-  .admin_approuve:active {
-    box-shadow: inset 4px 4px 0px 0px rgb(19, 94, 79);
+  .btn_suppr:active {
+    box-shadow: inset 4px 4px 0px 0px rgb(34, 33, 32);
   }
-  .admin_approuve:before, .admin_approuve:after {
+  .btn_suppr:before, .btn_suppr:after {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     box-sizing: content-box;
-  }
-  .admin_approuve:before {
-    top: -6px;
-    left: 0;
-  }
-  .admin_approuve:after {
-    left: -6px;
-    top: 0;
   }
 
 /*-----------------------BUTTON MODIFIED-------------------*/
@@ -404,11 +345,11 @@ textarea {
     display: inline-block;
     position: relative;
     text-align: center;
-    font-size: 0.55em;
-    padding: 15px;
-    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9em;
+    font-weight: 600;
+    padding: 8px;
     text-decoration: none;
-    color: rgb(175, 48, 48);
+    color: rgb(202, 145, 64);
     box-shadow: inset -4px -4px 0px 0px rgb(173, 173, 169);
     border-radius: 5px;
   }
@@ -443,11 +384,11 @@ textarea {
     display: inline-block;
     position: relative;
     text-align: center;
-    font-size: 0.55em;
-    padding: 15px;
-    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    font-weight: 700;
+    padding: 8px;
     text-decoration: none;
-    color: rgb(29, 180, 150);
+    color: rgb(145, 60, 26);
     box-shadow: inset -4px -4px 0px 0px rgb(173, 173, 169);
     border-radius: 5px;
   }

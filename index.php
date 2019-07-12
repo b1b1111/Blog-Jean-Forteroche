@@ -36,7 +36,7 @@ else if($url[0] == 'chapitres') {
             $author = $_POST['author'];
             $content = $_POST['content'];
             $commentController->addComment($url[1], $author, $content);
-            header('Location: '. $_POST['URL_PATH'] . $url[0] . '/' . $url[1]);
+            header('Location: '. $_POST['URL_PATH'] . $url[2] . '/' . $url[1]);
         } 
     }
 

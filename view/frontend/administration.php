@@ -13,13 +13,13 @@ $menu = view_menu();
 
         <li><?= $c['id'] ?> : <?= $c['author'] ?> : <?= $c['content'] ?> <br />
         <?php if ($c['approuve'] == 0) { ?>
-        <a class="admin_approuve" href="<?= $_POST['URL_PATH'] ?>administration/confirm/<?= $c['id'] ?>">Approuver</a>
+        <a class="btn_valid" href="<?= $_POST['URL_PATH'] ?>administration/confirm/<?= $c['id'] ?>">Approuver</a>
         <?php } ?>
         <?php if ($c['alert'] == 1) { ?>
         <p class="admin_signal">Commentaire signalé !</p>
         <?php } ?>
         &nbsp;&nbsp;
-        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration/deleteComment/<?= $c['id'] ?>">Supprimer</a></li><br />
+        <a class="btn_suppr" href="<?= $_POST['URL_PATH'] ?>administration/deleteComment/<?= $c['id'] ?>">Supprimer</a></li><br />
         <?php } ?>
   </ul>
 
@@ -30,7 +30,7 @@ $menu = view_menu();
         <?php while($a = $posts->fetch()) { ?>
 
         <br /><li><?= $a['id'] ?> : <?= $a['title']?><br />
-        <a class="form_btn" href="<?= $_POST['URL_PATH'] ?>administration/deletePost/<?= $a['id'] ?>">Supprimer</a>
+        <a class="btn_suppr" href="<?= $_POST['URL_PATH'] ?>administration/deletePost/<?= $a['id'] ?>">Supprimer</a>
         &nbsp;&nbsp;
         <a class="admin_modif" href="<?= $_POST['URL_PATH'] ?>administration/editPost/<?= $a['id'] ?>/prepare">Modification</a></li>
         <?php } ?>
@@ -47,7 +47,7 @@ $menu = view_menu();
         <label for="content">Contenu du chapitre</label>
         <textarea id="full-featured" name="content" contenteditable="true"></textarea><br />
         
-        <button class="admin_approuve">Editer chapitre</button><br /><br />
+        <button class="btn_valid">Editer chapitre</button><br /><br />
   </form>
 
 

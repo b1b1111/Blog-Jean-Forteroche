@@ -1,6 +1,6 @@
 <?php $title = 'Jean Forteroche'; ?>
 <p>
-    <img src="public/images/alaska.jpg" alt="alaska">
+    <img src="public/images/alaska.jpg" alt="alaska" id="alaska">
 </p>
 <?php require('header.php');
 $menu = view_menu();

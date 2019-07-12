@@ -29,22 +29,19 @@ $menu = view_menu();
     <label for="content">Message</label><br />
     <textarea id="full-test" name="content" contenteditable="true"></textarea><br />
 
-    <button class="admin_approuve">Editer commentaires</button>
+    <button class="btn_valid">Editer commentaires</button>
     
 </form>
 
 <?php
 while ($comment = $comments->fetch())
 {
-    if ($comment['approuve'] == 1) {
-   
 ?>
     <p class="comment_paragraphe" ><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
     <p class="comment_paragraphe" ><?= nl2br(htmlspecialchars($comment['content'])) ?>
     <a class="admin_signal" href="<?= $_POST['URL_PATH'] ?>administration/alert/<?= $comment['id'] ?>">Signaler commentaire</a></p>
 
-<?php
-    }
+<?php 
 }
 ?>
 <?php $content = ob_get_clean(); ?>

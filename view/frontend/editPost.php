@@ -5,6 +5,8 @@ $menu = view_menu();
 
 <?php ob_start(); ?>
 
+<h2><a href="<?= $_POST['URL_PATH'] ?>chapitres">Retour à la liste des billets</a></h2>
+
 <h2 class="adminH2">Modifier chapitres</h2>
     <p class="adminParagraphe"><em>Modification des chapitres.</em></p>
 
@@ -16,7 +18,7 @@ $menu = view_menu();
         <label for="content">Contenu du chapitre</label><br />
         <textarea id="full-feat" name="content" contenteditable="true"><?= $post['content'] ?></textarea><br />
         
-        <button class="admin_approuve">modifier chapitre</button><br /><br />
+        <button class="btn_valid">modifier chapitre</button><br /><br />
   </form>
 
 <?php $content = ob_get_clean(); ?>

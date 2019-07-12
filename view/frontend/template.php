@@ -10,16 +10,16 @@
     
     <header>
         
-    <?php echo $menu; ?>
+        <?php echo $menu; ?>
 
-    <div id="header_content">
+        <div class="header_content">
 
-        <div class="header_separator"></div>
+            <div class="header_separator"></div>
 
-        <h1><a href="index.php">Billet simple pour l'Alaska</a></h1>
-        <h2>Jean Forteroche</h2>
-        
-    </div>
+            <h1><a href="index.php">Billet simple pour l'Alaska</a></h1>
+            <h2>Jean Forteroche</h2>
+            
+        </div>
 
     </header>
 

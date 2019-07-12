@@ -23,19 +23,16 @@ class adminController {
     // Modifier un chapitre
 
     public function editPostAdmin($id, $title, $content) {
-       /* if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $post = $this->postManager->updatePost($_GET['id'], htmlspecialchars($_POST['title']), htmlspecialchars($_POST['content']));
-            $newMessage = new Message();
-            $newMessage->setSuccess("<p>Merci, votre billet a bien été modifié !</p>");
-        }
-        $post = $this->postManager->getPost($id);
-        header('Location: '. $_POST['URL_PATH'] . 'administration');*/
-      if ('editPostAdmin') {
-        $edit_article = $this->postManager->updatePost($id, $title, $content);
-        header('Location: '. $_POST['URL_PATH'] . 'administration'); 
-      }
-            
-            
+        var_dump($id);
+        var_dump($title);
+        var_dump($content);
+        
+        $edit_article = $this->postManager->updatePost($id, $title, $content);           
+    }
+
+    public function editPostPrepare($id) {
+        $post = $this->postManager->getPost($id);  
+        require 'view/frontend/editPost.php';        
     }
 
     // Approuver un chapitre

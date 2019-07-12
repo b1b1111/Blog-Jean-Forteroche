@@ -14,7 +14,6 @@ class commentController {
     // Nouveau commentaire
     public function addComment($post_id, $author, $content) {
         $comments = $this->CommentManager->postComment($post_id, $author, $content);
-        header('Location: '. $_POST['URL_PATH'] . 'administration');
     }
 
     // Signaler un commentaire

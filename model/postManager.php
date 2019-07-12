@@ -14,7 +14,7 @@ class postManager extends manager {
 
         $db = $this->newManager->dbConnect();
         
-        $request = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'le %d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC');    
+        $request = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'le %d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts ORDER BY id DESC');    
         return $request;
     }
 
@@ -50,7 +50,7 @@ class postManager extends manager {
 
         $db = $this->newManager->dbConnect();
         $request = $db->prepare('UPDATE posts SET title = ?, content = ?, creation_date = NOW() WHERE id = ?');
-        $post = $request->execute(array($id, $title, $content,));
+        $post = $request->execute(array($title, $content, $id));
         return $post;    
     }
 

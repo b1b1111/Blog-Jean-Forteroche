@@ -9,8 +9,9 @@
     </head>
     
     <header>
+        
     <?php echo $menu; ?>
-    
+
     <div id="header_content">
 
         <div class="header_separator"></div>

@@ -1,4 +1,5 @@
 <?php
+use Benjamin\Alaska\Controller\adminController;
 
 $_POST['URL_PATH'] = 'http://localhost/coursphp/Jean-Forteroche/';
 
@@ -27,14 +28,15 @@ else if($url[0] == 'chapitres') {
     }
 
     else if(is_numeric($url[1])) {        
-        echo($url[1]);
-        $postController->showChapter($url[1]);  
+        
+        $postController->showChapter($url[1]); 
 
-        if ($url[1] == 'createComment') {
-            $post_id = $_POST['post_id'];
+        if (!empty($url[2]) && $url[2] == 'createComment') {
+            
             $author = $_POST['author'];
             $content = $_POST['content'];
-            $commentController->addComment($post_id, $author, $content);
+            $commentController->addComment($url[1], $author, $content);
+            header('Location: '. $_POST['URL_PATH'] . $url[0] . '/' . $url[1]);
         } 
     }
 
@@ -78,11 +80,16 @@ else if($url[0] == 'administration') {
     }
 
     /*-----------------Modified chapter---------------------*/
-    else if ($url[1] == 'editPostAdmin') {
-        $id = $_POST['id'];
-        $title = $_POST['title'];
-        $content = $_POST['content'];
-        $adminController->editPostAdmin($id, $title, $content);
+    else if ($url[1] == 'editPost' && is_numeric($url[2]))  {
+        if ($url[3] == 'prepare') {
+            $adminController->editPostPrepare($url[2]);
+        }
+        else { 
+            $title = $_POST['title'];
+            $content = $_POST['content'];
+            $adminController->editPostAdmin($url[2], $title, $content);
+            header('Location: '. $_POST['URL_PATH'] . 'administration'); 
+        }
     }
 
     /*-----------------Delete chapter---------------------*/

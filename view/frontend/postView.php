@@ -11,9 +11,9 @@ $menu = view_menu();
 
 <div class="news">
     <h3>
-        <?php echo html_entity_decode($post['title']) ?>  
+        <?php echo html_entity_decode($post['title']) ?>
     </h3>
-    
+
     <p>
         <?php echo html_entity_decode($post['content']) ?>
     </p>

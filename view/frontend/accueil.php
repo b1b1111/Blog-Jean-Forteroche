@@ -41,7 +41,7 @@ $menu = view_menu();
 
         <h5 class="signature">Jean Forteroche</h5>
 
-        <em><a href="chapters.php">Lire les chapitres</a></em>
+        <em><a href="chapitres">Lire les chapitres</a></em>
     </div>
 
     <img id="moon_img" src="public/images/witch.jpg" alt="witch">

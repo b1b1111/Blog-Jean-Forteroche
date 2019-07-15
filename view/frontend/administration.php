@@ -5,6 +5,19 @@ $menu = view_menu();
 
 <?php ob_start(); ?>
 
+<?php 
+if (!isset($_POST{'password'}) OR $_POST['password'] != "0000") {
+?>
+<h2 class="adminH2">Connexion administration</h2>
+
+<form id="connexion" action="administration" method="post">
+    <input type="password" name="password" placeholder="mot de passe"><br /><br />
+    <input class="btn_valid" type="submit" name="submit" value="valider">
+</form>
+<?php
+}
+else {
+?>
   <ul id="list_comment">
         <h2 class="adminH2">Liste des commentaires</h2>
         <p class="adminParagraphe" ><em>Validez ou supprimer les commentaires.</em></p>
@@ -42,7 +55,7 @@ $menu = view_menu();
 
   <form id="form_articles" method="post" action="administration/create">
         <label for="title">Titre du chapitre</label><br />
-        <input type="text" id="title" name="title"/><br /><br />
+        <input type="text" class="title" name="title"/><br /><br />
         
         <label for="content">Contenu du chapitre</label>
         <textarea id="full-featured" name="content" contenteditable="true"></textarea><br />
@@ -50,8 +63,10 @@ $menu = view_menu();
         <button class="btn_valid">Editer chapitre</button><br /><br />
   </form>
 
+<?php } ?>
 
 <?php $content = ob_get_clean(); ?>
+
 
 <?php require('template.php'); ?>
 
@@ -60,3 +75,4 @@ $menu = view_menu();
     selector: '#full-featured, #full-feat'
   });
 </script>
+

@@ -13,7 +13,7 @@ $menu = view_menu();
     <form id="modif_articles" method="post" action="administration/editPost/<?= $post['id'] ?>">
 
         <label for="title">Titre du chapitre</label><br />
-        <input type="text" id="title" name="title" value="<?= $post['title'] ?>" /><br /><br />
+        <input type="text" class="title" name="title" value="<?= $post['title'] ?>" /><br /><br />
         
         <label for="content">Contenu du chapitre</label><br />
         <textarea id="full-feat" name="content" contenteditable="true"><?= $post['content'] ?></textarea><br />

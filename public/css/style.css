@@ -48,9 +48,21 @@ a {
 label {
     color: rgb(255, 250, 250);
 }
+
 .signature {
     color: #936C35;
     text-align: right;
+}
+
+.separator {
+    position: relative;
+    display: block;
+    content: "";
+    height: 2px;
+    width: 360px;
+    background-color: rgba(255, 255, 255, 0.863);
+    left: calc(50% - 190px);
+    display: none;
 }
 
 /*---------------------------------------------HEADER------------------------------------------------------*/
@@ -87,7 +99,6 @@ label {
 	background-color: rgba(234, 237, 241, 0.863);
     left: calc(50% - 190px);
     top: 10px;
-
 }
 
 .header_content h2 {
@@ -110,14 +121,13 @@ label {
 #tabs li {
     margin-right: 12px;
     display: inline-block;
-    font-size: 0.9em;
 }
 
 #tabs a {
     font-family: 'Merriweather', 'Open Sans', Verdana;
     color: white;
     padding: 0 10px 2px 10px;
-    font-size: 1.2em;
+    font-size: 0.98em;
     text-decoration: none;
 }
 
@@ -147,7 +157,6 @@ label {
     width: 60%;
     margin: 60px 0 0 30px;
     color: rgb(255, 254, 254);
-    font-weight: 600;
 }
 
 #dream_img {
@@ -258,6 +267,9 @@ textarea {
 
 /*---------------------------------------------CONTACT------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------*/
+#contact_form {
+    text-align: center;
+}
 
 #contact_form input {
     width: 400px;
@@ -451,19 +463,6 @@ textarea {
 /*---------------------------------------------FOOTER------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------*/
 
-#contact_form {
-    text-align: center;
-}
-
-#contact_form input {
-    width: 400px;
-    height: 34px;
-}
-
-#contact_form textarea {
-    width: 400px;
-    color: black;
-}
 #footer {
     background: rgb(250, 249, 249);
     margin-top: 30px;
@@ -491,3 +490,195 @@ textarea {
 /*----------------------------------------------RESPONSIVE--------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------*/
 
+/*------------------MAX-WIDTH 960PX-------------------------*/
+/*-------------------------------------------*/
+
+@media all and (max-width: 960px) {
+
+/*-----------------------------------------------HEADER--------------------------------------------------*/
+    .header_content h1 {
+        font-size: 2em;
+    }
+    .header_content h2 {
+        font-size: 1.4em;
+    }
+
+    #tabs a {
+        font-size: 1em;
+    }
+
+
+/*-----------------------------------------------ACCUEIL------------------------------------------------*/
+    #section_one p,
+    #section_two p {
+        font-size: 0.82em;
+    }
+
+    #presentation {
+        margin: 0 0 0 30px;
+    }
+
+    #resum {
+        margin: 20px 30px 0 0;
+    }
+
+    #dream_img {
+        width: 220px;
+        height: 220px;
+        margin-top: 10px;
+    }
+    #moon_img {
+        width: 220px;
+        height: 220px;
+    }
+  
+/*--------------------------------------------ADMINISTRATION--------------------------------------------------*/
+    .adminH2 {
+        font-size: 0.75em;
+        padding: 12px;
+        margin: 40px 200px 0 200px;
+    }
+
+/*-----------------------------------------------FOOTER-------------------------------------------*/
+    #bio {
+        font-weight: 600;
+        font-size: 0.82em;
+    }
+    
+    #jean_img {
+        width: 220px;
+        height: 220px;
+        border: 6px solid rgb(20, 19, 19);
+        margin: 110px 15px 0 0;
+    }
+}
+
+/*------------------MAX-WIDTH 480PX-------------------------*/
+/*-------------------------------------------*/
+
+@media all and (max-width: 480px) {
+
+/*-----------------------------------------------HEADER--------------------------------------------------*/
+    .header_content h1 {
+        font-size: 1.4em;
+    }
+    .header_content h2 {
+        font-size: 0.8em;
+        margin-left: calc(50% + 60px);
+    }
+
+    .header_content h1::before {
+        width: 160px;
+        left: calc(50% - 80px);
+        margin-bottom: 4px;
+    }
+
+    .header_content h1::after {
+        width: 160px;
+        left: calc(50% - 80px);
+    }
+
+    #menu {
+        justify-content: center;
+    }
+
+    #tabs li {
+        display: inline-block;
+    }
+
+    #tabs a {
+        font-size: 0.7em;
+        margin-left: -5px;
+        padding: 0 0 2px 0;
+    }
+
+    #alaska {
+        display: none;
+    }
+
+/*-----------------------------------------------ACCUEIL------------------------------------------------*/
+    #section_one p,
+    #section_two p {
+        font-size: 0.82em;
+        text-align: justify;
+    }
+
+    #presentation {
+        margin: -40px 60px 0 60px;
+    }
+
+    #resum {
+        margin: 10px 60px 0 60px;
+    }
+
+    #dream_img,
+    #moon_img {
+        display: none;
+    }
+
+    .separator {
+        display: inline-block;
+        width: 160px;
+        left: calc(50% - 80px);
+        margin-bottom: 35px;
+    }
+
+/*----------------------------------------------ARTICLES--------------------------------------------------*/
+
+    #title_articles {
+        font-size: 0.82em;
+    }
+
+    .news {
+        font-size: 0.74em;
+        width: 80%;
+        padding: 0 8px 0 8px;
+    }
+
+    #link_chapter {
+        font-size: 1em;
+    }
+
+/*--------------------------------------------COMMENTAIRES--------------------------------------------------*/    
+
+    #author, textarea {
+        width: 60%;
+        margin: 0 60px 0 60px;
+    }
+
+    label {
+        margin: 0 60px 0 60px;
+    }
+    
+    textarea {
+        height: 200px;
+    }
+
+    #title_comment {
+        font-size: 1.1em;
+    }
+
+    .btn_valid {
+        left: calc(50% - 88px);
+    }
+/*--------------------------------------------ADMINISTRATION--------------------------------------------------*/
+    .adminH2 {
+        font-size: 0.65em;
+        padding: 10px;
+        margin: 40px 70px 0 70px;
+    }
+
+/*-----------------------------------------------FOOTER-------------------------------------------*/
+    #bio {
+        font-weight: 600;
+        font-size: 0.82em;
+        text-align: justify;
+        margin: 10px 60px 0 60px;
+    }
+
+    #jean_img {
+        display: none;
+    }
+
+
+}

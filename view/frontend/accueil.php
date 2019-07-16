@@ -26,6 +26,8 @@ $menu = view_menu();
 
 </section>
 
+<div class="separator" ></div>
+
 <section id="section_two">
 
     <div id="resum">

@@ -6,7 +6,7 @@ $menu = view_menu();
 <?php ob_start(); ?>
 
 
-<h2><a href="<?= $_POST['URL_PATH'] ?>chapitres">Retour à la liste des billets</a></h2>
+<h2 id="link_chapter" ><a href="<?= $_POST['URL_PATH'] ?>chapitres">Retour à la liste des chapitres</a></h2>
 
 <div class="news">
     <h3>
@@ -18,7 +18,7 @@ $menu = view_menu();
     </p>
 </div>
 
-<h2>Commentaires</h2>
+<h2 id="title_comment">Commentaires</h2>
 
 <form id="form_com" method="post" action="<?= $post['id'] ?>/createComment">
 

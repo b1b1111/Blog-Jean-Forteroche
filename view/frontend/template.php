@@ -15,8 +15,6 @@
 
         <div class="header_content">
 
-            <div class="header_separator"></div>
-
             <h1><a href="http://localhost/coursphp/Jean-Forteroche/">Billet simple pour l'Alaska</a></h1>
             <h2>Jean Forteroche</h2>
             

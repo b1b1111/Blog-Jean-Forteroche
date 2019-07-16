@@ -17,7 +17,7 @@ $menu = view_menu();
 				} 
 			
 				?></textarea><br /><br />
-		<input class="btn_valid"  type="submit" value="Envoyer" name="mailform"/>
+		<input id="btn_contact"  type="submit" value="Envoyer" name="mailform"/>
 	</form>
 
 <?php $content = ob_get_clean(); ?>

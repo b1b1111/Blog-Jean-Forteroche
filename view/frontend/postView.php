@@ -13,9 +13,12 @@ $menu = view_menu();
         <?php echo html_entity_decode($post['title']) ?>
     </h3>
 
-    <p>
-        <?php echo html_entity_decode($post['content']) ?>
-    </p>
+    <div id="content_news"> 
+        <p>
+            <?php echo html_entity_decode($post['content']) ?>
+        </p>
+    </div>
+    
 </div>
 
 <h2 id="title_comment">Commentaires</h2>
@@ -28,7 +31,7 @@ $menu = view_menu();
     <label for="content">Message</label><br />
     <textarea id="full-test" name="content" contenteditable="true"></textarea><br />
 
-    <button class="btn_valid">Editer commentaires</button>
+    <button class="btn_comment">Editer commentaires</button>
     
 </form>
 

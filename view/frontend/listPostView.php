@@ -36,8 +36,9 @@ $menu = view_menu();
                 
         ?>
             <br /><br />
-            <a class="btn_valid" href="<?php $_POST['URL_PATH'] ?>chapitres/<?= $data['id'] ?>">lire plus</a>
+            
         </div>
+        <a class="btn_valid" href="<?php $_POST['URL_PATH'] ?>chapitres/<?= $data['id'] ?>">lire plus</a>
     </div>
 
 <?php

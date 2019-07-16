@@ -127,7 +127,7 @@ label {
     font-family: 'Merriweather', 'Open Sans', Verdana;
     color: white;
     padding: 0 10px 2px 10px;
-    font-size: 0.98em;
+    font-size: 1em;
     text-decoration: none;
 }
 
@@ -199,17 +199,24 @@ label {
 }
 .news {
     width: 70%;
+    text-align: justify;
     margin: auto;
     background-color: rgb(255, 254, 254);
     border: 2px none white;
     border-radius: 5px;
 }
+
 .news h3 {
-  color: rgb(87, 86, 85);
+    color: rgb(87, 86, 85);
+}
+
+#content_news {
+    padding: 0 10px 0 10px;
 }
 
 #chapters_part {
     background-color: white;
+    padding: 0 10px 0 10px;
 }
 
 .btn_valid {
@@ -265,6 +272,35 @@ textarea {
     height: 200px;
 }
 
+.btn_comment {
+    margin: 10px 0 5px 0;
+    background: rgb(202, 145, 64);
+    text-align: center;
+    position: relative;
+    display: inline-flex;
+    font-size: 0.8em;
+    padding: 12px;
+    font-family: 'Merriweather', 'Open Sans', Verdana;
+    text-decoration: none;
+    color: white;
+    box-shadow: inset -4px -4px 0px 0px rgb(143, 102, 44);
+    border-radius: 5px;
+  }
+.btn_comment:hover, .btn_comment:focus {
+    background: rgb(192, 139, 48);
+    box-shadow: inset -6px -6px 0px 0px rgb(143, 102, 44);
+  }
+  .btn_comment:active {
+    box-shadow: inset 4px 4px 0px 0px rgb(143, 102, 44);
+  }
+  .btn_comment:before, .btn_comment:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+  }
+
 /*---------------------------------------------CONTACT------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------*/
 #contact_form {
@@ -288,6 +324,34 @@ textarea {
     border-radius: 5px;
     color: black;
 }
+
+#btn_contact {
+    background: rgb(202, 145, 64);
+    text-align: center;
+    position: relative;
+    display: inline-flex;
+    font-size: 0.8em;
+    padding: 12px;
+    font-family: 'Merriweather', 'Open Sans', Verdana;
+    text-decoration: none;
+    color: white;
+    box-shadow: inset -4px -4px 0px 0px rgb(143, 102, 44);
+    border-radius: 5px;
+  }
+#btn_contact:hover, #btn_contact:focus {
+    background: rgb(192, 139, 48);
+    box-shadow: inset -6px -6px 0px 0px rgb(143, 102, 44);
+  }
+  #btn_contact:active {
+    box-shadow: inset 4px 4px 0px 0px rgb(143, 102, 44);
+  }
+  #btn_contact:before, #btn_contact:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+  }
 
 /*---------------------------------------------ADMINISTRATION-----------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------*/
@@ -475,7 +539,6 @@ textarea {
     width: 60%;
     margin: 60px 0 0 30px;
     color: rgb(36, 35, 35);
-    font-weight: 600;
 }
 
 #jean_img {
@@ -541,7 +604,6 @@ textarea {
 
 /*-----------------------------------------------FOOTER-------------------------------------------*/
     #bio {
-        font-weight: 600;
         font-size: 0.82em;
     }
     
@@ -578,16 +640,18 @@ textarea {
         left: calc(50% - 80px);
     }
 
+/*-----------------------------------------------MENU--------------------------------------------------*/
+
     #menu {
-        justify-content: center;
+        justify-content: left;
     }
 
     #tabs li {
-        display: inline-block;
+        display: block;
     }
 
     #tabs a {
-        font-size: 0.7em;
+        font-size: 0.85em;
         margin-left: -5px;
         padding: 0 0 2px 0;
     }
@@ -630,9 +694,12 @@ textarea {
     }
 
     .news {
-        font-size: 0.74em;
+        font-size: 0.8em;
         width: 80%;
-        padding: 0 8px 0 8px;
+    }
+
+    #content_news {
+        padding: 0 10px 0 10px;
     }
 
     #link_chapter {
@@ -642,12 +709,12 @@ textarea {
 /*--------------------------------------------COMMENTAIRES--------------------------------------------------*/    
 
     #author, textarea {
-        width: 60%;
-        margin: 0 60px 0 60px;
+        width: 70%;
+        margin: 0 40px 0 40px;
     }
 
     label {
-        margin: 0 60px 0 60px;
+        margin: 0 40px 0 40px;
     }
     
     textarea {
@@ -658,14 +725,52 @@ textarea {
         font-size: 1.1em;
     }
 
-    .btn_valid {
-        left: calc(50% - 88px);
+    .btn_comment {
+        left: calc(50% - 72px);
+        margin: 10px 0 5px 0;
+        background: rgb(202, 145, 64);
+        font-size: 0.7em;
+        padding: 9px;
+      }
+
+/*----------------------------------------------CONTACT--------------------------------------------------*/
+
+    #contact_form input {
+        width: 200px;
     }
+    
+    #contact_form textarea {
+        width: 200px;
+        resize: none;
+        margin: 0 30px 0 30px;
+    }
+
+
 /*--------------------------------------------ADMINISTRATION--------------------------------------------------*/
     .adminH2 {
-        font-size: 0.65em;
+        font-size: 0.8em;
         padding: 10px;
-        margin: 40px 70px 0 70px;
+        margin: 40px 70px 10px 30px;
+    }
+
+    .adminParagraphe {
+        font-size: 0.95em;
+    }
+
+    .btn_suppr {
+        margin-top: 15px;
+        font-size: 0.8em;
+    }
+
+    .btn_valid {
+        left: 8px;
+        font-size: 0.8em;
+        padding: 8px;
+    }
+
+    .admin_modif {
+        font-size: 0.8em;
+        padding: 8px;
     }
 
 /*-----------------------------------------------FOOTER-------------------------------------------*/

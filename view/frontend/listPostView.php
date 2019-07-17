@@ -1,5 +1,4 @@
 <?php $title = 'Jean Forteroche'; ?>
-
 <?php 
 require('header.php'); 
 $menu = view_menu(); 

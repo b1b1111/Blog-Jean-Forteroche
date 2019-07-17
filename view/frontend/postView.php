@@ -1,10 +1,9 @@
-<?php $title = 'Jean Forteroche'; ?>
+<?php $title = 'Jean Forteroche';?>
 <?php require('header.php'); 
 $menu = view_menu(); 
 ?>
 
 <?php ob_start(); ?>
-
 
 <h2 id="link_chapter" ><a href="<?= $_POST['URL_PATH'] ?>chapitres">Retour à la liste des chapitres</a></h2>
 
@@ -17,8 +16,7 @@ $menu = view_menu();
         <p>
             <?php echo html_entity_decode($post['content']) ?>
         </p>
-    </div>
-    
+    </div>   
 </div>
 
 <h2 id="title_comment">Commentaires</h2>
@@ -47,5 +45,4 @@ while ($comment = $comments->fetch())
 }
 ?>
 <?php $content = ob_get_clean(); ?>
-
 <?php require('template.php'); ?>

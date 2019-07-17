@@ -1,7 +1,5 @@
 <?php
-
 namespace Benjamin\Alaska\Model;
-
 class Message {  
     // Message d'erreur
     public function Error($message) {

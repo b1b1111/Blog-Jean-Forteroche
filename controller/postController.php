@@ -27,8 +27,7 @@ class postController {
     public function showChapter($id) {
         $post = $this->postManager->getPost($id);
         $comments = $this->commentManager->getComments($id);
-        require 'view/frontend/postView.php';
-        
+        require 'view/frontend/postView.php'; 
     }
 
     //Envoie de mail
@@ -78,4 +77,3 @@ class postController {
         require 'view/frontend/administration.php';
     }
 }
-

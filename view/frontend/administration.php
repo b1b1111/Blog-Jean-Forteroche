@@ -52,7 +52,6 @@ else {
     <h2 class="adminH2">Nouveaux chapitres</h2>
     <p class="adminParagraphe"><em>Création et mise en ligne des chapitres.</em></p>
 
-
   <form id="form_articles" method="post" action="administration/create">
         <label for="title">Titre du chapitre</label><br />
         <input type="text" class="title" name="title"/><br /><br />
@@ -67,7 +66,6 @@ else {
 
 <?php $content = ob_get_clean(); ?>
 
-
 <?php require('template.php'); ?>
 
 <script>
@@ -75,4 +73,3 @@ else {
     selector: '#full-featured, #full-feat'
   });
 </script>
-

@@ -15,7 +15,7 @@
 
         <div class="header_content">
 
-            <h1><a href="http://localhost/coursphp/Jean-Forteroche/">Billet simple pour l'Alaska</a></h1>
+            <h1><a href="$_POST['URL_PATH']">Billet simple pour l'Alaska</a></h1>
             <h2>Jean Forteroche</h2>
             
         </div>

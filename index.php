@@ -1,7 +1,11 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 use Benjamin\Alaska\Controller\adminController;
 
-$_POST['URL_PATH'] = 'http://localhost/coursphp/Jean-Forteroche/';
+$_POST['URL_PATH'] = 'http://alaska.webagency-lefebvre.fr/';
 
 require_once('controller/postController.php');
 require_once('controller/commentController.php');
@@ -28,16 +32,15 @@ else if($url[0] == 'chapitres') {
     }
 
     else if(is_numeric($url[1])) {        
-        
-        $postController->showChapter($url[1]); 
 
         if (!empty($url[2]) && $url[2] == 'createComment') {
             
             $author = $_POST['author'];
             $content = $_POST['content'];
             $commentController->addComment($url[1], $author, $content);
-            header('Location: '. $_POST['URL_PATH'] . $url[2] . '/' . $url[1]);
+            header('Location: '. $_POST['URL_PATH'] . $url[0] . '/' . $url[1]);
         } 
+        $postController->showChapter($url[1]); 
     }
 
     else if (($url[1] == 'alert')&&(is_numeric($url[2]))) {

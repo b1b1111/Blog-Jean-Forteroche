@@ -3,14 +3,12 @@
 namespace Benjamin\Alaska\Controller;
 
 require_once('model/CommentManager.php');
-require_once('model/Message.php');
 require_once('model/postManager.php');
 
 class adminController {
 
    function __construct() {
       $this->CommentManager = new \Benjamin\Alaska\Model\CommentManager();
-      $this->Message = new \Benjamin\Alaska\Model\Message(); 
       $this->postManager = new \Benjamin\Alaska\Model\postManager();  
    }  
 

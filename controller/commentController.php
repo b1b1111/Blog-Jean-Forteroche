@@ -3,12 +3,10 @@
 namespace Benjamin\Alaska\Controller;
 
 require_once('model/CommentManager.php');
-require_once('model/Message.php');
 class commentController {
 
     function __construct() {
-        $this->CommentManager = new \Benjamin\Alaska\Model\CommentManager();
-        $this->Message = new \Benjamin\Alaska\Model\Message();   
+        $this->CommentManager = new \Benjamin\Alaska\Model\CommentManager(); 
     }
 
     // Nouveau commentaire

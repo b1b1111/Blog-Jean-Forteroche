@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 use Benjamin\Alaska\Controller\adminController;
 
 $_POST['URL_PATH'] = 'http://alaska.webagency-lefebvre.fr/';

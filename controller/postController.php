@@ -37,7 +37,7 @@ class postController {
             if(!empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['message'])) {
                 //Version d'encodage mail.
                 $header="MIME-Version: 1.0\r\n";
-                $header.='From:"Jean Forteroche"<jeanForteroche44@gmail.com>'."\n";
+                $header.='From:"Jean Forteroche"<forteroche.jean44@gmail.com>'."\n";
                 $header.='Content-Type:text/html; charset="uft-8"'."\n";
                 $header.='Content-Transfer-Encoding: 8bit';
                 
@@ -57,13 +57,13 @@ class postController {
                 </html>
                 ';
                 
-                mail('jeanForteroche44@gmail.com', "Contact - alaska.fr", $message, $header);
+                mail('forteroche.jean44@gmail.com', "Contact - alaska.fr", $message, $header);
             }
         }
 
         if(isset($message))
 		{
-			header("Location: http://localhost/coursphp/Jean-Forteroche/contact");
+			header('Location: '. $_POST['URL_PATH'] . 'contact'); 
 			exit;
 		}
         

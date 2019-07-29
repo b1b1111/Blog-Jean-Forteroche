@@ -37,8 +37,8 @@ else {
   </ul>
 
   <ul id="list_post">
-        <h2 class="adminH2">Liste des articles</h2>
-        <p class="adminParagraphe"><em>Supprimer ou modifier les articles.</em></p>
+        <h2 class="adminH2">Liste des chapitres</h2>
+        <p class="adminParagraphe"><em>Supprimer ou modifier les chapitres.</em></p>
 
         <?php while($a = $posts->fetch()) { ?>
 

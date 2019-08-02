@@ -6,13 +6,14 @@ $menu = view_menu();
 <?php ob_start(); ?>
 
 <?php 
-if (!isset($_POST{'password'}) OR $_POST['password'] != "0000") {
+if ((!isset($_POST{'password'}) OR $_POST['password'] != "Alaska44")&&(!isset($_POST{'email'}) OR $_POST['email'] != "forteroche.jean44@gmail.com")) {
 ?>
 <h2 class="adminH2">Connexion administration</h2>
 
-<form id="connexion" action="administration" method="post">
-    <input type="password" name="password" placeholder="mot de passe"><br /><br />
-    <input class="btn_valid" type="submit" name="submit" value="valider">
+<form id="connexion" name="Verif" action="administration" method="post" onsubmit="return verifForm(this)" >
+    <input type="email" name="email" required placeholder="e-mail" onblur="verifMail(this)"><br /><br />
+    <input type="password" name="password" required placeholder="mot de passe" onblur="verifPassword(this)"><br /><br />
+    <input id="btn_connexion" type="submit" name="submit" value="valider">
 </form>
 <?php
 }
@@ -66,7 +67,10 @@ else {
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require('html.php'); ?>
+<?php require('footer.php'); ?>
+
+<script src="/public/js/verif.js"></script>
 
 <script>
   tinymce.init({

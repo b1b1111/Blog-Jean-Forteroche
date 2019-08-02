@@ -47,4 +47,5 @@ $menu = view_menu();
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require('html.php'); ?>
+<?php require('footer.php'); ?>

@@ -49,6 +49,10 @@ label {
     color: rgb(255, 250, 250);
 }
 
+.paragraphe {
+    color: rgb(255, 250, 250);
+}
+
 .signature {
     color: #936C35;
     text-align: right;
@@ -355,6 +359,13 @@ textarea {
 
 /*---------------------------------------------ADMINISTRATION-----------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------*/
+.linkAdmin {
+    font-size: 1.8em;
+    font-style: italic;
+    color: rgb(255, 250, 250);
+    text-align: center;
+}
+
 #connexion {
     margin-top: 30px;
     text-align: center;

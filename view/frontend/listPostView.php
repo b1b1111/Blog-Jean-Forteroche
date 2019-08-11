@@ -3,8 +3,9 @@
 require('header.php'); 
 $menu = view_menu(); 
 ?>
+<?php require('html.php'); ?>
+<?php require('template.php'); ?>
 
-<?php ob_start(); ?>
 <div id="title_articles">
     <h1>Articles</h1>
 
@@ -45,7 +46,4 @@ $menu = view_menu();
     $posts->closeCursor();
 ?>
 
-<?php $content = ob_get_clean(); ?>
-
-<?php require('html.php'); ?>
 <?php require('footer.php'); ?>

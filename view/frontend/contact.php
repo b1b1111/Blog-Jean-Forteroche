@@ -2,8 +2,9 @@
 <?php require('header.php'); 
 $menu = view_menu(); 
 ?>
+<?php require('html.php'); ?>
+<?php require('template.php'); ?>
 
-<?php ob_start(); ?>
 
 	<h2 id="contact_title">Formulaire de contact</h2>
 	<form method="POST" action="" id="contact_form">
@@ -17,10 +18,7 @@ $menu = view_menu();
 				} 
 			
 				?></textarea><br /><br />
-		<input id="btn_contact"  type="submit" value="Envoyer" name="mailform"/>
+		<input id="btn_contact"  type="submit" value="Envoyer" name="mailform" onclick="SendMail()" />
 	</form>
 
-<?php $content = ob_get_clean(); ?>
-
-<?php require('html.php'); ?>
 <?php require('footer.php'); ?>

@@ -5,17 +5,16 @@ function surligne(champ, erreur) {
         champ.style.backgroundColor = "";
 }
 
-function verifMail(email) {
+function verifMail(mail) {
    var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-   var mail = 'forteroche.jean44@gmail.com';
-   if(!regex.test(email.value))
+   if(!regex.test(mail.value))
    {
-      surligne(email, true);
+      surligne(mail, true);
       return false;
    }
    else
    {
-      surligne(email, false);
+      surligne(mail, false);
       return true;
    }
 }
@@ -36,7 +35,7 @@ function verifPassword(password)
 
 function verifForm(f)
 {
-   var mailOk = verifMail(f.email);
+   var mailOk = verifMail(f.mail);
    var passwordOk = verifPassword(f.password);
    
    if(mailOk && passwordOk)

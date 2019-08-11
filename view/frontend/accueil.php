@@ -1,11 +1,11 @@
-<?php $title = 'Jean Forteroche'; ?>
+<?php
+$title = 'Jean Forteroche';
+require('header.php');
+$menu = view_menu(); 
+require('html.php');
+require('template.php');
+?>
 
-<?php require('header.php');
-$menu = view_menu();
-?> 
-
-
-<?php ob_start(); ?>
 
 <section id="section_one">
 
@@ -65,9 +65,5 @@ $menu = view_menu();
         <img id="jean_img" src="public/images/jean.jpg" alt="jean">
     </div>
 </footer>
-<?php $content = ob_get_clean(); ?>
-<?php require('html.php'); ?>
-<p>
-    <img src="public/images/alaska.jpg" alt="alaska" id="alaska">
-</p>
+
 <?php require('footer.php'); ?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 use Benjamin\Alaska\Controller\adminController;
 
@@ -10,7 +11,7 @@ require_once('controller/adminController.php');
 
     $postController = new \Benjamin\Alaska\Controller\postController();
     $commentController = new \Benjamin\Alaska\Controller\commentController();
-    $adminController = new \Benjamin\Alaska\Controller\adminController();
+    $adminController = new \Benjamin\Alaska\Controller\adminController(); 
     
 $url = '';
 if(isset($_GET['url'])) {
@@ -51,12 +52,60 @@ else if($url[0] == 'contact') {
     $postController->contact();
 } 
 
+/*--------------------------------------ESPACE MEMBRE----------------------------------------*/
+
+/**
+ * Connexion espace membre
+ */
+
+else if($url[0] == 'profil') {
+    if(empty($url[1])) {
+    $postController->profil($getid);
+    }
+
+    else if($url[1] == 'connexion') {
+        $postController->connexion();
+    }
+
+    else if($url[1] == 'inscription') {
+        $postController->inscription();
+    } 
+
+    else if($url[1] == 'editProfil') {
+        $postController->editProfil($getid);
+    }
+
+    else if($url[1] == "deconnexion") {
+        $postController->deconnexion();
+    }
+
+    else if($url[1] == "recuperation") {
+        $postController->recupMdp();
+    }
+
+    else if($url[1] == "reboot") {
+        $postController->rebootMp($getid);
+    }
+
+    else if($url[1] == 'editMP') {
+        $postController->editMP($getid);
+    }
+} 
+
 /*------------------------------------ADMINISTRATION------------------------------------*/
 
 /*-----------------Accueil administration---------------------*/
 else if($url[0] == 'administration') {
     if(empty($url[1])) { 
         $postController->administration();
+    }
+
+    else if($url[1] == 'adminComment') {
+        $postController->adminComment();
+    }
+
+    else if($url[1] == 'adminChapter') {
+        $postController->adminChapter();
     }
 
     /*-----------------Approuve Comment---------------------*/
@@ -88,7 +137,7 @@ else if($url[0] == 'administration') {
             $title = $_POST['title'];
             $content = $_POST['content'];
             $adminController->editPostAdmin($url[2], $title, $content);
-            header('Location: '. $_POST['URL_PATH'] . 'administration'); 
+            header('Location: '. $_POST['URL_PATH'] . 'administration' . '/' . 'adminChapter'); 
         }
     }
 
@@ -103,14 +152,6 @@ else if($url[0] == 'administration') {
         $content = $_POST['content'];
         $adminController->postAdmin($title, $content);
     }  
-    
-    /*-----------------Create comment---------------------*/
-    else if ($url[1] == 'createComment') {
-        $post_id = $_POST['post_id'];
-        $author = $_POST['author'];
-        $content = $_POST['content'];
-        $commentController->addComment($post_id, $author, $content);
-    } 
 } 
 
 else {

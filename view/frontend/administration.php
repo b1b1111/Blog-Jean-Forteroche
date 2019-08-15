@@ -35,5 +35,4 @@ require('template.php');
   });
 </script>
 
-<?php require('footer.php'); ?>
 

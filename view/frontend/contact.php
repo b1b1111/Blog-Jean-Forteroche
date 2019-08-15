@@ -21,4 +21,3 @@ $menu = view_menu();
 		<input id="btn_contact"  type="submit" value="Envoyer" name="mailform" onclick="SendMail()" />
 	</form>
 
-<?php require('footer.php'); ?>

@@ -5,6 +5,7 @@ $menu = view_menu();
 require('html.php');
 require('template.php');
 ?>
+
 <a href="<?= $_POST['URL_PATH'] ?>profil">Retour à la page d'accueil du profil</a>
 <h1>Mot de passe oublié</h1>
         
@@ -18,5 +19,3 @@ require('template.php');
     echo '<font color="red">'.$erreur."</font>";
     }
     ?>
-    
-<?php require('footer.php'); ?>

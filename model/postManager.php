@@ -78,6 +78,15 @@ class postManager extends manager {
         return $mailExiste;
     }
 
+    public function getUniqCode($uniqCode) {
+        $db = $this->newManager->dbConnect();
+        $req = $db->prepare("SELECT * FROM membres WHERE uniqCode = ?");
+        $req->execute(array($uniqCode));
+        $codeUnique = $req->rowCount();
+        return $codeUnique;
+    }
+
+
     public function getPseudo($pseudo) {
         $db = $this->newManager->dbConnect();
         $req = $db->prepare("SELECT * FROM membres WHERE pseudo = ?");
@@ -98,6 +107,25 @@ class postManager extends manager {
         $req->execute(array($mailconnect, $mdpconnect));
         $userexist = $req->rowCount();
         return !!$userexist;
+    }
+
+    /**
+     * Fonction recup code.
+     */
+    public function userRecup($mdpRecup) {
+        $db = $this->newManager->dbConnect();
+        $req = $db->prepare("SELECT * FROM membres WHERE mdp = ?");
+        $req->execute(array($mdpRecup));
+        $userexist = $req->rowCount();
+        return !!$userexist;
+    }
+
+    public function getUserRecup($mdpRecup) {
+        $db = $this->newManager->dbConnect();
+        $req = $db->prepare("SELECT * FROM membres WHERE mdp = ?");
+        $req->execute(array($mdpRecup));
+        $user = $req->fetch();
+        return $user;
     }
 
     public function recupMP($mailconnect) {
@@ -131,6 +159,8 @@ class postManager extends manager {
         $userinfo = $requser->fetch();
         return $userinfo;
     }
+
+    //select all where code 
 
     public function editMembre() {
         $db = $this->newManager->dbConnect();
@@ -183,6 +213,41 @@ class postManager extends manager {
         $insertmdp = $db->prepare("UPDATE membres SET mdp = ?");
         $insertmdp->execute(array($mdp1));
     }
- 
+
+    public function verifReq($verif_code) {
+        $db = $this->newManager->dbConnect();
+        $verif_req = $db->prepare('SELECT * FROM membres WHERE mail = ? AND mdp = ?');
+        $verif_req->execute(array($_SESSION['mailconnect'], $verif_code));
+        $verifReq = $verif_req->rowCount();
+        return $verifReq;
+    }
+
+    public function prepareMail($mailconnect) {
+        $db = $this->newManager->dbConnect();
+        $mail_recup_exist = $db->prepare('SELECT id FROM membres WHERE mail = ?');
+        $mail_recup_exist->execute(array($mailconnect));
+        $mail_recup_exist = $mail_recup_exist->rowCount();
+    }
+
+    public function updateCode($recup_code,$mailconnect) {
+        $db = $this->newManager->dbConnect();
+        $recup_insert = $db->prepare('UPDATE membres SET mdp = ? WHERE mail = ?');
+        $recup_insert->execute(array($recup_code,$mailconnect));
+    }
+
+    public function insertCode($mailconnect,$recup_code) {
+        $db = $this->newManager->dbConnect();
+        $recup_insert = $db->prepare('INSERT INTO membres(mail,mdp) VALUES (?, ?)');
+        $recup_insert->execute(array($mailconnect,$recup_code));
+    }
+
+    public function getMailconnect($mailconnect) {
+        $db = $this->newManager->dbConnect();
+        $mailexist = $db->prepare('SELECT id,pseudo FROM membres WHERE mail = ?');
+        $mailexist->execute(array($mailconnect));
+        $mailexist_count = $mailexist->rowCount();
+        return $mailexist_count;
+    }
+    
 }
 

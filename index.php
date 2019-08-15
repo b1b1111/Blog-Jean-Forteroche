@@ -33,9 +33,9 @@ else if($url[0] == 'chapitres') {
 
         if (!empty($url[2]) && $url[2] == 'createComment') {
             
-            $author = $_POST['author'];
+            $user_id = $_SESSION['id'];
             $content = $_POST['content'];
-            $commentController->addComment($url[1], $author, $content);
+            $commentController->addComment($url[1], $user_id, $content);
             header('Location: '. $_POST['URL_PATH'] . $url[0] . '/' . $url[1]);
         } 
         $postController->showChapter($url[1]); 
@@ -80,11 +80,11 @@ else if($url[0] == 'profil') {
     }
 
     else if($url[1] == "recuperation") {
-        $postController->recupMdp();
+        $postController->recupMdp($mailexist);
     }
 
     else if($url[1] == "reboot") {
-        $postController->rebootMp($getid);
+        $postController->connexionRecup();
     }
 
     else if($url[1] == 'editMP') {

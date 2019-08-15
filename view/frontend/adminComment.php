@@ -30,5 +30,3 @@ $menu = view_menu();
       <a class="btn_suppr" onclick="SupprCom()" href="<?= $_POST['URL_PATH'] ?>administration/deleteComment/<?= $c['id'] ?>">Supprimer</a></li><br />
       <?php } ?>
   </ul>
-
-<?php require('footer.php'); ?>

@@ -2,6 +2,8 @@
 $title = 'Jean Forteroche';?>
 <?php require('header.php'); 
 $menu = view_menu(); 
+require_once('model/postManager.php');
+$postManager = new \Benjamin\Alaska\Model\postManager(); 
 ?>
 
 <?php require('html.php'); ?>
@@ -37,26 +39,18 @@ $menu = view_menu();
 
 <?php
 
-while ($comment = $comments->fetch())
-{
+while ($comment = $comments->fetch()) { 
+   $user = $postManager->getUsers($comment["user_id"]);
 ?>
 
-    <p class="comment_paragraphe" ><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+    <p class="comment_paragraphe" ><strong><?= htmlspecialchars($user['pseudo']); ?></strong> le <?= $comment['comment_date_fr'] ?></p>
     <p class="comment_paragraphe" ><?= nl2br(htmlspecialchars($comment['content'])) ?>
+    <?php 
 
-    <a class="admin_signal" href="<?= $_POST['URL_PATH'] ?>administration/alert/<?= $comment['id'] ?>">Signaler commentaire</a></p>
-
-<?php 
+    if ($comment['user_id'] !== $_SESSION['id']) { ?>
+        <a class="admin_signal" href="<?= $_POST['URL_PATH'] ?>administration/alert/<?= $comment['id'] ?>" onclick="Signal()">Signaler commentaire</a></p>
+    <?php } 
+   
 }
 ?>
 
-<?php 
-
-    if ($comment['content'] == $user) {
-        ($comment['alert'] == 0);
-    }
-    else {
-        ($comment['alert'] == 1);
-    }
-    ?>
-<?php require('footer.php'); ?>

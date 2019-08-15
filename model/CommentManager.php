@@ -13,7 +13,7 @@ class CommentManager extends manager {
     public function getAllComments() {
 
         $db = $this->newManager->dbConnect();
-        $comments = $db->query('SELECT id, author, content, alert, approuve, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments ORDER BY comment_date DESC');
+        $comments = $db->query('SELECT id, user_id, content, alert, approuve, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments ORDER BY comment_date DESC');
 
         return $comments;
     }
@@ -22,26 +22,24 @@ class CommentManager extends manager {
     public function getComments($post_id) {
 
         $db = $this->newManager->dbConnect();
-        $comments = $db->prepare('SELECT id, author, content, alert, approuve, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+        $comments = $db->prepare('SELECT id, user_id, content, alert, approuve, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
         $comments->execute(array($post_id));
 
         return $comments;
     }
 
     // Creation d'un commentaire
-    public function postComment($post_id, $author, $content) {
+    public function postComment($post_id, $user_id, $content) {
         $db = $this->newManager->dbConnect();
-        $comments = $db->prepare('INSERT INTO comments(post_id, author, content, comment_date) VALUES(?, ?, ?, NOW())');
-        $comments->execute(array($post_id, $author, $content));
-}
+        $comments = $db->prepare('INSERT INTO comments(post_id, user_id, content, comment_date) VALUES(?, ?, ?, NOW())');
+        $comments->execute(array($post_id, $user_id, $content));
+    }
 
     // Signaler un commentaire.
     public function reportComment($id) {
-
         $db = $this->newManager->dbConnect();
-        $request = $db->prepare('UPDATE comments SET alert =  1 WHERE id = ?');
+        $request = $db->prepare('UPDATE comments SET alert = 1 WHERE id = ?');
         $request->execute(array($id));
-        
     }
 
     // Modifier un commentaire

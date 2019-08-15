@@ -6,7 +6,6 @@ require('html.php');
 require('template.php');
 ?>
 
-
 <section id="section_one">
 
     <div id="presentation">
@@ -65,5 +64,3 @@ require('template.php');
         <img id="jean_img" src="public/images/jean.jpg" alt="jean">
     </div>
 </footer>
-
-<?php require('footer.php'); ?>

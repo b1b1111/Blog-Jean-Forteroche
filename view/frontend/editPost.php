@@ -28,4 +28,3 @@ $menu = view_menu();
     selector: '#full-featured, #full-feat'
   });
 </script>
-<?php require('footer.php'); ?>

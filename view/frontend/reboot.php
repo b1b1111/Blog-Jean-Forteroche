@@ -1,23 +1,27 @@
-<?php 
+<?php
+session_start();
 $title = 'Jean Forteroche';
 require('header.php'); 
-$menu = view_menu();
+$menu = view_menu(); 
 require('html.php');
 require('template.php');
-?> 
-<a href="<?= $_POST['URL_PATH'] ?>profil">Retour à la page d'accueil du profil</a>
-<div id="recuperationMdp">
-    <h2>Bonjour <?php echo $_SESSION['pseudo']; ?></h2>
-    <p class='paragraphe'>Vous ne vous souvenez plus de votre mot de passe ? Cliquez sur le lien ci-dessous pour en créer un nouveau.</p>
-    <?php
-    if(isset($_SESSION['id']) == $_SESSION['id']) {
-    ?>
-    <br />
-    <a href="<?= $_POST['URL_PATH'] ?>profil/editMP">Création d'un nouveau mot de passe</a>
+?>
 
+<a href="<?= $_POST['URL_PATH'] ?>profil">Retour à la page d'accueil du profil</a>
+
+<div id="form_connexion" >
+    <h2>Recupération mot de passe</h2><br /><br />
+    <p class="paragraphe">Un email avec un code de récupération vient de vous être envoyé</p>
+    
+    <form method="POST" action="" name="Verify">
+        <input type="password" name="mdpRecup" placeholder="Code de verification" />
+        <br /><br />
+        <input type="submit" name="formRecup" value="Modifiez le mot de passe" />
+        </form>
     <?php
+    if(isset($erreur)) {
+    echo '<font color="red">'.$erreur."</font>";
     }
     ?>
 </div>
 
-<?php require('footer.php'); ?>

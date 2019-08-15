@@ -45,5 +45,3 @@ $menu = view_menu();
     }
     $posts->closeCursor();
 ?>
-
-<?php require('footer.php'); ?>

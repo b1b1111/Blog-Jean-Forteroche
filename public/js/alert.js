@@ -49,6 +49,14 @@ function ModifPost() {
 }
 
 /**
+ * Alert confirmation de signalement d'un commentaire.
+ */
+function Signal() {
+    var msg="Vous avez signalé un commentaire";
+    alert(msg);
+}
+
+/**
  * Alert confirmation de création du nouveau mot de passe
  */
 function NewMdp() {

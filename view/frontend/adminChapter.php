@@ -23,4 +23,3 @@ $menu = view_menu();
         <?php } ?>
   </ul>
 
-<?php require('footer.php'); ?>

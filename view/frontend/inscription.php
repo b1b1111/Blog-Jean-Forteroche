@@ -30,5 +30,3 @@ require('template.php');
     }
     ?>
 </div>
-      
-<?php require('footer.php'); ?>
